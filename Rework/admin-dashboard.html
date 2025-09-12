@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Data - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h1 class="logo-text">Spartan Data</h1>
+                <p class="admin-badge">Administrator</p>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Admin User</span>
+                    <span class="user-role" id="userRole">Administrator</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </li>
+                <li class="nav-item" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>User Management</span>
+                </li>
+                <li class="nav-item" data-section="data">
+                    <i class="fas fa-database"></i>
+                    <span>Data Management</span>
+                </li>
+                <li class="nav-item" data-section="system">
+                    <i class="fas fa-cogs"></i>
+                    <span>System Settings</span>
+                </li>
+                <li class="nav-item" data-section="security">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Security</span>
+                </li>
+                <li class="nav-item" data-section="reports">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="pageTitle">Admin Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationCount">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-img-placeholder">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="admin-stats-grid">
+                        <div class="stat-card admin-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Users</h3>
+                                <p class="stat-number" id="totalUsers">1,234</p>
+                                <span class="stat-change positive">+12.5%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card admin-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Data Records</h3>
+                                <p class="stat-number" id="dataRecords">45,678</p>
+                                <span class="stat-change positive">+8.2%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card admin-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>System Uptime</h3>
+                                <p class="stat-number" id="systemUptime">99.9%</p>
+                                <span class="stat-change positive">+0.1%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card admin-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Security Score</h3>
+                                <p class="stat-number" id="securityScore">98%</p>
+                                <span class="stat-change positive">+2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-dashboard-grid">
+                        <div class="chart-container">
+                            <h3>System Performance</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-area"></i>
+                                <p>Real-time system metrics</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity">
+                            <h3>Recent Admin Activity</h3>
+                            <div class="activity-list" id="adminActivityList">
+                                <!-- Activity items will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="addUser()">
+                                <i class="fas fa-user-plus"></i>
+                                Add User
+                            </button>
+                            <button class="action-btn" onclick="backupData()">
+                                <i class="fas fa-download"></i>
+                                Backup Data
+                            </button>
+                            <button class="action-btn" onclick="systemMaintenance()">
+                                <i class="fas fa-tools"></i>
+                                System Maintenance
+                            </button>
+                            <button class="action-btn" onclick="generateReport()">
+                                <i class="fas fa-file-alt"></i>
+                                Generate Report
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics" class="content-section">
+                    <div class="section-header">
+                        <h2>System Analytics</h2>
+                        <div class="analytics-controls">
+                            <select class="time-range-select">
+                                <option value="24h">Last 24 Hours</option>
+                                <option value="7d">Last 7 Days</option>
+                                <option value="30d">Last 30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Performance Metrics</h3>
+                            <div class="metric-item">
+                                <span class="metric-label">Response Time</span>
+                                <span class="metric-value">245ms</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">CPU Usage</span>
+                                <span class="metric-value">45%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Memory Usage</span>
+                                <span class="metric-value">67%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Disk Usage</span>
+                                <span class="metric-value">23%</span>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>User Engagement</h3>
+                            <div class="engagement-stats">
+                                <div class="engagement-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Page Views: 12,456</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    <span>Clicks: 3,789</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Avg. Session: 4m 32s</span>
+                                </div>
+                                <div class="engagement-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Active Users: 234</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- User Management Section -->
+                <section id="users" class="content-section">
+                    <div class="section-header">
+                        <h2>User Management</h2>
+                        <button class="btn btn-primary" onclick="addUser()">
+                            <i class="fas fa-plus"></i>
+                            Add User
+                        </button>
+                    </div>
+                    <div class="users-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Last Login</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Users will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Data Management Section -->
+                <section id="data" class="content-section">
+                    <h2>Data Management</h2>
+                    
+                    <!-- Batch Data Upload Section -->
+                    <div class="batch-upload-section">
+                        <h3>Batch Data Upload</h3>
+                        <div class="upload-form-container">
+                            <form id="batchUploadForm" class="batch-upload-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="reportTable">Select Report Table</label>
+                                        <select id="reportTable" name="reportTable" required>
+                                            <option value="">Choose a report table...</option>
+                                            <option value="admissiondata">Admission Data</option>
+                                            <option value="enrollmentdata">Enrollment Data</option>
+                                            <option value="graduatesdata">Graduates Data</option>
+                                            <option value="employee">Employee Data</option>
+                                            <option value="leaveprivilege">Leave Privilege</option>
+                                            <option value="libraryvisitor">Library Visitor</option>
+                                            <option value="pwd">PWD Data</option>
+                                            <option value="waterconsumption">Water Consumption</option>
+                                            <option value="treatedwastewater">Treated Wastewater</option>
+                                            <option value="electricityconsumption">Electricity Consumption</option>
+                                            <option value="solidwaste">Solid Waste</option>
+                                            <option value="campuspopulation">Campus Population</option>
+                                            <option value="foodwaste">Food Waste</option>
+                                            <option value="fuelconsumption">Fuel Consumption</option>
+                                            <option value="distancetraveled">Distance Traveled</option>
+                                            <option value="budgetexpenditure">Budget Expenditure</option>
+                                            <option value="flightaccommodation">Flight Accommodation</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="assignedOffice">Assign to Office/Campus</label>
+                                        <select id="assignedOffice" name="assignedOffice" required>
+                                            <option value="">Select office/campus...</option>
+                                            <option value="lipa">Lipa Campus</option>
+                                            <option value="san_juan">San Juan Campus</option>
+                                            <option value="pablo_borbon">Pablo Borbon Campus</option>
+                                            <option value="central_office">Central Office</option>
+                                            <option value="registrar">Registrar Office</option>
+                                            <option value="emu">EMU Office</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Table Structure Preview</label>
+                                    <div class="table-preview-container" id="tablePreviewContainer">
+                                        <div class="table-preview-header">
+                                            <h4>Table Structure Preview</h4>
+                                            <p class="preview-description">This is the structure that will be assigned to users for data entry.</p>
+                                        </div>
+                                        <div class="table-preview-wrapper">
+                                            <table class="preview-table" id="previewTable">
+                                                <thead id="previewHeaders">
+                                                    <!-- Headers will be populated dynamically -->
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="sample-row">
+                                                        <!-- Sample row will be populated dynamically -->
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-preview-footer">
+                                            <p class="column-count">Columns: <span id="columnCount">0</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="description">Description (Optional)</label>
+                                    <textarea id="description" name="description" placeholder="Add a description for this data upload..."></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" onclick="previewTableStructure()">
+                                        <i class="fas fa-eye"></i>
+                                        Preview Table Structure
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-share"></i>
+                                        Assign Table to Office
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Table Structure Preview -->
+                        <div class="table-preview" id="tablePreview" style="display: none;">
+                            <h4>Expected Table Structure</h4>
+                            <div class="table-structure" id="tableStructure"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Existing Data Tools -->
+                    <div class="data-tools">
+                        <div class="tool-card">
+                            <i class="fas fa-download"></i>
+                            <h3>Export Data</h3>
+                            <p>Download data in various formats</p>
+                            <button class="btn btn-secondary">Export</button>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-sync"></i>
+                            <h3>Sync Data</h3>
+                            <p>Synchronize with external sources</p>
+                            <button class="btn btn-secondary">Sync</button>
+                        </div>
+                        <div class="tool-card">
+                            <i class="fas fa-trash"></i>
+                            <h3>Clean Data</h3>
+                            <p>Remove duplicate or invalid records</p>
+                            <button class="btn btn-danger">Clean</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Settings Section -->
+                <section id="system" class="content-section">
+                    <h2>System Settings</h2>
+                    <div class="settings-grid">
+                        <div class="setting-group">
+                            <h3>General Settings</h3>
+                            <div class="setting-item">
+                                <label>System Name</label>
+                                <input type="text" value="Spartan Data" class="form-input">
+                            </div>
+                            <div class="setting-item">
+                                <label>Theme</label>
+                                <select class="form-select">
+                                    <option>White & Red</option>
+                                    <option>Dark Theme</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Maintenance Mode</label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <h3>Security Settings</h3>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Two-Factor Authentication
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Session Timeout
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    IP Whitelist
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section id="security" class="content-section">
+                    <h2>Security Dashboard</h2>
+                    <div class="security-grid">
+                        <div class="security-card">
+                            <h3>Login Attempts</h3>
+                            <div class="security-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Failed Attempts (24h)</span>
+                                    <span class="metric-value danger">12</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Blocked IPs</span>
+                                    <span class="metric-value">3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="security-card">
+                            <h3>System Alerts</h3>
+                            <div class="alert-list">
+                                <div class="alert-item warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>High CPU usage detected</span>
+                                </div>
+                                <div class="alert-item info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Backup completed successfully</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Section -->
+                <section id="reports" class="content-section">
+                    <h2>Reports & Analytics</h2>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <h3>User Activity Report</h3>
+                            <p>Generate detailed user activity reports</p>
+                            <button class="btn btn-primary">Generate</button>
+                        </div>
+                        <div class="report-card">
+                            <h3>System Performance Report</h3>
+                            <p>System performance and uptime analysis</p>
+                            <button class="btn btn-primary">Generate</button>
+                        </div>
+                        <div class="report-card">
+                            <h3>Security Audit Report</h3>
+                            <p>Security events and access logs</p>
+                            <button class="btn btn-primary">Generate</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
+

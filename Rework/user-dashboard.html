@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Data - User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h1 class="logo-text">Spartan Data</h1>
+                <p class="user-badge">User Portal</p>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Regular User</span>
+                    <span class="user-role" id="userRole">User</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>My Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </li>
+                <li class="nav-item" data-section="data">
+                    <i class="fas fa-database"></i>
+                    <span>My Data</span>
+                </li>
+                <li class="nav-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>My Reports</span>
+                </li>
+                <li class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="pageTitle">My Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationCount">2</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="profile-img-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="welcome-section">
+                        <h2>Welcome back, <span id="userDisplayName">User</span>!</h2>
+                        <p>Here's what's happening with your data today.</p>
+                    </div>
+
+                    <div class="user-stats-grid">
+                        <div class="stat-card user-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>My Data Records</h3>
+                                <p class="stat-number" id="myDataRecords">234</p>
+                                <span class="stat-change positive">+5 this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card user-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Data Growth</h3>
+                                <p class="stat-number" id="dataGrowth">+12.5%</p>
+                                <span class="stat-change positive">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card user-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Last Activity</h3>
+                                <p class="stat-number" id="lastActivity">2h ago</p>
+                                <span class="stat-change">Data upload</span>
+                            </div>
+                        </div>
+                        <div class="stat-card user-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Security Status</h3>
+                                <p class="stat-number" id="securityStatus">Secure</p>
+                                <span class="stat-change positive">All good</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-dashboard-grid">
+                        <div class="chart-container">
+                            <h3>My Data Trends</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-area"></i>
+                                <p>Your personal data analytics</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity">
+                            <h3>My Recent Activity</h3>
+                            <div class="activity-list" id="userActivityList">
+                                <!-- Activity items will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="uploadData()">
+                                <i class="fas fa-upload"></i>
+                                Upload Data
+                            </button>
+                            <button class="action-btn" onclick="downloadData()">
+                                <i class="fas fa-download"></i>
+                                Download My Data
+                            </button>
+                            <button class="action-btn" onclick="generateReport()">
+                                <i class="fas fa-file-alt"></i>
+                                Generate Report
+                            </button>
+                            <button class="action-btn" onclick="viewProfile()">
+                                <i class="fas fa-user"></i>
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="content-section">
+                    <div class="section-header">
+                        <h2>My Profile</h2>
+                        <button class="btn btn-primary" onclick="editProfile()">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                    <div class="profile-grid">
+                        <div class="profile-card">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 id="profileName">User Name</h3>
+                            <p id="profileEmail">user@example.com</p>
+                            <p id="profileRole">Regular User</p>
+                        </div>
+                        <div class="profile-details">
+                            <h3>Account Information</h3>
+                            <div class="info-item">
+                                <label>Full Name:</label>
+                                <span id="fullName">User Name</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Email:</label>
+                                <span id="emailAddress">user@example.com</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Account Type:</label>
+                                <span id="accountType">Regular User</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Member Since:</label>
+                                <span id="memberSince">January 2024</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Last Login:</label>
+                                <span id="lastLogin">2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Data Section -->
+                <section id="data" class="content-section">
+                    <div class="section-header">
+                        <h2>Data Entry Tasks</h2>
+                        <div class="data-filters">
+                            <select id="dataFilter" class="filter-select">
+                                <option value="all">All Tasks</option>
+                                <option value="pending">Pending</option>
+                                <option value="in_progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="dataLoading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading data entry tasks...</p>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-state" id="dataEmpty" style="display: none;">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>No Data Entry Tasks</h3>
+                        <p>You don't have any data entry tasks assigned to you yet. Contact your administrator to get assigned tasks.</p>
+                    </div>
+                    
+                    <!-- Data Entry Tasks Grid -->
+                    <div class="data-entry-tasks-grid" id="dataEntryTasksGrid">
+                        <!-- Tasks will be loaded here dynamically -->
+                    </div>
+                </section>
+
+                <!-- My Reports Section -->
+                <section id="reports" class="content-section">
+                    <div class="section-header">
+                        <h2>Assigned Reports</h2>
+                        <div class="report-filters">
+                            <select id="reportFilter" class="filter-select">
+                                <option value="all">All Reports</option>
+                                <option value="recent">Recent</option>
+                                <option value="campus">By Campus</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="reportsLoading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading assigned reports...</p>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div class="empty-state" id="reportsEmpty" style="display: none;">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>No Reports Assigned</h3>
+                        <p>You don't have any reports assigned to you yet. Contact your administrator to get access to reports.</p>
+                    </div>
+                    
+                    <!-- Reports Grid -->
+                    <div class="assigned-reports-grid" id="assignedReportsGrid">
+                        <!-- Reports will be loaded here dynamically -->
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="content-section">
+                    <h2>My Settings</h2>
+                    <div class="settings-grid">
+                        <div class="setting-group">
+                            <h3>Account Settings</h3>
+                            <div class="setting-item">
+                                <label>Email Notifications</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>Data Backup</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>Two-Factor Authentication</label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <h3>Privacy Settings</h3>
+                            <div class="setting-item">
+                                <label>Data Sharing</label>
+                                <select class="form-select">
+                                    <option>Private</option>
+                                    <option>Limited</option>
+                                    <option>Public</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label>Activity Tracking</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Data Entry Modal -->
+    <div class="modal-overlay" id="dataEntryModal" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Data Entry</h3>
+                <button class="modal-close" onclick="closeDataEntryModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="data-entry-container">
+                    <div class="data-entry-header">
+                        <div class="task-info">
+                            <h4 id="taskTableName">Table Name</h4>
+                            <p id="taskDescription">Description</p>
+                        </div>
+                        <div class="data-entry-actions">
+                            <button type="button" class="btn btn-success btn-sm" onclick="addDataEntryRow()">
+                                <i class="fas fa-plus"></i>
+                                Add Row
+                            </button>
+                            <button type="button" class="btn btn-warning btn-sm" onclick="clearAllDataEntry()">
+                                <i class="fas fa-trash"></i>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="data-entry-wrapper">
+                        <table class="data-entry-table" id="dataEntryTable">
+                            <thead id="dataEntryHeaders">
+                                <!-- Headers will be populated dynamically -->
+                            </thead>
+                            <tbody id="dataEntryBody">
+                                <!-- Data rows will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="data-entry-footer">
+                        <p class="row-count">Rows: <span id="dataEntryRowCount">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeDataEntryModal()">
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-primary" onclick="submitDataEntry()">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="user-dashboard.js"></script>
+</body>
+</html>
+
