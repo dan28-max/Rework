@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Data - Reports</title>
+  <link rel="stylesheet" href="css/report-styles.css?v=1.0.2">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- jsPDF and jsPDF AutoTable for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  
+  <style>
+    /* Basic button styles */
+    .btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      line-height: 1.25;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn-primary {
+      background-color: #2c5282;
+      color: white;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #2c5282;
+      color: #2c5282;
+    }
+    
+    /* Modal styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-box {
+      background: white;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #718096;
+    }
+    
+    .modal-content {
+      padding: 24px;
+    }
+    
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 16px 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+    
+    /* Table styles */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    th {
+      background-color: #f7fafc;
+      font-weight: 600;
+    }
+    
+    /* Main container */
+    .main-container {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f8fafc;
+    }
+    
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="main-content">
+      <div id="tablesContainer"></div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-logo-header">
+        <img src="image/BatStateU-NEU-Logo.png" alt="Spartan Data Logo" class="modal-logo">
+        <div class="modal-system-name">Spartan Data</div>
+      </div>
+      <div class="modal-header">
+        <h3>Confirm Submission</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-content">
+        <p>Are you sure you want to submit this report? It will be sent to the admin for review.</p>
+        <div class="modal-table-container">
+          <div class="table-responsive">
+            <!-- Table content will be inserted here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button onclick="confirmSave(true)" class="btn btn-primary">
+          <i class="fas fa-check"></i> Yes, Submit
+        </button>
+        <button onclick="closeModal()" class="btn btn-outline">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- External JavaScript -->
+  <script src="js/report.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Confirm Dialog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Confirm Dialog Debug</h1>
+    
+    <div class="info">
+        <h3>Status Check:</h3>
+        <div id="status"></div>
+    </div>
+    
+    <button onclick="testDialog()">Test Delete Dialog</button>
+    <button onclick="inspectDialog()">Inspect Dialog DOM</button>
+    
+    <script src="js/confirm-dialog.js?v=2.1"></script>
+    <script>
+        function updateStatus() {
+            const statusDiv = document.getElementById('status');
+            const checks = {
+                'showConfirmDialog exists': !!window.showConfirmDialog,
+                'ConfirmDialog class exists': !!window.ConfirmDialog,
+                'Dialog in DOM': !!document.getElementById('confirm-dialog-instance'),
+                'Dialog has structure': (() => {
+                    const dialog = document.getElementById('confirm-dialog-instance');
+                    if (!dialog) return false;
+                    return !!(
+                        dialog.querySelector('.confirm-dialog-icon-container') &&
+                        dialog.querySelector('.confirm-dialog-title') &&
+                        dialog.querySelector('.confirm-dialog-content')
+                    );
+                })()
+            };
+            
+            let html = '<ul>';
+            for (const [check, result] of Object.entries(checks)) {
+                html += `<li style="color: ${result ? 'green' : 'red'}">${check}: ${result ? '✓' : '✗'}</li>`;
+            }
+            html += '</ul>';
+            statusDiv.innerHTML = html;
+        }
+        
+        function inspectDialog() {
+            const dialog = document.getElementById('confirm-dialog-instance');
+            if (dialog) {
+                console.log('Dialog element:', dialog);
+                console.log('Dialog HTML:', dialog.outerHTML.substring(0, 500) + '...');
+                console.log('Has icon section:', !!dialog.querySelector('.confirm-dialog-icon-section'));
+                console.log('Has icon container:', !!dialog.querySelector('.confirm-dialog-icon-container'));
+                console.log('Has title:', !!dialog.querySelector('.confirm-dialog-title'));
+                console.log('Has content:', !!dialog.querySelector('.confirm-dialog-content'));
+                alert('Check console for dialog inspection details');
+            } else {
+                alert('Dialog not found in DOM!');
+            }
+        }
+        
+        function testDialog() {
+            console.log('=== Testing Dialog ===');
+            if (window.showConfirmDialog) {
+                console.log('showConfirmDialog is available');
+                showConfirmDialog({
+                    title: 'Confirm Delete',
+                    message: 'Are you sure you want to delete this row?',
+                    subtitle: 'This action cannot be undone',
+                    confirmText: 'Delete',
+                    cancelText: 'Cancel',
+                    type: 'danger',
+                    icon: 'trash-alt'
+                }).then(confirmed => {
+                    console.log('Dialog result:', confirmed);
+                    alert('User confirmed: ' + confirmed);
+                    updateStatus();
+                });
+            } else {
+                alert('showConfirmDialog is NOT available!');
+                console.error('showConfirmDialog not found');
+            }
+        }
+        
+        // Check on load
+        window.addEventListener('load', () => {
+            setTimeout(updateStatus, 500);
+            console.log('=== Page Loaded ===');
+            console.log('showConfirmDialog available:', !!window.showConfirmDialog);
+            console.log('ConfirmDialog class available:', !!window.ConfirmDialog);
+        });
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .report-header {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .report-title {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+        }
+
+        .report-description {
+            color: #7f8c8d;
+            margin: 0;
+        }
+
+        .table-wrapper {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .formal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .formal-table th,
+        .formal-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .formal-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .formal-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-success {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .table-footer {
+            padding: 15px;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="report-header">
+            <h1 class="report-title">Report Submission</h1>
+            <p class="report-description">Please fill in the required information below</p>
+        </div>
+
+        <div id="tablesContainer">
+            <!-- Tables will be generated here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const tables = {
+            admissiondata: ["Campus", "Semester", "Academic Year", "Category", "Program", "Male", "Female"],
+            enrollmentdata: ["Campus", "Academic Year", "Semester", "College", "Graduate/Undergrad", "Program/Course", "Male", "Female"],
+            graduatesdata: ["Campus", "Academic Year", "Semester", "Degree Level", "Subject Area", "Course", "Category/Total No. of Applicants", "Male", "Female"],
+            electricityconsumption: ["Campus", "Category", "Month", "Year", "Previous Reading (kWh)", "Current Reading (kWh)", "Consumption (kWh)", "Amount (PHP)"],
+            waterconsumption: ["Campus", "Month", "Year", "Previous Reading (m³)", "Current Reading (m³)", "Consumption (m³)", "Price/m³ (PHP)", "Amount (PHP)"],
+            fuelconsumption: ["Campus", "Date", "Driver's Name", "Vehicle", "Plate No.", "Fuel Type", "Liters", "Amount (PHP)"],
+            solidwaste: ["Campus", "Month", "Year", "Waste Type", "Weight (kg)", "No. of Trips", "Hauler", "Amount (PHP)"],
+            flightaccommodation: ["Campus", "Name of Employee/Student", "Designation/Year Level", "Destination", "Departure Date", "Return Date", "Airline", "Flight No.", "Ticket No.", "Amount (PHP)"],
+            purchasedgoods: ["Campus", "Item Description", "Quantity", "Unit", "Unit Cost (PHP)", "Total Cost (PHP)", "Supplier", "Date Purchased", "PR No.", "PO No."],
+            training: ["Campus", "Title of Training/Seminar", "Venue", "Date Started", "Date Ended", "No. of Participants", "Total Cost (PHP)"],
+            travel: ["Campus", "Name of Employee/Student", "Designation/Year Level", "Destination", "Date Started", "Date Ended", "No. of Days", "Daily Allowance (PHP)", "Total Amount (PHP)"],
+            vehiclemaintenance: ["Campus", "Date", "Vehicle", "Plate No.", "Type of Service", "Service Provider", "Amount (PHP)"],
+            repairmaintenance: ["Campus", "Date", "Item Description", "Nature of Work", "Service Provider", "Amount (PHP)"]
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reportType = urlParams.get('report') || 'admissiondata';
+            showTable(reportType);
+        });
+
+        function showTable(tableId) {
+            const container = document.getElementById('tablesContainer');
+            const columns = tables[tableId];
+            
+            if (!columns) {
+                container.innerHTML = '<div class="error">Report type not found</div>';
+                return;
+            }
+            
+            let tableHTML = `
+                <div class="table-wrapper">
+                    <table class="formal-table">
+                        <thead>
+                            <tr>
+                                ${columns.map(col => `<th>${col}</th>`).join('')}
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="empty-message">
+                                <td colspan="${columns.length + 1}" style="text-align: center;">
+                                    No data available. Click "Add Row" to get started.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <button onclick="addRow('${tableId}')" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Row
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = tableHTML;
+        }
+
+        function addRow(tableId) {
+            const container = document.getElementById('tablesContainer');
+            const emptyMessage = container.querySelector('.empty-message');
+            const tbody = container.querySelector('tbody');
+            
+            if (emptyMessage) {
+                emptyMessage.remove();
+            }
+            
+            const columns = tables[tableId];
+            const row = document.createElement('tr');
+            
+            // Add data cells
+            columns.forEach(() => {
+                const cell = document.createElement('td');
+                cell.textContent = '';
+                row.appendChild(cell);
+            });
+            
+            // Add action cell with delete button
+            const actionCell = document.createElement('td');
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn btn-danger btn-sm';
+            deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteBtn.onclick = function() {
+                row.remove();
+                if (!tbody.querySelector('tr:not(.empty-message)')) {
+                    const emptyRow = document.createElement('tr');
+                    emptyRow.className = 'empty-message';
+                    emptyRow.innerHTML = `
+                        <td colspan="${columns.length + 1}" style="text-align: center;">
+                            No data available. Click "Add Row" to get started.
+                        </td>
+                    `;
+                    tbody.appendChild(emptyRow);
+                }
+            };
+            
+            actionCell.appendChild(deleteBtn);
+            row.appendChild(actionCell);
+            
+            tbody.appendChild(row);
+        }
+    </script>
+</body>
+</html>

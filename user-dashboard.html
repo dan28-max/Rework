@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Data - User Dashboard</title>
+    <link rel="stylesheet" href="user-dashboard-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="image/BatStateU-NEU-Logo.png" alt="BatStateU Logo" class="dashboard-logo" style="width: 80px; height: 80px; margin-bottom: 15px; border-radius: 50%; background: white; padding: 5px;">
+                <h1>Spartan Data</h1>
+                <p>User Dashboard</p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="my-reports">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Reports</span>
+                </li>
+                <li class="nav-item" data-section="submissions">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Submissions History</span>
+                </li>
+                <li class="nav-item" data-section="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </li>
+                <li class="nav-item" data-section="profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>My Profile</span>
+                </li>
+                <li class="nav-item" data-section="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Guide</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p id="pageSubtitle">Welcome back! Here's your overview</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div class="user-details">
+                            <h4 id="userName">User Name</h4>
+                            <p id="userRole">User</p>
+                        </div>
+                    </div>
+                    <button class="btn-logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-chart-line"></i> Dashboard Overview</h2>
+                            <p class="section-description">Your report statistics and recent activity</p>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon primary">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-value" id="totalAssignedCount">0</div>
+                                    <div class="stat-label">Assigned Reports</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon success">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-value" id="completedCount">0</div>
+                                    <div class="stat-label">Completed</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon warning">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-value" id="pendingCount">0</div>
+                                    <div class="stat-label">Pending</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-header">
+                                <div class="stat-icon info">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <div class="stat-value" id="dueSoonCount">0</div>
+                                    <div class="stat-label">In Progress</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Analytics inside Dashboard -->
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-chart-bar"></i> My Analytics</h2>
+                            <p class="section-description">Performance and submission trends</p>
+                        </div>
+                    </div>
+                    <div id="analyticsContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading analytics...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Reports Section -->
+                <section id="my-reports" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-file-alt"></i> My Reports</h2>
+                            <p class="section-description">All reports assigned to you</p>
+                        </div>
+                    </div>
+
+                    <div id="myReportsContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading reports...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Submissions History Section -->
+                <section id="submissions" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-history"></i> Submissions History</h2>
+                            <p class="section-description">View all your submitted reports</p>
+                        </div>
+                    </div>
+
+                    <div id="submissionsContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading submissions...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications Section -->
+                <section id="notifications" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-bell"></i> Notifications</h2>
+                            <p class="section-description">Stay updated with important alerts</p>
+                        </div>
+                    </div>
+
+                    <div id="notificationsContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading notifications...</p>
+                        </div>
+                    </div>
+                </section>
+
+                
+
+                <!-- Profile Section -->
+                <section id="profile" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                            <p class="section-description">View and update your profile information</p>
+                        </div>
+                    </div>
+
+                    <div id="profileContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading profile...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Help & Guide Section -->
+                <section id="help" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-question-circle"></i> Help & Guide</h2>
+                            <p class="section-description">Learn how to use the system effectively</p>
+                        </div>
+                    </div>
+
+                    <div id="helpContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading help content...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="user-dashboard-enhanced.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Data - User Dashboard</title>
+    <link rel="stylesheet" href="user-dashboard-enhanced.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/profile-new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <div class="sidebar-logo">
+                    <img src="image/BatStateU-NEU-Logo.png" alt="BatStateU Logo" class="dashboard-logo">
+                </div>
+                <h1>Spartan Data</h1>
+                <p>User Dashboard</p>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="my-tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>My Tasks</span>
+                    <span class="badge" id="tasksBadge">0</span>
+                </li>
+                <li class="nav-item" data-section="submissions">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Submissions History</span>
+                </li>
+                <li class="nav-item" data-section="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </li>
+                <li class="nav-item" data-section="profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>My Profile</span>
+                </li>
+                <li class="nav-item" data-section="help">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p id="pageSubtitle">Welcome back! Here's your overview</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div class="user-details">
+                            <h4 id="userName">User Name</h4>
+                            <p id="userRole">User</p>
+                        </div>
+                    </div>
+                    <button class="btn-logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <!-- Analytics inside dashboard -->
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-chart-bar"></i> My Analytics</h2>
+                            <p class="section-description">Performance and submission trends</p>
+                        </div>
+                    </div>
+                    <div id="analyticsContainer">
+                        <!-- Top Row: KPI Cards -->
+                        <div class="kpi-cards-grid">
+                            <!-- Total Submissions KPI -->
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <span class="kpi-label">Total Submissions</span>
+                                </div>
+                                <div class="kpi-value" id="userKpiTotalSubmissions">0</div>
+                                <div class="kpi-change positive" id="userKpiSubmissionsChange">
+                                    <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                </div>
+                                <div class="kpi-mini-chart" id="userKpiSubmissionsChart"></div>
+                            </div>
+
+                            <!-- Assigned Reports KPI -->
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <span class="kpi-label">Assigned Reports</span>
+                                </div>
+                                <div class="kpi-value" id="userKpiAssignedReports">0</div>
+                                <div class="kpi-change positive" id="userKpiAssignedChange">
+                                    <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                </div>
+                                <div class="kpi-mini-chart" id="userKpiAssignedChart"></div>
+                            </div>
+
+                            <!-- Completed Reports KPI -->
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <span class="kpi-label">Completed Reports</span>
+                                </div>
+                                <div class="kpi-value" id="userKpiCompletedReports">0</div>
+                                <div class="kpi-change positive" id="userKpiCompletedChange">
+                                    <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                </div>
+                                <div class="kpi-mini-chart" id="userKpiCompletedChart"></div>
+                            </div>
+
+                            <!-- Pending Reports KPI -->
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <span class="kpi-label">Pending Reports</span>
+                                </div>
+                                <div class="kpi-value" id="userKpiPendingReports">0</div>
+                                <div class="kpi-change positive" id="userKpiPendingChange">
+                                    <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                </div>
+                                <div class="kpi-mini-chart" id="userKpiPendingChart"></div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Row: Large Report Cards -->
+                        <div class="report-cards-row">
+                            <!-- Submissions Growth Report -->
+                            <div class="report-card-large">
+                                <div class="report-card-header">
+                                    <div class="report-header-content">
+                                        <h3>Submissions Growth Report</h3>
+                                        <p>See insights on how your submissions have grown and changed over time.</p>
+                                    </div>
+                                    <div class="report-time-indicators">
+                                        <button class="time-indicator active" id="userCurrentMonthIndicator">Current Month</button>
+                                        <button class="time-indicator" id="userLastMonthIndicator">Last Month</button>
+                                    </div>
+                                </div>
+                                <div class="report-card-body">
+                                    <canvas id="userSubmissionsGrowthChart"></canvas>
+                                </div>
+                            </div>
+
+                            <!-- Submissions Monthly Report -->
+                            <div class="report-card-large">
+                                <div class="report-card-header">
+                                    <div class="report-header-content">
+                                        <h3>Submissions Monthly Report</h3>
+                                        <div class="report-growth-indicator positive" id="userMonthlyReportGrowth">
+                                            <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="report-card-body">
+                                    <canvas id="userSubmissionsMonthlyChart"></canvas>
+                                </div>
+                                <div class="report-card-footer">
+                                    <div class="report-metric">
+                                        <span class="metric-value" id="userMonthlyImpressions">0</span>
+                                        <span class="metric-label">Submissions</span>
+                                    </div>
+                                    <div class="report-metric">
+                                        <span class="metric-value" id="userMonthlyGrowth">0%</span>
+                                        <span class="metric-label">Growth Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Row: Detailed Reports -->
+                        <div class="detailed-reports-row">
+                            <!-- Reports by Type -->
+                            <div class="detailed-report-card">
+                                <div class="detailed-report-header">
+                                    <h3>Reports by Type</h3>
+                                </div>
+                                <div class="detailed-report-body">
+                                    <div class="donut-chart-wrapper">
+                                        <canvas id="userReportsByTypeChart"></canvas>
+                                        <div class="donut-center-text" id="userReportTypeChartCenterText">0</div>
+                                    </div>
+                                    <div class="donut-legend" id="userReportTypeChartLegend"></div>
+                                </div>
+                            </div>
+
+                            <!-- Top Active Reports -->
+                            <div class="detailed-report-card">
+                                <div class="detailed-report-header">
+                                    <h3>Top Active Reports</h3>
+                                    <select class="report-time-select" id="userTopReportsTimeRange">
+                                        <option value="monthly" selected>Monthly</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="yearly">Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="detailed-report-body">
+                                    <table class="top-reports-table" id="userTopReportsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Report Type</th>
+                                            <th>Submissions</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2" style="text-align: center; padding: 40px;">
+                                                    <div class="loading-state">
+                                                        <i class="fas fa-spinner fa-spin"></i>
+                                                        <p>Loading reports...</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Reports Section -->
+                <section id="my-reports" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-file-alt"></i> My Reports</h2>
+                            <p class="section-description">All reports assigned to you</p>
+                        </div>
+                    </div>
+
+                    <div id="myReportsContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading reports...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Submissions History Section -->
+                <section id="submissions" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-history"></i> Submissions History</h2>
+                            <p class="section-description">View all your submitted reports</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-secondary" onclick="userDashboard.refreshSubmissions()">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="filter-controls" style="margin-bottom: 24px; display: flex; gap: 16px; flex-wrap: wrap;">
+                        <div class="filter-group">
+                            <label><i class="fas fa-table"></i> Report Type:</label>
+                            <select id="submissionReportFilter" class="formal-select" onchange="userDashboard.filterSubmissions()">
+                                <option value="">All Reports</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="submissionsContainer">
+                        <div class="table-wrapper">
+                            <table class="formal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Report Type</th>
+                                        <th>Campus</th>
+                                        <th>Office</th>
+                                        <th style="width: 80px;">Records</th>
+                                        <th style="cursor: pointer;" onclick="userDashboard.sortByDate()">
+                                            Submitted Date
+                                            <i class="fas fa-sort" id="dateSortIcon"></i>
+                                        </th>
+                                        <th style="width: 150px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="submissionsTableBody">
+                                    <tr>
+                                        <td colspan="6" style="text-align: center; padding: 40px;">
+                                            <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #dc143c;"></i>
+                                            <p style="margin-top: 10px; color: #666;">Loading submissions...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- My Tasks Section -->
+                <section id="my-tasks" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-tasks"></i> My Tasks</h2>
+                            <p class="section-description">Manage your assigned tasks and deadlines</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-secondary" onclick="userDashboard.filterTasks('all')">
+                                <i class="fas fa-list"></i> All
+                            </button>
+                            <button class="btn-secondary" onclick="userDashboard.filterTasks('pending')">
+                                <i class="fas fa-clock"></i> Pending
+                            </button>
+                            <button class="btn-secondary" onclick="userDashboard.filterTasks('completed')">
+                                <i class="fas fa-check"></i> Completed
+                            </button>
+                        </div>
+                    </div>
+                    <div id="myTasksContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading tasks...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Calendar Section -->
+                <section id="calendar" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-calendar-alt"></i> Calendar</h2>
+                            <p class="section-description">Track deadlines and important dates</p>
+                        </div>
+                    </div>
+                    <div id="calendarContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading calendar...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                            <p class="section-description">View and update your profile information</p>
+                        </div>
+                    </div>
+                    <div id="profileContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading profile...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Help Section -->
+                <section id="help" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-question-circle"></i> Help & Support</h2>
+                            <p class="section-description">Get help with using the system</p>
+                        </div>
+                    </div>
+                    <div id="helpContainer">
+                        <div class="loading-state">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading help...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Report Submission Modal -->
+    <div id="reportModal" class="report-modal" style="display: none;">
+        <div class="report-modal-overlay" onclick="userDashboard.closeReportModal()"></div>
+        <div class="report-modal-content">
+            <div class="report-modal-header">
+                <div class="modal-logo-header">
+                    <img src="image/BatStateU-NEU-Logo.png" alt="Spartan Data Logo" class="modal-logo">
+                    <div class="modal-system-name">Spartan Data</div>
+                </div>
+                <div class="modal-header-content">
+                    <p class="modal-subtitle">Fill in the required information and submit</p>
+                </div>
+                <div class="modal-header-actions">
+                    <button class="modal-close-btn" onclick="userDashboard.closeReportModal()" title="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="report-modal-body" id="reportModalBody">
+                <!-- Report form will be loaded here -->
+                <div class="loading-state">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading report form...</p>
+                    <div class="loading-bar">
+                        <div class="loading-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="modal-utils.js"></script>
+    <script src="user-dashboard-enhanced.js"></script>
+</body>
+</html>

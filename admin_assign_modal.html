@@ -1,0 +1,492 @@
+<!-- Enhanced Assignment Modal -->
+<div id="assignmentModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content-large">
+        <div class="modal-header">
+            <h2><i class="fas fa-tasks"></i> Assign Report to Office</h2>
+            <button class="modal-close-btn" onclick="closeAssignmentModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <form id="assignmentForm">
+                <!-- Report Selection -->
+                <div class="form-section">
+                    <h3><i class="fas fa-file-alt"></i> Report Selection</h3>
+                    <div class="form-group">
+                        <label for="reportTable">Select Report Type *</label>
+                        <select id="reportTable" name="reportTable" required>
+                            <option value="">-- Choose a report --</option>
+                            <option value="admissiondata">Admission Data</option>
+                            <option value="enrollmentdata">Enrollment Data</option>
+                            <option value="graduatesdata">Graduates Data</option>
+                            <option value="employee">Employee</option>
+                            <option value="leaveprivilege">Leave Privilege</option>
+                            <option value="libraryvisitor">Library Visitor</option>
+                            <option value="pwd">PWD</option>
+                            <option value="waterconsumption">Water Consumption</option>
+                            <option value="treatedwastewater">Treated Wastewater</option>
+                            <option value="electricityconsumption">Electricity Consumption</option>
+                            <option value="solidwaste">Solid Waste</option>
+                            <option value="campuspopulation">Campus Population</option>
+                            <option value="foodwaste">Food Waste</option>
+                            <option value="fuelconsumption">Fuel Consumption</option>
+                            <option value="distancetraveled">Distance Traveled</option>
+                            <option value="budgetexpenditure">Budget Expenditure</option>
+                            <option value="flightaccommodation">Flight Accommodation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assignedOffice">Assign to Office *</label>
+                        <select id="assignedOffice" name="assignedOffice" required>
+                            <option value="">-- Choose an office --</option>
+                            <option value="RGO">RGO (Registrar's Office)</option>
+                            <option value="HRMO">HRMO (Human Resource Management Office)</option>
+                            <option value="Library">Library</option>
+                            <option value="PAMU">PAMU (Physical Asset Management Unit)</option>
+                            <option value="GSO">GSO (General Services Office)</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Budget">Budget</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Deadline Settings -->
+                <div class="form-section">
+                    <h3><i class="fas fa-calendar-alt"></i> Deadline Settings</h3>
+                    
+                    <div class="form-group-inline">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="hasDeadline" name="hasDeadline" onchange="toggleDeadlineFields()">
+                            <span>Set a deadline for this task</span>
+                        </label>
+                    </div>
+                    
+                    <div id="deadlineFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="deadline">Deadline Date</label>
+                            <input type="date" id="deadline" name="deadline" min="<?php echo date('Y-m-d'); ?>">
+                            <small class="form-hint">Select the date by which this report must be submitted</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority Settings -->
+                <div class="form-section">
+                    <h3><i class="fas fa-flag"></i> Priority Level</h3>
+                    
+                    <div class="priority-options">
+                        <label class="priority-card">
+                            <input type="radio" name="priority" value="low" checked>
+                            <div class="priority-content priority-low">
+                                <i class="fas fa-flag"></i>
+                                <span class="priority-label">Low</span>
+                                <small>Can be completed anytime</small>
+                            </div>
+                        </label>
+                        
+                        <label class="priority-card">
+                            <input type="radio" name="priority" value="medium">
+                            <div class="priority-content priority-medium">
+                                <i class="fas fa-flag"></i>
+                                <span class="priority-label">Medium</span>
+                                <small>Normal priority task</small>
+                            </div>
+                        </label>
+                        
+                        <label class="priority-card">
+                            <input type="radio" name="priority" value="high">
+                            <div class="priority-content priority-high">
+                                <i class="fas fa-flag"></i>
+                                <span class="priority-label">High</span>
+                                <small>Important task</small>
+                            </div>
+                        </label>
+                        
+                        <label class="priority-card">
+                            <input type="radio" name="priority" value="urgent">
+                            <div class="priority-content priority-urgent">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span class="priority-label">Urgent</span>
+                                <small>Requires immediate attention</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" name="description" rows="2" placeholder="Brief description of the task..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notes (Optional)</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any additional notes or instructions for the office..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeAssignmentModal()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-check"></i> Assign Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content-large {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 24px 32px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #dc143c 0%, #a00000 100%);
+    color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 32px;
+}
+
+.form-section {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-section h3 i {
+    color: #dc143c;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #dc143c;
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.form-hint {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+    margin-top: 6px;
+}
+
+.form-group-inline {
+    margin-bottom: 16px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Priority Options */
+.priority-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.priority-card {
+    cursor: pointer;
+}
+
+.priority-card input[type="radio"] {
+    display: none;
+}
+
+.priority-content {
+    padding: 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.priority-card input:checked + .priority-content {
+    border-color: currentColor;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.priority-content i {
+    font-size: 32px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.priority-label {
+    display: block;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.priority-content small {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.priority-low {
+    color: #48bb78;
+}
+
+.priority-medium {
+    color: #4299e1;
+}
+
+.priority-high {
+    color: #ed8936;
+}
+
+.priority-urgent {
+    color: #f56565;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding-top: 24px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #dc143c 0%, #a00000 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 20, 60, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+</style>
+
+<script>
+function toggleDeadlineFields() {
+    const hasDeadline = document.getElementById('hasDeadline').checked;
+    const deadlineFields = document.getElementById('deadlineFields');
+    const deadlineInput = document.getElementById('deadline');
+    
+    if (hasDeadline) {
+        deadlineFields.style.display = 'block';
+        deadlineInput.required = true;
+    } else {
+        deadlineFields.style.display = 'none';
+        deadlineInput.required = false;
+        deadlineInput.value = '';
+    }
+}
+
+function openAssignmentModal() {
+    document.getElementById('assignmentModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAssignmentModal() {
+    document.getElementById('assignmentModal').style.display = 'none';
+    document.body.style.overflow = '';
+    document.getElementById('assignmentForm').reset();
+    document.getElementById('deadlineFields').style.display = 'none';
+}
+
+// Handle form submission
+document.getElementById('assignmentForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        reportTable: document.getElementById('reportTable').value,
+        assignedOffice: document.getElementById('assignedOffice').value,
+        description: document.getElementById('description').value,
+        hasDeadline: document.getElementById('hasDeadline').checked,
+        deadline: document.getElementById('deadline').value,
+        priority: document.querySelector('input[name="priority"]:checked').value,
+        notes: document.getElementById('notes').value
+    };
+    
+    try {
+        const response = await fetch('api/assign_table.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert('Report assigned successfully!');
+            closeAssignmentModal();
+            // Reload assignments list if function exists
+            if (typeof loadAssignments === 'function') {
+                loadAssignments();
+            }
+        } else {
+            alert('Error: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Assignment error:', error);
+        alert('Failed to assign report. Please try again.');
+    }
+});
+</script>

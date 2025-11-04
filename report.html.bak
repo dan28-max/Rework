@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Data - Reports</title>
+  <link rel="stylesheet" href="css/report-styles.css?v=1.0.2">
+  
+  <style>
+    /* Inline styles that need to be kept */
+    
+    /* Buttons */
+    /* Modern Buttons */
+    .btn {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.9rem;
+        line-height: 1.25;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%, -50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .btn:focus:not(:active)::after {
+        animation: ripple 0.6s ease-out;
+    }
+    
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(20, 20);
+            opacity: 0;
+        }
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(44, 82, 130, 0.15);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px rgba(44, 82, 130, 0.1);
+    }
+    
+    .btn-success {
+        background: linear-gradient(135deg, #2f855a 0%, #38a169 100%);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .btn-success:hover {
+        background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(47, 133, 90, 0.15);
+    }
+    
+    .btn-success:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px rgba(47, 133, 90, 0.1);
+    }
+    
+    /* Fullscreen mode */
+    html.fullscreen-mode,
+    body.fullscreen-body,
+    body.fullscreen-body .main-content {
+        height: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .fullscreen-mode .table-container {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        z-index: 9999 !important;
+        background: white !important;
+        overflow: auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .fullscreen-mode .table-responsive {
+        max-height: calc(100vh - 100px) !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    .fullscreen-mode .table-action-buttons {
+        display: flex;
+        gap: 12px;
+        margin-left: auto;
+    }
+    
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .table-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin: 0;
+    }
+    
+    .fullscreen-mode .table-header {
+        position: fixed;
+        top: 20px;
+        left: 30px;
+        z-index: 10000;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .report-header {
+        margin-bottom: 20px;
+        padding: 15px 20px;
+        background: #f8fafc;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .fullscreen-mode .table-container table {
+        margin-top: 80px;
+    }
+    
+    .table-container.fullscreen table {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .table-container.fullscreen .table-responsive {
+        max-height: calc(100vh - 120px) !important;
+        overflow: auto !important;
+    }
+    
+    /* Modal styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1100;
+      padding: 30px 20px;
+      overflow: auto;
+    }
+    
+    .modal-box {
+      background: white;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 98%;
+      max-height: 95vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid #e2e8f0;
+      background: #f8fafc;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #2d3748;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #718096;
+      padding: 0 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    
+    .modal-close:hover {
+      color: #2d3748;
+    }
+    
+    .modal-content {
+      padding: 20px 24px;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .modal-actions {
+      padding: 16px 24px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background: #f8fafc;
+      border-radius: 0 0 10px 10px;
+    }
+    
+    /* Modern Table Wrapper */
+    .report-table-wrapper {
+        width: 100%;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-radius: 16px;
+        background: #ffffff;
+        overflow: hidden;
+        border: 1px solid rgba(226, 232, 240, 0.6);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .report-table-wrapper:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+        transform: translateY(-2px);
+    }
+    
+    /* Table Container - For scrolling */
+    .table-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Responsive Table Container */
+    /* Modern Table Responsive Container */
+    .table-responsive {
+        width: 100%;
+        max-width: 98vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e0 #f8fafc;
+        padding: 4px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    
+    /* Custom Scrollbar */
+    .table-responsive::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+    
+    .table-responsive::-webkit-scrollbar-track {
+        background: #f8fafc;
+        border-radius: 4px;
+    }
+    
+    .table-responsive::-webkit-scrollbar-thumb {
+        background-color: #cbd5e0;
+        border-radius: 4px;
+    }
+    
+    .table-responsive::-webkit-scrollbar-thumb:hover {
+        background-color: #a0aec0;
+    }
+    
+    .table-responsive {
+        margin: 0;
+        border-radius: 8px;
+        background: #fff;
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0 2px 8px 0; /* Add small padding for scrollbar */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Ensure table fits container */
+    .table-responsive table {
+        margin: 0 !important;
+        width: 100% !important;
+        table-layout: auto;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.9rem;
+        color: #2d3748;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.9rem;
+        color: #2d3748;
+        min-width: 100%;
+    }
+    
+    /* Modern Table Styles */
+    .report-table {
+        width: auto;
+        min-width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #2d3748;
+        background: #fff;
+        table-layout: auto;
+        position: relative;
+        z-index: 1;
+        border-radius: 12px;
+        overflow: visible;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        margin: 0;
+    }
+    
+    .report-table th,
+    .report-table td {
+        min-width: 100px;
+        max-width: 300px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+    }
+    
+    .report-table th:first-child,
+    .report-table td:first-child {
+        padding-left: 24px;
+    }
+    
+    .report-table th:last-child,
+    .report-table td:last-child {
+        padding-right: 24px;
+    }
+    
+    .report-table thead {
+        background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .report-table thead th {
+        padding: 10px 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border: none;
+        text-align: left;
+        position: relative;
+        color: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+        transition: all 0.2s ease;
+        min-width: 120px;
+        max-width: none;
+        overflow: visible;
+        white-space: normal;
+        line-height: 1.3;
+        cursor: default;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        height: auto;
+        word-break: break-word;
+        font-size: 0.7rem;
+    }
+    
+    /* Text length based styles */
+    .report-table thead th.text-short {
+        font-size: 0.7rem;
+        letter-spacing: 0.01em;
+        min-width: 120px;
+        padding: 10px 14px;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    
+    .report-table thead th.text-medium {
+        font-size: 0.68rem;
+        letter-spacing: 0.005em;
+        min-width: 180px;
+        padding: 10px 14px;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    
+    .report-table thead th.text-long {
+        font-size: 0.65rem;
+        letter-spacing: 0.003em;
+        min-width: 220px;
+        padding: 10px 14px;
+        line-height: 1.3;
+        white-space: normal;
+    }
+    
+    /* Adjust font size based on text length */
+    .report-table thead th[data-text-length='short'] {
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
+    }
+    
+    .report-table thead th[data-text-length='medium'] {
+        font-size: 0.7rem;
+        letter-spacing: 0.03em;
+    }
+    
+    .report-table thead th[data-text-length='long'] {
+        font-size: 0.65rem;
+        letter-spacing: 0.02em;
+    }
+    
+    .report-table thead th[title]:hover::after {
+        content: attr(title);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: #2a4b7c;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+        z-index: 100;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .report-table thead th:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        right: 0;
+        height: 40%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .report-table tbody {
+        display: block;
+        overflow-y: auto;
+        width: 100%;
+        max-height: calc(100% - 40px); /* Adjust based on your header height */
+    }
+    
+    .report-table thead,
+    .report-table tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    .report-table tbody tr {
+        display: table-row;
+        background: white;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    
+    .report-table tbody tr:hover {
+        background-color: #f8fafc;
+    }
+    
+    .report-table th,
+    .report-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #e0e0e0;
+        white-space: nowrap;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+    
+    /* Ensure header cells have proper background when scrolling */
+    .report-table thead th {
+        background: #2c3e50;
+        color: white;
+        font-weight: 500;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    
+    .report-table th {
+        font-weight: 500;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 10px 8px;
+        text-align: left;
+        border: 1px solid #e0e0e0;
+        vertical-align: middle;
+        overflow: hidden;
+    }
+    
+    .report-table tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .report-table-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    /* ... */
+        }
+        
+        .formal-table tbody tr {
+            counter-increment: row-number; /* Increment row counter */
+        }
+        
+        .formal-table tbody tr td:first-child::before {
+            content: counter(row-number); /* Display row number */
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .formal-table thead tr {
+            background-color: #d32f2f;
+            color: white;
+        }
+        
+        .formal-table th,
+        .formal-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .formal-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .table-wrapper {
+        overflow: hidden;
+        margin: 0;
+        border-radius: 0;
+        min-height: 0;
+        position: relative;
+        background: transparent;
+        border: none;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+                box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+            }
+            
+            .sidebar-toggle {
+                display: flex;
+            }
+            
+            .main-container {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .top-nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 1000;
+            }
+            
+            .report-container {
+                margin-top: 70px; /* Account for fixed header */
+            }
+            
+            .report-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .report-actions {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            
+            .btn {
+                flex: 1;
+                min-width: 120px;
+                justify-content: center;
+            }
+        }
+        
+        /* Hide navigation when in modal mode */
+        body.modal-mode .sidebar {
+            display: none !important;
+        }
+        
+        body.modal-mode .main-container {
+            margin-left: 0 !important;
+        }
+        
+        body.modal-mode .top-nav {
+            display: none !important;
+        }
+        
+        body.modal-mode .report-container {
+            max-width: 100% !important;
+            padding: 20px !important;
+        }
+        
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .formal-table th,
+        .formal-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .formal-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            background-color: white;
+        }
+        
+        .formal-table tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .formal-table tbody tr:last-of-type {
+        border-bottom: none;
+    }
+    
+    .formal-table tbody tr:hover {
+        background-color: #f8fafc;
+    }
+    
+    .formal-table tbody tr:nth-child(even) {
+        background-color: #f9fafb;
+    }
+    
+    .formal-table tbody tr:hover {
+        background-color: #f0f4f8;
+    }
+        
+    /* Button styles */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        line-height: 1.25;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin: 5px 0;
+        text-decoration: none;
+    }
+        
+        .btn:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+    .btn i {
+        margin-right: 6px;
+    }
+    
+    .btn-primary {
+        background-color: #2c5282;
+    }
+    
+    .btn-primary:hover {
+        background-color: #2b6cb0;
+    }
+    
+    .btn-success {
+        background-color: #2f855a;
+    }
+    
+    .btn-success:hover {
+        background-color: #38a169;
+    }
+    
+    .btn-danger {
+        background-color: #c53030;
+    }
+    
+    .btn-danger:hover {
+        background-color: #9b2c2c;
+    }
+        
+    .btn-danger {
+        background-color: #c53030;
+    }
+    
+    .btn-danger:hover {
+        background-color: #9b2c2c;
+    }
+        
+        /* Table wrapper for horizontal scrolling */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Form elements */
+        select, input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        /* Table footer */
+        .table-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+        .table-actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+        
+        .table-actions .left-actions,
+        .table-actions .right-actions {
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .table-footer {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+        
+        .btn {
+            width: 100%;
+            margin: 2px 0;
+        }
+            .table-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Graduates Data Table Styles */
+        #graduatesdataTable {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        #graduatesdataTable thead th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 500;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        #graduatesdataTable tbody td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+        
+        #graduatesdataTable tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        #graduatesdataTable tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* Date input container */
+        .date-input-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .date-input-container select {
+            padding-right: 30px; /* Space for calendar icon */
+            width: 100%;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        .date-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #666;
+        }
+        
+        .fade-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+    <!-- Load JavaScript libraries first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  
+  <div class="main-container">
+    <div class="main-content">
+      <div id="tablesContainer"></div>
+    </div>
+  </div>
+  
+  <style>
+    /* System Header Styles */
+    .system-header {
+      background: #f5f5f5;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .header-logo {
+      height: 40px;
+      width: auto;
+    }
+    
+    .system-name {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .system-name {
+        font-size: 1.3rem;
+      }
+    }
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-logo-header">
+        <img src="image/BatStateU-NEU-Logo.png" alt="Spartan Data Logo" class="modal-logo">
+        <div class="modal-system-name">Spartan Data</div>
+      </div>
+      <div class="modal-header">
+        <h3>Confirm Submission</h3>
+        <button class="modal-close" onclick="confirmSave(false)">&times;</button>
+      </div>
+      <div class="modal-content">
+        <p>Are you sure you want to submit this report? It will be sent to the admin for review.</p>
+        <div class="modal-table-container">
+          <div class="table-responsive">
+            <!-- Table content will be inserted here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button onclick="confirmSave(true)" class="btn btn-primary">
+          <i class="fas fa-check"></i> Yes, Submit
+        </button>
+        <button onclick="confirmSave(false)" class="btn btn-outline">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+    
+  <script>
+    // Wrap all JavaScript in an IIFE to avoid global scope pollution
+    (function() {
+      // Global variables
+      let currentReport = '';
+      let reportData = {};
+      
+      // Toast notification functionality has been removed
+        // Define all available tables with their columns
+        const tableDefinitions = {
+            leaveprivilege: {
+                columns: ['ID', 'Campus', 'Type Of Leave', 'Name of Employee', 'Duration', 'No. of Days', 'Equivalent Pay for Leave Availed'],
+                displayName: 'Leave Privilege',
+                requiredFields: ['Campus', 'Type Of Leave', 'Name of Employee', 'Duration', 'No. of Days', 'Equivalent Pay for Leave Availed']
+            },
+            admissiondata: {
+                columns: ['ID', 'Campus', 'Semester', 'Academic Year', 'Category', 'Program', 'Male', 'Female'],
+                displayName: 'Admission Data',
+                requiredFields: ['Campus', 'Semester', 'Academic Year', 'Category', 'Program', 'Male', 'Female']
+            },
+            enrollmentdata: {
+                columns: ['ID', 'Campus', 'Academic Year', 'Semester', 'College', 'Graduate/Under Graduate', 'Program or Course', 'Male', 'Female'],
+                displayName: 'Enrollment Data',
+                requiredFields: ['Campus', 'Academic Year', 'Semester', 'College', 'Graduate/Under Graduate', 'Program or Course', 'Male', 'Female']
+            },
+            graduatesdata: {
+                columns: ['ID', 'Campus', 'Academic Year', 'Semester', 'Degree Level', 'Subject Area', 'Course', 'Category/Total No. of Applicants', 'Male', 'Female', 'Total'],
+                displayName: 'Graduates Data'
+            },
+            electricityconsumption: {
+                columns: ['ID', 'Campus', 'Category', 'Month', 'Year', 'Previous Reading', 'Current Reading', 'Actual Consumption', 'Multiplier', 'Total Consumption', 'Total Amount', 'Price per kWh', 'Remarks'],
+                displayName: 'Electricity Consumption',
+                requiredFields: ['Campus', 'Category', 'Month', 'Year', 'Previous Reading', 'Current Reading', 'Actual Consumption', 'Multiplier', 'Total Consumption', 'Total Amount', 'Price per kWh']
+            },
+            waterconsumption: {
+                columns: ['ID', 'Campus', 'Date', 'Category', 'Prev Reading', 'Current Reading', 'Quantity', 'Total Amount', 'Price per cubic meter', 'Month', 'Quarter', 'Year', 'Remarks'],
+                displayName: 'Water Consumption',
+                requiredFields: ['Campus', 'Date', 'Category', 'Prev Reading', 'Current Reading', 'Quantity', 'Total Amount', 'Price per cubic meter', 'Month', 'Quarter', 'Year']
+            },
+            fuelconsumption: {
+                columns: ['ID', 'Campus', 'Date', 'Driver', 'Vehicle', 'Plate No.', 'Fuel Type', 'Item Description', 'Transaction No.', 'Odometer', 'Qty', 'Total Amount'],
+                displayName: 'Fuel Consumption',
+                requiredFields: ['Campus', 'Date', 'Driver', 'Vehicle', 'Plate No.', 'Fuel Type', 'Qty']
+            },
+            vehicledata: {
+                columns: ['ID', 'Date', 'Vehicle Type', 'Plate Number', 'Distance Traveled (km)', 'Fuel Consumption (L)', 'CO2 Emissions (kg)'],
+                displayName: 'Vehicle Data'
+            },
+            wastedisposal: {
+                columns: ['ID', 'Date', 'Campus', 'Waste Type', 'Weight (kg)', 'Disposal Method', 'Cost (₱)'],
+                displayName: 'Waste Disposal'
+            },
+            hazardouswaste: {
+                columns: ['ID', 'Date', 'Campus', 'Waste Type', 'Weight (kg)', 'Disposal Method', 'Disposal Company', 'Cost (₱)'],
+                displayName: 'Hazardous Waste'
+            },
+            solidwaste: {
+                columns: ['ID', 'Campus', 'Month', 'Year', 'Waste Type', 'Quantity', 'Remarks'],
+                displayName: 'Solid Waste',
+                requiredFields: ['Campus', 'Month', 'Year', 'Waste Type', 'Quantity']
+            },
+            employee: {
+                columns: ['ID', 'Campus', 'Date Generated', 'Category', 'Faculty Rank/Designation', 'Sex', 'Employment Status', 'Date Hired'],
+                displayName: 'Employee',
+                requiredFields: ['Campus', 'Date Generated', 'Category', 'Faculty Rank/Designation', 'Sex', 'Employment Status', 'Date Hired']
+            },
+            distancetraveled: {
+                columns: ['ID', 'Campus', 'Travel Date', 'Vehicle', 'Plate No.', 'Fuel Type', 'Start Mileage', 'End Mileage', 'Total Distance Traveled (km)'],
+                displayName: 'Distance Traveled',
+                requiredFields: ['Campus', 'Travel Date', 'Vehicle', 'Plate No.', 'Fuel Type', 'Start Mileage', 'End Mileage']
+            },
+            pwd: {
+                columns: ['ID', 'Campus', 'Year', 'No. of PWD Students', 'No. of PWD Employee', 'Type of Disability', 'Sex'],
+                displayName: 'Persons with Disabilities',
+                requiredFields: ['Campus', 'Year', 'No. of PWD Students', 'No. of PWD Employee', 'Type of Disability', 'Sex']
+            },
+            foodwaste: {
+                columns: ['ID', 'Date', 'Campus', 'Amount (kg)', 'Remarks'],
+                displayName: 'Food Waste',
+                requiredFields: ['Date', 'Campus', 'Amount (kg)']
+            },
+            campuspopulation: {
+                columns: ['ID', 'Campus', 'Total Students', 'Total Faculty', 'Total Staff', 'Total Admin', 'Total Population'],
+                displayName: 'Campus Population',
+                requiredFields: ['Campus', 'Total Students', 'Total Faculty', 'Total Staff', 'Total Admin']
+            },
+            libraryvisitor: {
+                columns: ['ID', 'Campus', 'Date', 'Category', 'Sex', 'Total Visitors'],
+                displayName: 'Library Visitors',
+                requiredFields: ['Campus', 'Date', 'Category', 'Sex', 'Total Visitors']
+            },
+            treatedwastewater: {
+                columns: ['ID', 'Campus', 'Date', 'Treated Water Volume', 'Reused Treated Water Volume', 'Effluent Volume'],
+                displayName: 'Treated Wastewater',
+                requiredFields: ['Campus', 'Date', 'Treated Water Volume', 'Reused Treated Water Volume', 'Effluent Volume']
+            },
+            budgetexpenditure: {
+                columns: ['ID', 'Campus', 'Year', 'Particulars', 'Category', 'Budget Allocation', 'Actual Expenditure', 'Utilization Rate'],
+                displayName: 'Budget Expenditure',
+                requiredFields: ['Campus', 'Year', 'Particulars', 'Category', 'Budget Allocation', 'Actual Expenditure']
+            },
+            flightaccommodation: {
+                columns: ['ID', 'Campus', 'Office/Department', 'Year', 'Name of the Traveller', 'Event Name', 'Travel Date', 'Domestic/International', 'Origin', 'Destination', 'Class', 'One Way/Round Trip', 'kgCO2e', 't CO2e'],
+                displayName: 'Flight & Accommodation',
+                requiredFields: ['Campus', 'Office/Department', 'Year', 'Name of the Traveller', 'Travel Date', 'Domestic/International', 'Origin', 'Destination', 'Class', 'One Way/Round Trip']
+            }
+            // Add more table definitions as needed
+        };
+
+        // Function to ensure Campus is the first column
+        function ensureCampusFirst(columns) {
+            // If Campus already exists, remove it first
+            const filteredCols = columns.filter(col => col.toLowerCase() !== 'campus');
+            // Add Campus as the first column (after ID if it exists)
+            if (columns[0].toLowerCase() === 'id') {
+                return [columns[0], 'Campus', ...filteredCols.filter((_, i) => i > 0)];
+            }
+            return ['Campus', ...filteredCols];
+        }
+
+        // Initialize tables object with all available tables
+        let tables = {};
+        Object.keys(tableDefinitions).forEach(tableId => {
+            const columns = tableDefinitions[tableId].columns;
+            tables[tableId] = {
+                columns: ensureCampusFirst(columns),
+                data: [],
+                displayName: tableDefinitions[tableId].displayName
+            };
+        });
+        
+        // Office-specific reports mapping
+        const officeReports = {
+            'registrar': ['admissiondata', 'enrollmentdata'],
+            'finance': ['electricityconsumption', 'waterconsumption', 'gasconsumption'],
+            'admin': ['vehicledata', 'traveldata'],
+            'facilities': ['wastedisposal', 'hazardouswaste', 'recycledwaste', 'facilitiesdata']
+        };
+        
+        // Current user's office (this would come from your authentication system)
+        const userOffice = 'registrar'; // Example: Get this from your auth system
+        const userEmail = 'user@example.com'; // Example: Get this from your auth system
+        
+        // Show table based on report type
+        function showTable(tableId) {
+            console.log('showTable called with:', tableId);
+            if (!tableId) {
+                console.error('No tableId provided');
+                return;
+            }
+            
+            // Set the current report
+            currentReport = tableId;
+            console.log('Current report set to:', currentReport);
+            
+            const container = document.getElementById('tablesContainer');
+            if (!container) {
+                console.error('tablesContainer not found');
+                return;
+            }
+            
+            console.log('Container found, clearing content');
+            container.innerHTML = '';
+            
+            // Clear the container
+            container.innerHTML = '';
+            
+            // Create main wrapper
+            const tableWrapper = document.createElement('div');
+            tableWrapper.className = 'report-table-wrapper';
+            
+            // Create table header container
+            const tableHeader = document.createElement('div');
+            tableHeader.className = 'table-header';
+            tableHeader.style.display = 'flex';
+            tableHeader.style.justifyContent = 'space-between';
+            tableHeader.style.alignItems = 'center';
+            tableHeader.style.marginBottom = '15px';
+            tableHeader.style.width = '100%';
+            tableHeader.style.padding = '10px 20px';
+            tableHeader.style.background = '#f8f9fa';
+            tableHeader.style.borderRadius = '8px';
+            tableHeader.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+            
+            // Create header content container for the table title
+            const headerContent = document.createElement('div');
+            headerContent.style.display = 'flex';
+            headerContent.style.flexDirection = 'column';
+            headerContent.style.alignItems = 'center';
+            headerContent.style.flexGrow = '1';
+            headerContent.style.padding = '0 20px';
+            
+            // Create table container
+            const tableContainer = document.createElement('div');
+            tableContainer.className = 'table-container';
+            
+            // Create responsive wrapper
+            const tableResponsive = document.createElement('div');
+            tableResponsive.className = 'table-responsive';
+            
+            // Create the table
+            const table = document.createElement('table');
+            table.className = 'report-table';
+            table.id = tableId + 'Table';
+            
+            // Create table header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            
+            // Get display columns
+            const displayColumns = [...tables[tableId].columns];
+            
+            // Add column headers with better text handling
+            displayColumns.forEach(column => {
+                if (column.toLowerCase() !== 'id') {
+                    const th = document.createElement('th');
+                    th.textContent = column;
+                    th.title = column; // Add title attribute for tooltip
+                    
+                    // Set text length class based on column name length
+                    const textLength = column.length;
+                    if (textLength < 20) {
+                        th.classList.add('text-short');
+                    } else if (textLength < 35) {
+                        th.classList.add('text-medium');
+                    } else {
+                        th.classList.add('text-long');
+                    }
+                    
+                    headerRow.appendChild(th);
+                }
+            });
+            
+            // Add actions header
+            const actionsHeader = document.createElement('th');
+            actionsHeader.textContent = 'Actions';
+            actionsHeader.classList.add('text-short');
+            headerRow.appendChild(actionsHeader);
+            
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            
+            // Create table body with loading state
+            const tbody = document.createElement('tbody');
+            tbody.id = tableId + 'Body';
+            
+            // Add loading row
+            const loadingRow = document.createElement('tr');
+            const loadingCell = document.createElement('td');
+            loadingCell.colSpan = displayColumns.length + 1; // +1 for Actions column
+            loadingCell.textContent = 'Loading data...';
+            loadingCell.style.textAlign = 'center';
+            loadingCell.className = 'loading-row';
+            loadingRow.appendChild(loadingCell);
+            tbody.appendChild(loadingRow);
+            
+            // Assemble the table
+            table.appendChild(tbody);
+            tableResponsive.appendChild(table);
+            tableContainer.appendChild(tableResponsive);
+            tableWrapper.appendChild(tableContainer);
+            container.appendChild(tableWrapper);
+            
+            // Load the data
+            loadTableData(tableId, tbody);
+            
+            // Debug: Log the table structure
+            console.log('Table structure:', {
+                container: container,
+                tableWrapper: tableWrapper,
+                tableContainer: tableContainer,
+                table: table
+            });
+            
+            // Load data asynchronously
+            setTimeout(() => {
+                try {
+                    loadTableData(tableId, tbody);
+                } catch (error) {
+                    console.error('Error loading table data:', error);
+                }
+            }, 100);
+            
+            // Header content container is already created above with logo and system name
+            
+            // Create action buttons container
+            const actionButtons = document.createElement('div');
+            actionButtons.className = 'action-buttons';
+            actionButtons.style.display = 'flex';
+            actionButtons.style.gap = '12px';
+            actionButtons.style.marginLeft = 'auto'; // This will push buttons to the right
+            
+            // Clear button
+            const clearBtn = document.createElement('button');
+            clearBtn.className = 'btn btn-warning';
+            clearBtn.innerHTML = '<i class="fas fa-eraser"></i> Clear Table';
+            clearBtn.onclick = () => {
+                if (confirm('Are you sure you want to clear all data in this table?')) {
+                    tables[tableId].data = [];
+                    saveDraft();
+                    showTable(tableId);
+                }
+            };
+            
+            // Add Row button
+            const addBtn = document.createElement('button');
+            addBtn.className = 'btn btn-add';
+            addBtn.innerHTML = '<i class="fas fa-plus-circle"></i> Add Row';
+            addBtn.onclick = () => addRow(tableId);
+            
+            // Submit button
+            const submitBtn = document.createElement('button');
+            submitBtn.className = 'btn btn-submit';
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit';
+            submitBtn.onclick = () => submitReport();
+            
+            // Add buttons to container
+            actionButtons.appendChild(clearBtn);
+            actionButtons.appendChild(addBtn);
+            actionButtons.appendChild(submitBtn);
+            
+            // Create title element
+            const titleElement = document.createElement('h2');
+            titleElement.className = 'table-title';
+            titleElement.textContent = tableDefinitions[tableId].displayName || 'Table';
+            titleElement.style.margin = '5px 0 0 0';
+            titleElement.style.fontSize = '1.25rem';
+            titleElement.style.fontWeight = '600';
+            titleElement.style.color = '#2d3748';
+            
+            // Add elements to header content
+            headerContent.appendChild(titleElement);
+            
+            // Add title and buttons to header
+            tableHeader.appendChild(headerContent);
+            tableHeader.appendChild(actionButtons);
+            
+            // Add responsive styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    .table-header {
+                        flex-direction: column;
+                        gap: 15px;
+                        text-align: center;
+                    }
+                    .table-header > div {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                    .action-buttons {
+                        margin-top: 10px;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Insert the header before the table wrapper
+            container.insertBefore(tableHeader, tableWrapper);
+            
+            // Load any existing data
+        }
+        
+        // Function to add inline edit listeners
+        function addInlineEditListeners(tableId) {
+            // Handle input changes
+            document.querySelectorAll(`#${tableId}Table .editable-input`).forEach(input => {
+                input.addEventListener('change', function() {
+                    const row = this.dataset.row;
+                    const col = this.dataset.col;
+                    const value = this.value;
+                    
+                    // Update the data model
+                    if (!tables[tableId].data[row]) {
+                        tables[tableId].data[row] = {};
+                    }
+                    tables[tableId].data[row][col] = value;
+                    
+                    // Changes saved
+                });
+            });
+            
+            // Handle select changes
+            document.querySelectorAll(`#${tableId}Table .editable-select`).forEach(select => {
+                select.addEventListener('change', function() {
+                    const row = this.dataset.row;
+                    const col = this.dataset.col;
+                    const value = this.value;
+                    
+                    // Update the data model
+                    if (!tables[tableId].data[row]) {
+                        tables[tableId].data[row] = {};
+                    }
+                    tables[tableId].data[row][col] = value;
+                    
+                    // Changes saved
+                });
+            });
+        }
+        
+        // Save row from inline editing
+        function saveRowFromInline(tableId, rowIndex) {
+            const rowData = {};
+            const row = document.querySelector(`#${tableId}Table tbody tr:nth-child(${rowIndex + 1})`);
+            
+            if (!row) return;
+            
+            // Collect data from inputs and selects
+            const inputs = row.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                const col = input.dataset.col;
+                rowData[col] = input.value;
+            });
+            
+            // Update the data model
+            tables[tableId].data[rowIndex] = rowData;
+            
+            // Changes saved
+            
+            // Show success message
+            // Notification removed
+        }
+        
+        // Add a new row to the current table
+        function addRow(tableId) {
+            const tbody = document.getElementById(tableId + 'Body');
+            
+            // Check for and remove any 'No data available' message
+            const noDataRow = tbody.querySelector('tr');
+            if (noDataRow && noDataRow.querySelector('td[colspan]')) {
+                tbody.innerHTML = '';
+            }
+            
+            // Create a new empty row in the data model
+            const newRowIndex = tables[tableId].data.length;
+            const newRow = {};
+            tables[tableId].columns.forEach(column => {
+                // Skip ID and any numbering columns
+                const colName = column.toLowerCase();
+                if (colName !== 'id' && colName !== 'no' && colName !== '#' && !colName.includes('number')) {
+                    newRow[column] = '';
+                }
+            });
+            tables[tableId].data.push(newRow);
+            
+            // Create the table row
+            const row = document.createElement('tr');
+            row.setAttribute('data-index', newRowIndex);
+            
+            // Add cells with editable inputs (skip ID and numbering columns)
+            tables[tableId].columns.forEach((column) => {
+                const colName = column.toLowerCase();
+                // Skip ID and numbering columns
+                if (colName === 'id' || colName === 'no' || colName === '#' || colName.includes('number')) {
+                    return;
+                }
+                
+                const cell = document.createElement('td');
+                const value = newRow[column] || '';
+                
+                if (colName === 'campus') {
+                    const campuses = ['Alangilan', 'Nasugbo', 'Balayan', 'Malvar', 'Lemery', 'Lipa', 'Lobo', 'Mabini', 'Pablo Borbon', 'Rosario', 'San Juan'];
+                    cell.innerHTML = `
+                        <select class="editable-select" data-row="${newRowIndex}" data-col="${column}">
+                            <option value="">-- Select --</option>
+                            ${campuses.map(c => 
+                                `<option value="${c}" ${value === c ? 'selected' : ''}>${c}</option>`
+                            ).join('')}
+                        </select>
+                    `;
+                } 
+                else if (colName === 'sex' || colName === 'gender') {
+                    cell.innerHTML = `
+                        <select class="editable-select" data-row="${newRowIndex}" data-col="${column}">
+                            <option value="">-- Select --</option>
+                            <option value="Male" ${value === 'Male' ? 'selected' : ''}>Male</option>
+                            <option value="Female" ${value === 'Female' ? 'selected' : ''}>Female</option>
+                            <option value="Other" ${value === 'Other' ? 'selected' : ''}>Other</option>
+                        </select>
+                    `;
+                }
+                else {
+                    const isNumber = ['amount', 'quantity', 'count', 'number', 'total', 'students', 'faculty', 'staff', 'visitors', 'cost', 'price', 'qty', 'weight', 'volume'].some(term => 
+                        colName.includes(term));
+                    const inputType = isNumber ? 'number' : 'text';
+                    const inputStep = isNumber ? 'step="0.01"' : '';
+                    
+                    cell.innerHTML = `
+                        <input type="${inputType}" 
+                               class="editable-input" 
+                               value="${value}" 
+                               data-row="${newRowIndex}" 
+                               data-col="${column}"
+                               ${inputStep}>
+                    `;
+                }
+                
+                row.appendChild(cell);
+            });
+            
+            // Add action buttons
+            const actionCell = document.createElement('td');
+            actionCell.className = 'actions';
+            
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'btn-save';
+            saveBtn.innerHTML = '<i class="fas fa-save"></i>';
+            saveBtn.title = 'Save';
+            saveBtn.onclick = () => saveRowFromInline(tableId, newRowIndex);
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-delete';
+            deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteBtn.title = 'Delete';
+            deleteBtn.onclick = () => {
+                if (confirm('Are you sure you want to delete this row?')) {
+                    deleteRow(tableId, newRowIndex);
+                }
+            };
+            
+            actionCell.appendChild(saveBtn);
+            actionCell.appendChild(deleteBtn);
+            row.appendChild(actionCell);
+            
+            // Add the new row to the table body
+            tbody.appendChild(row);
+            
+            // Update the row count
+            updateRowCount(tableId);
+            
+            // Scroll to the new row
+            row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Focus the first input in the new row
+            const firstInput = row.querySelector('input, select');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 100);
+            }
+            
+            // Changes saved
+        }
+        
+        // Edit a row
+        function editRow(tableId, rowIndex, isNew = false) {
+            const table = tables[tableId];
+            if (!table) {
+                showToast('Table not found', 'error');
+                return;
+            }
+            
+            // Initialize data array if it doesn't exist
+            if (!table.data) {
+                table.data = [];
+            }
+            
+            // For new rows, create an empty data object
+            if (isNew && !table.data[rowIndex]) {
+                table.data[rowIndex] = {};
+            } else if (!isNew && !table.data[rowIndex]) {
+                showToast('Row not found', 'error');
+                return;
+            }
+            
+            const rowData = table.data[rowIndex] || {};
+            const columns = table.columns;
+            
+            // Create form HTML
+            let formHtml = `
+                <form id="editForm" onsubmit="saveRow('${tableId}', ${rowIndex}); return false;">
+                    <div class="form-grid">
+            `;
+            
+            // Add form fields for each column (except ID and Actions)
+            columns.forEach((column, colIndex) => {
+                // Skip ID field (first column) and Actions column (last column)
+                if (colIndex === 0 || colIndex >= columns.length - 1) return;
+                
+                // Get the column name (handle both string and object formats)
+                const columnName = typeof column === 'object' ? (column.title || column) : column;
+                
+                // Skip if column name is not valid
+                if (!columnName) return;
+                
+                // Get the value from rowData, first try by column name, then by index
+                const value = rowData[columnName] || rowData[colIndex] || '';
+                const fieldId = `${tableId}_${colIndex}_${Date.now()}`;
+                const fieldName = columnName.toLowerCase().replace(/\s+/g, '_');
+                const labelId = `label_${fieldId}`;
+                let inputField = '';
+                const columnNameLower = String(columnName).toLowerCase();
+                
+                // Add label for the form field
+                formHtml += `
+                    <div class="form-group">
+                        <label for="${fieldId}" id="${labelId}">${columnName}${table.requiredFields && table.requiredFields.includes(columnName) ? ' <span class="required">*</span>' : ''}</label>`;
+                
+                // Check for specific table and column combinations first
+                if (
+                    (tableId === "admissiondata" || tableId === "foodwaste" || tableId === "campuspopulation" || tableId === "libraryvisitor" ||
+                     tableId === "enrollmentdata" || tableId === "graduatesdata" || tableId === "employee" ||
+                     tableId === "leaveprivilege" || tableId === "pwd" || tableId === "waterconsumption" ||
+                     tableId === "treatedwastewater" || tableId === "electricityconsumption" || tableId === "solidwaste" ||
+                     tableId === "fuelconsumption" || tableId === "distancetraveled" || tableId === "budgetexpenditure" || 
+                     tableId === "flightaccommodation") &&
+                    colIndex === 0
+                ) {
+                    inputField = `
+                        <select id="${fieldId}" 
+                                name="${fieldName}" 
+                                class="form-control" 
+                                aria-labelledby="${labelId}"
+                                ${table.requiredFields && table.requiredFields.includes(columnName) ? 'required' : ''}>
+                            <option value="">Select Campus</option>
+                            <option value="Alangilan" ${value === 'Alangilan' ? 'selected' : ''}>Alangilan</option>
+                            <option value="Nasugbo" ${value === 'Nasugbo' ? 'selected' : ''}>Nasugbo</option>
+                            <option value="Balayan" ${value === 'Balayan' ? 'selected' : ''}>Balayan</option>
+                            <option value="Malvar" ${value === 'Malvar' ? 'selected' : ''}>Malvar</option>
+                            <option value="Lemery" ${value === 'Lemery' ? 'selected' : ''}>Lemery</option>
+                            <option value="Lipa" ${value === 'Lipa' ? 'selected' : ''}>Lipa</option>
+                            <option value="Lobo" ${value === 'Lobo' ? 'selected' : ''}>Lobo</option>
+                            <option value="Mabini" ${value === 'Mabini' ? 'selected' : ''}>Mabini</option>
+                            <option value="Pablo Borbon" ${value === 'Pablo Borbon' ? 'selected' : ''}>Pablo Borbon</option>
+                            <option value="Rosario" ${value === 'Rosario' ? 'selected' : ''}>Rosario</option>
+                            <option value="San Juan" ${value === 'San Juan' ? 'selected' : ''}>San Juan</option>
+                        </select>`;
+                }
+                // Handle other specific dropdown cases
+                else if (tableId === "distancetraveled" && colIndex === 2) {
+                    const plateNumbers = ["P9U017", "P9T902", "P9M902", "A6F875", "SHS 165", "S5W578", "SKT 627", "KOC 825", "B8B575", "SJD 280", "BOU 837", "SKT 626", "S6C486", "SFN 552", "SEU 721", "S5W613"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Plate No</option>
+                            ${plateNumbers.map(plate => `<option value="${plate}" ${value === plate ? 'selected' : ''}>${plate}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Vehicle dropdown for distancetraveled and fuelconsumption
+                else if ((tableId === "distancetraveled" && colIndex === 3) || (tableId === "fuelconsumption" && colIndex === 3)) {
+                    const vehicles = [
+                        "Foton Bus", "Honda Civic", "Hyundai Starex", "Isuzu Sportivo", "Isuzu Traviz",
+                        "Mitsubishi Adventure", "Mitsubishi L300 FB Van", "Nissan Urvan", "Toyota Avanza",
+                        "Toyota Grandia", "Toyota Hi-Ace", "Toyota Hilux", "Toyota Minibus",
+                        "Generator", "Lawn Mower"
+                    ];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Vehicle</option>
+                            ${vehicles.map(vehicle => `<option value="${vehicle}" ${value === vehicle ? 'selected' : ''}>${vehicle}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Plate number dropdown for fuelconsumption
+                else if (tableId === "fuelconsumption" && colIndex === 4) {
+                    const plateNumbers = ["P9U017", "P9T902", "P9M902", "A6F875", "SHS 165", "S5W578", "SKT 627", "KOC 825", "B8B575", "SJD 280", "BOU 837", "SKT 626", "S6C486", "SFN 552", "SEU 721", "S5W613"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Plate No</option>
+                            ${plateNumbers.map(plate => `<option value="${plate}" ${value === plate ? 'selected' : ''}>${plate}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Fuel type dropdown
+                else if ((tableId === "distancetraveled" && colIndex === 4) || (tableId === "fuelconsumption" && colIndex === 5)) {
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Fuel Type</option>
+                            <option value="Diesel" ${value === 'Diesel' ? 'selected' : ''}>Diesel</option>
+                            <option value="Gasoline" ${value === 'Gasoline' ? 'selected' : ''}>Gasoline</option>
+                        </select>
+                    `;
+                }
+                // Month dropdown
+                else if ((tableId === "solidwaste" && colIndex === 1) || (tableId === "electricityconsumption" && colIndex === 2) || (tableId === "waterconsumption" && colIndex === 8)) {
+                    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Month</option>
+                            ${months.map(month => `<option value="${month}" ${value === month ? 'selected' : ''}>${month}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Waste type dropdown
+                else if (tableId === "solidwaste" && colIndex === 3) {
+                    const wasteTypes = ["Biodegradable", "Hazardous", "Recyclable", "Residual"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Waste Type</option>
+                            ${wasteTypes.map(type => `<option value="${type}" ${value === type ? 'selected' : ''}>${type}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Category dropdown for electricityconsumption
+                else if (tableId === "electricityconsumption" && colIndex === 1) {
+                    const categories = ["Main", "Solar", "Other"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Category</option>
+                            ${categories.map(cat => `<option value="${cat}" ${value === cat ? 'selected' : ''}>${cat}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Category dropdown for waterconsumption
+                else if (tableId === "waterconsumption" && colIndex === 2) {
+                    const categories = ["Mains", "Deepwell", "Drinking Water"];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Category</option>
+                            ${categories.map(cat => `<option value="${cat}" ${value === cat ? 'selected' : ''}>${cat}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Leave type dropdown
+                else if (tableId === "leaveprivilege" && colIndex === 1) {
+                    const leaveTypes = [
+                        "Maternity Leave", "Paternity Leave", "Solo Parent Leave",
+                        "10 Days VAWC Leave", "Special Leave Benefits for Women"
+                    ];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Leave Type</option>
+                            ${leaveTypes.map(type => `<option value="${type}" ${value === type ? 'selected' : ''}>${type}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                // Employee category dropdown
+                else if (tableId === "employee" && colIndex === 2) {
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="Teaching" ${value === 'Teaching' ? 'selected' : ''}>Teaching</option>
+                            <option value="Non-Teaching" ${value === 'Non-Teaching' ? 'selected' : ''}>Non-Teaching</option>
+                        </select>
+                    `;
+                }
+                // Sex dropdown
+                else if ((tableId === "employee" && colIndex === 4) || (tableId === "pwd" && colIndex === 5) || (tableId === "libraryvisitor" && colIndex === 3)) {
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">Select Sex</option>
+                            <option value="Male" ${value === 'Male' ? 'selected' : ''}>Male</option>
+                            <option value="Female" ${value === 'Female' ? 'selected' : ''}>Female</option>
+                        </select>
+                    `;
+                }
+                // For all other cases, fall back to default input types
+                else if (columnNameLower.includes('date')) {
+                    // Format date for input[type="date"]
+                    let dateValue = '';
+                    if (value) {
+                        const date = new Date(value);
+                        if (!isNaN(date)) {
+                            dateValue = date.toISOString().split('T')[0];
+                        }
+                    }
+                    inputField = `
+                        <input type="date" 
+                               id="${fieldId}" 
+                               name="${fieldName}" 
+                               class="form-control" 
+                               value="${dateValue}" 
+                               ${columnNameLower.includes('required') ? 'required' : ''}>
+                    `;
+                } else if (['amount', 'cost', 'earnings', 'quantity', 'weight', 'distance', 'consumption', 'emissions', 'number', 'count'].some(term => 
+                    columnNameLower.includes(term))) {
+                    inputField = `
+                        <input type="number" 
+                               id="${fieldId}" 
+                               name="${fieldName}" 
+                               class="form-control" 
+                               step="0.01" 
+                               value="${value}" 
+                               ${columnNameLower.includes('required') ? 'required' : ''}>
+                    `;
+                } else if (columnNameLower === 'campus') {
+                    const campuses = ['Alangilan', 'Nasugbo', 'Balayan', 'Malvar', 'Lemery', 'Lipa', 'Lobo', 'Mabini', 'Pablo Borbon', 'Rosario', 'San Juan'];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" ${columnNameLower.includes('required') ? 'required' : ''}>
+                            <option value="">-- Select Campus --</option>
+                            ${campuses.map(campus => 
+                                `<option value="${campus}" ${String(value).trim().toLowerCase() === campus.toLowerCase() ? 'selected' : ''}>${campus}</option>`
+                            ).join('')}
+                        </select>
+                    `;
+                } else if (columnNameLower === 'program' || columnNameLower.includes('course')) {
+                    const programs = ['BSIT', 'BSCS', 'BSIS', 'BSCpE', 'BSECE', 'BSME', 'BSEE', 'BSN', 'BSA', 'BSBA', 'BSEd', 'BEEd', 'BSHM', 'BSTM'];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" ${columnNameLower.includes('required') ? 'required' : ''}>
+                            <option value="">-- Select Program --</option>
+                            ${programs.map(program => `<option value="${program}" ${value === program ? 'selected' : ''}>${program}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (columnNameLower.includes('academic year') || columnNameLower.includes('school year')) {
+                    const currentYear = new Date().getFullYear();
+                    const years = [];
+                    for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+                        years.push(`${i}-${i+1}`);
+                    }
+                    inputField = `
+                        <select id="${fieldId}" class="form-control" required>
+                            <option value="">-- Select Academic Year --</option>
+                            ${years.map(year => `<option value="${year}" ${value === year ? 'selected' : ''}>${year}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (columnNameLower.includes('facility type')) {
+                    const facilityTypes = ['Classroom', 'Laboratory', 'Office', 'Library', 'Auditorium', 'Gymnasium', 'Cafeteria', 'Other'];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">-- Select Facility Type --</option>
+                            ${facilityTypes.map(type => `<option value="${type}" ${value === type ? 'selected' : ''}>${type}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (columnNameLower.includes('waste type') || columnNameLower.includes('material type')) {
+                    const wasteTypes = ['Paper', 'Plastic', 'Glass', 'Metal', 'Organic', 'E-waste', 'Hazardous', 'Other'];
+                    inputField = `
+                        <select id="${fieldId}" name="${fieldName}" class="form-control" required>
+                            <option value="">-- Select ${columnName} --</option>
+                            ${wasteTypes.map(type => `<option value="${type}" ${value === type ? 'selected' : ''}>${type}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (['note', 'description', 'purpose', 'source', 'building', 'room', 'destination', 'employee', 'name'].some(term => 
+                    columnNameLower.includes(term.toLowerCase())
+                )) {
+                    inputField = `<textarea id="${fieldId}" class="form-control" rows="2" required>${value}</textarea>`;
+                } else if (columnNameLower.includes('date') || columnNameLower === 'date issued' || columnNameLower === 'expiry date' || 
+                          (tableId === 'foodwaste' && columnNameLower === 'date')) {
+                    if (tableId === 'foodwaste' && columnNameLower === 'date') {
+                        // Special handling for food waste date field
+                        const dateOptions = [];
+                        const today = new Date();
+                        for (let i = 0; i < 30; i++) {
+                            const date = new Date();
+                            date.setDate(today.getDate() - i);
+                            const dateString = date.toISOString().split('T')[0];
+                            const displayDate = date.toLocaleDateString('en-US', { 
+                                weekday: 'short',
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                            });
+                            dateOptions.push(`<option value="${dateString}" ${value === dateString ? 'selected' : ''}>${displayDate}</option>`);
+                        }
+                        
+                        inputField = `
+                            <div class="date-input-container">
+                                <select id="${fieldId}" class="form-control" required>
+                                    <option value="">-- Select Date --</option>
+                                    ${dateOptions.join('')}
+                                </select>
+                                <i class="fas fa-calendar-alt date-icon"></i>
+                            </div>`;
+                    } else {
+                        // Regular date input for other tables
+                        inputField = `
+                            <div class="date-input-container">
+                                <input type="date" id="${fieldId}" class="form-control" value="${value}" required>
+                                <i class="fas fa-calendar-alt date-icon"></i>
+                            </div>`;
+                    }
+                } else {
+                    inputField = `<input type="text" id="${fieldId}" class="form-control" value="${value}" required>`;
+                }
+                
+                formHtml += `
+                    <div class="form-group">
+                        <label for="${fieldId}">${columnName}:</label>
+                        ${inputField}
+            });
+            
+            formHtml += `
+                </div> <!-- Close form-fields -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()" aria-label="Cancel changes">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveRow('${tableId}', ${rowIndex}, ${isNew ? 'true' : 'false'})" aria-label="Save changes">Save</button>
+                </div>
+            </form>
+        `;
+            
+            // Show modal with form
+            document.getElementById('modalTitle').textContent = `Edit ${tableId.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}`;
+            document.getElementById('modalContent').innerHTML = formHtml;
+            document.getElementById('reportModal').style.display = 'flex';
+            
+            // Focus on the first input field
+            const firstInput = document.querySelector('#editForm input, #editForm select, #editForm textarea');
+            if (firstInput) firstInput.focus();
+        }
+        
+        // Save draft data to localStorage
+        function saveDraft() {
+            try {
+                Object.keys(tables).forEach(tableId => {
+                    if (tables[tableId] && tables[tableId].data) {
+                        const draftKey = `draft_${tableId}_${currentCampus || 'default'}`;
+                        localStorage.setItem(draftKey, JSON.stringify(tables[tableId].data));
+                    }
+                });
+                return true;
+            } catch (error) {
+                console.error('Error saving draft:', error);
+                return false;
+            }
+        }
+        
+        // Save row data
+        function saveRow(tableId, rowIndex) {
+            const table = tables[tableId];
+            
+            // Initialize data array if it doesn't exist
+            if (!table.data) {
+                table.data = [];
+            }
+            
+            // Create new row data object if it doesn't exist
+            if (!table.data[rowIndex]) {
+                table.data[rowIndex] = {};
+            }
+            
+            const form = document.getElementById('editForm');
+            if (!form) {
+                console.error('Form not found');
+                return false;
+            }
+            
+            // Get all form fields and update the row data
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            // Skip the ID column (index 0) if it exists
+            const startIndex = table.columns[0].toLowerCase() === 'id' ? 1 : 0;
+            
+            // Create an object to store the row data
+            const rowData = {};
+            
+            // First, collect all the data
+            inputs.forEach((input, index) => {
+                if (input.type === 'button' || input.type === 'submit') return;
+                
+                const colIndex = index + startIndex;
+                if (colIndex >= table.columns.length) return;
+                
+                const columnName = table.columns[colIndex];
+                const value = input.type === 'checkbox' ? input.checked : input.value.trim();
+                
+                // Store the value using the column name as key
+                rowData[columnName] = value;
+                
+                // Also store by index for backward compatibility
+                rowData[colIndex] = value;
+            });
+            
+            // Update the row data in the table
+            table.data[rowIndex] = rowData;
+            
+            // Changes saved
+            
+            // Close the modal
+            closeModal();
+            
+            // Refresh the table
+            showTable(tableId);
+            
+            // Show success message
+            // Notification removed
+            
+            return false;
+        }
+        
+        // Delete a row
+        function deleteRow(tableId, rowIndex) {
+            if (!confirm('Are you sure you want to delete this row? This action cannot be undone.')) {
+                return;
+            }
+            
+            const table = tables[tableId];
+            if (!table || !table.data[rowIndex]) {
+                console.error('Row not found');
+                return;
+            }
+            
+            // Remove the row from the data
+            table.data.splice(rowIndex, 1);
+            
+            // Refresh the table
+            showTable(tableId);
+            
+            // Show success message
+        }
+        
+        // Submit report to the server
+        function submitReport() {
+            if (!currentReport) {
+                console.warn('Please select a report type first');
+                return;
+            }
+            
+            const table = tables[currentReport];
+            if (!table || table.data.length === 0) {
+                console.warn('No data to submit');
+                return;
+            }
+            
+            if (!confirm(`Are you sure you want to submit ${table.data.length} records for ${currentReport}?`)) {
+                return;
+            }
+            
+            // In a real application, you would send this data to the server
+            // For now, we'll simulate a successful submission
+            console.log('Submitting report...');
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Report submitted successfully
+                
+                // Refresh the table to show empty state or updated data
+                // In a real app, you might want to fetch the latest data from the server
+                table.data = [];
+                showTable(currentReport);
+            }, 1500);
+            
+            // In a real application, you would use fetch() to send the data to the server:
+            /*
+            fetch('api/submit_report.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    reportType: currentReport,
+                    data: table.data,
+                    submittedBy: userEmail,
+                    submittedAt: new Date().toISOString()
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Clear the draft after successful submission
+                    localStorage.removeItem(`draft_${currentReport}`);
+                    
+                    // Show success message
+                    showToast('Report submitted successfully!', 'success');
+                    
+                    // Refresh the table to show updated data
+                    showTable(currentReport);
+                } else {
+                    throw new Error(data.message || 'Failed to submit report');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast(`Error: ${error.message}`, 'error');
+            });
+            */
+        }
+        
+        // Export table to Excel
+        function exportToExcel(tableId = null) {
+            const targetTableId = tableId || currentReport;
+            if (!targetTableId) {
+                console.warn('Please select a report type first');
+                return;
+            }
+            
+            const table = tables[targetTableId];
+            if (!table || table.data.length === 0) {
+                showToast('No data to export', 'warning');
+                return;
+            }
+            
+            // In a real application, you would generate an Excel file
+            // For now, we'll just show a success message
+            showToast(`Exporting ${table.data.length} records to Excel...`, 'info');
+            
+            // Simulate export
+            setTimeout(() => {
+                showToast('Export completed successfully!', 'success');
+            }, 1000);
+            
+            // In a real application, you might use a library like SheetJS to generate Excel files
+            /*
+            import * as XLSX from 'xlsx';
+            
+            // Create a new workbook
+            const wb = XLSX.utils.book_new();
+            
+            // Convert table data to worksheet
+            const ws = XLSX.utils.json_to_sheet(table.data);
+            
+            // Add the worksheet to the workbook
+            XLSX.utils.book_append_sheet(wb, ws, targetTableId);
+            
+            // Generate Excel file and trigger download
+            XLSX.writeFile(wb, `${targetTableId}_${new Date().toISOString().split('T')[0]}.xlsx`);
+            */
+        }
+        
+        // Print the current report
+        function printReport(tableId = null) {
+            const targetTableId = tableId || currentReport;
+            if (!targetTableId) {
+                console.warn('Please select a report type first');
+                return;
+            }
+            
+            const table = document.getElementById(`${targetTableId}Table`);
+            if (!table) {
+                showToast('No data to print', 'warning');
+                return;
+            }
+            
+            // Create a new window for printing
+            const printWindow = window.open('', '_blank');
+            
+            // Get the table HTML
+            const tableHtml = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>${targetTableId.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} - ${new Date().toLocaleDateString()}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        h1 { color: #333; text-align: center; }
+                        .print-header { margin-bottom: 20px; text-align: center; }
+                        .print-footer { margin-top: 20px; text-align: right; font-size: 0.9em; color: #666; }
+                        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                        th { background-color: #f5f5f5; text-align: left; padding: 8px; border: 1px solid #ddd; }
+                        td { padding: 8px; border: 1px solid #ddd; }
+                        @media print {
+                            .no-print { display: none; }
+                            body { margin: 0; }
+                            table { page-break-inside: auto; }
+                            tr { page-break-inside: avoid; page-break-after: auto; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="print-header">
+                        <h1>${targetTableId.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h1>
+                        <p>Generated on: ${new Date().toLocaleString()}</p>
+                    </div>
+                    ${table.outerHTML}
+                    <div class="print-footer">
+                        <p>Page 1 of 1</p>
+                    </div>
+                    <div class="no-print" style="margin-top: 20px; text-align: center;">
+                        <button onclick="window.print()">Print Report</button>
+                        <button onclick="window.close()">Close</button>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Write the HTML to the new window
+            printWindow.document.open();
+            printWindow.document.write(tableHtml);
+            printWindow.document.close();
+            
+            // Show print dialog when the content is loaded
+            printWindow.onload = function() {
+                setTimeout(() => {
+                    printWindow.print();
+                }, 500);
+            };
+        }
+        
+        // Filter reports by campus
+        function filterReports() {
+            const campus = document.getElementById('campus').value;
+            const reportType = document.getElementById('reportType').value;
+            
+            if (!reportType) return;
+            
+            // In a real application, you would filter the data based on the selected campus
+            // For now, we'll just show a message
+            if (campus) {
+                showToast(`Filtering reports for ${campus} campus...`, 'info');
+                
+                // Simulate loading filtered data
+                setTimeout(() => {
+                    showTable(reportType);
+                    showToast(`Showing reports for ${campus} campus`, 'success');
+                }, 500);
+            } else {
+                showTable(reportType);
+            }
+        }
+        
+        // Update row count display
+        function updateRowCount(tableId) {
+            if (!tableId) return;
+            
+            const table = tables[tableId];
+            if (!table) return;
+            
+            const rowCountElement = document.getElementById(`${tableId}RowCount`);
+            if (rowCountElement) {
+                rowCountElement.textContent = table.data.length;
+            }
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('reportModal').style.display = 'none';
+        }
+        
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            // Create toast container if it doesn't exist
+            let toastContainer = document.getElementById('toast-container');
+            if (!toastContainer) {
+                toastContainer = document.createElement('div');
+                toastContainer.id = 'toast-container';
+                document.body.appendChild(toastContainer);
+            }
+            
+            // Ensure the toast container is in the DOM
+            if (!document.body.contains(toastContainer)) {
+                document.body.appendChild(toastContainer);
+            }
+            
+            // Create toast element
+            const toastElement = document.createElement('div');
+            toastElement.className = `toast ${type}`;
+            
+            // Set icon based on type
+            let icon = 'ℹ️';
+            switch(type) {
+                case 'success':
+                    icon = '✓';
+                    break;
+                case 'error':
+                    icon = '✕';
+                    break;
+                case 'warning':
+                    icon = '⚠️';
+                    break;
+                case 'info':
+                default:
+                    icon = 'ℹ️';
+            }
+            
+            // Set toast content
+            toastElement.innerHTML = `
+                <div class="toast-icon">${icon}</div>
+                <div class="toast-message">${message}</div>
+                <button class="toast-close">×</button>
+            `;
+            
+            // Add to container and show
+            toastContainer.appendChild(toastElement);
+            
+            // Auto remove after delay
+            const autoRemove = setTimeout(() => {
+                if (toastElement && toastElement.parentNode) {
+                    toastElement.remove();
+                }
+                // Remove container if no more toasts
+                if (toastContainer.children.length === 0) {
+                    toastContainer.remove();
+                }
+            }, 5000);
+            
+            // Close on button click
+            const closeBtn = toastElement.querySelector('.toast-close');
+            closeBtn.addEventListener('click', () => {
+                clearTimeout(autoRemove);
+                if (toastElement && toastElement.parentNode) {
+                    toastElement.remove();
+                    
+                    // Remove container if no more toasts
+                    if (toastContainer && toastContainer.children.length === 0) {
+                        toastContainer.remove();
+                    }
+                }
+            });
+            
+            return toastElement;
+        }
+        
+        // Function to get table ID from URL
+        function getTableFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tableId = urlParams.get('table');
+            return tableId || 'graduatesdata';
+        }
+
+        // Function to fetch table data from the server
+        async function fetchTableData(tableId) {
+            try {
+                console.log('Fetching data for table:', tableId);
+                const response = await fetch(`api/getTableData.php?table=${tableId}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                if (data.success && data.data) {
+                    console.log('Data received:', data.data);
+                    return data.data;
+                } else {
+                    console.warn('No data received from server');
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error fetching table data:', error);
+                return [];
+            }
+        }
+
+        // Function to load and display the correct table
+        async function loadAssignedTable() {
+            let tableId = getTableFromUrl();
+            console.log('Loading table:', tableId);
+            
+            // Debug: Log available table definitions
+            console.log('Available tables:', Object.keys(tableDefinitions));
+            
+            // If no tableId in URL or invalid tableId, use the first available table as default
+            if (!tableId || !tableDefinitions[tableId]) {
+                tableId = Object.keys(tableDefinitions)[0]; // Get first table
+                console.log('No valid table in URL, using default:', tableId);
+                // Update URL without page reload
+                const newUrl = window.location.pathname + (window.location.search ? '' : '?') + 
+                             (window.location.search ? '&' : '?') + 'table=' + tableId;
+                window.history.replaceState({ path: newUrl }, '', newUrl);
+            }
+            
+            // Ensure the table exists in the definitions
+            if (!tableDefinitions[tableId]) {
+                console.error('Table not found in definitions:', tableId);
+                const container = document.getElementById('tablesContainer');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Error: Table configuration not found for "${tableId}"</p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+            
+            // Show loading state
+            const container = document.getElementById('tablesContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="loading-message">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading data, please wait...</p>
+                    </div>
+                `;
+            }
+            
+            try {
+                // Initialize the table if it doesn't exist
+                if (!tables[tableId]) {
+                    tables[tableId] = {
+                        columns: tableDefinitions[tableId].columns,
+                        data: [],
+                        displayName: tableDefinitions[tableId].displayName
+                    };
+                }
+                
+                // Fetch data from the server
+                const tableData = await fetchTableData(tableId);
+                
+                // Update the table data
+                if (tableData && Array.isArray(tableData)) {
+                    tables[tableId].data = tableData;
+                    console.log(`Loaded ${tableData.length} rows for table ${tableId}`);
+                } else {
+                    console.warn('No valid data received for table:', tableId);
+                    tables[tableId].data = [];
+                }
+                
+                // Show the table with the loaded data
+                showTable(tableId);
+                
+            } catch (error) {
+                console.error('Error loading table data:', error);
+                if (container) {
+                    container.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Error loading data. Please try again later.</p>
+                            <p>${error.message}</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        // Function to load table data
+        function loadTableData(tableId, tbody) {
+            try {
+                if (!tbody) {
+                    console.error('Table body element not found');
+                    return;
+                }
+                
+                // Clear loading message
+                tbody.innerHTML = '';
+                
+                const table = tables[tableId];
+                if (!table) {
+                    console.error('Table not found in tables object:', tableId);
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="10" style="text-align: center; padding: 20px; color: red;">
+                                Error: Table configuration not found
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                if (!table.data || table.data.length === 0) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="${table.columns.length}" style="text-align: center; padding: 20px;">
+                                No data available. Click 'Add Row' to add new data.
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                // Add data rows
+                table.data.forEach((rowData, rowIndex) => {
+                    const row = document.createElement('tr');
+                    
+                    // Add data cells (skip ID column and any automatic numbering)
+                    table.columns.forEach((column, colIndex) => {
+                        // Skip ID column and any column that might be used for numbering
+                        if (column.toLowerCase() === 'id' || column.toLowerCase() === 'no' || column === '#') return;
+                        
+                        const cell = document.createElement('td');
+                        const value = rowData[column] || '';
+                        
+                        // Make cell editable with appropriate input type
+                        const colName = column.toLowerCase();
+                        
+                        if (colName === 'campus') {
+                            const campuses = ['Alangilan', 'Nasugbo', 'Balayan', 'Malvar', 'Lemery', 'Lipa', 'Lobo', 'Mabini', 'Pablo Borbon', 'Rosario', 'San Juan'];
+                            cell.innerHTML = `
+                                <select class="editable-select" data-row="${rowIndex}" data-col="${column}">
+                                    <option value="">-- Select --</option>
+                                    ${campuses.map(c => 
+                                        `<option value="${c}" ${value === c ? 'selected' : ''}>${c}</option>`
+                                    ).join('')}
+                                </select>
+                            `;
+                        } 
+                        else if (colName === 'sex' || colName === 'gender') {
+                            cell.innerHTML = `
+                                <select class="editable-select" data-row="${rowIndex}" data-col="${column}">
+                                    <option value="">-- Select --</option>
+                                    <option value="Male" ${value === 'Male' ? 'selected' : ''}>Male</option>
+                                    <option value="Female" ${value === 'Female' ? 'selected' : ''}>Female</option>
+                                    <option value="Other" ${value === 'Other' ? 'selected' : ''}>Other</option>
+                                </select>
+                            `;
+                        }
+                        else {
+                            const isNumber = ['amount', 'quantity', 'count', 'number', 'total', 'students', 'faculty', 'staff', 'visitors', 'cost', 'price', 'qty', 'weight', 'volume'].some(term => 
+                                colName.includes(term));
+                            const inputType = isNumber ? 'number' : 'text';
+                            const inputStep = isNumber ? 'step="0.01"' : '';
+                            
+                            cell.innerHTML = `
+                                <input type="${inputType}" 
+                                       class="editable-input" 
+                                       value="${value}" 
+                                       data-row="${rowIndex}" 
+                                       data-col="${column}"
+                                       ${inputStep}>
+                            `;
+                        }
+                        
+                        row.appendChild(cell);
+                    });
+                    
+                    // Add action buttons
+                    const actionCell = document.createElement('td');
+                    actionCell.className = 'actions';
+                    
+                    const saveBtn = document.createElement('button');
+                    saveBtn.className = 'btn-save';
+                    saveBtn.innerHTML = '<i class="fas fa-save"></i>';
+                    saveBtn.title = 'Save';
+                    saveBtn.onclick = () => saveRowFromInline(tableId, rowIndex);
+                    
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'btn-delete';
+                    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+                    deleteBtn.title = 'Delete';
+                    deleteBtn.onclick = () => {
+                        if (confirm('Are you sure you want to delete this row?')) {
+                            deleteRow(tableId, rowIndex);
+                        }
+                    };
+                    
+                    actionCell.appendChild(saveBtn);
+                    actionCell.appendChild(deleteBtn);
+                    row.appendChild(actionCell);
+                    
+                    tbody.appendChild(row);
+                });
+                
+                // Add event listeners for inline editing
+                addInlineEditListeners(tableId);
+                
+            } catch (error) {
+                console.error('Error loading table data:', error);
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="${tables[tableId].columns.length + 1}" style="text-align: center; color: red; padding: 20px;">
+                            Error loading data. Please try again.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+        
+        // Initialize the page with the assigned table
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            
+            // Initialize sidebar toggle
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.querySelector('.sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(e) {
+                const sidebar = document.querySelector('.sidebar');
+                const sidebarToggle = document.getElementById('sidebarToggle');
+                
+                if (!sidebar || !sidebarToggle) return;
+                
+                if (window.innerWidth <= 992 && 
+                    !sidebar.contains(e.target) && 
+                    e.target !== sidebarToggle && 
+                    !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
+            
+            // Load the assigned table after a small delay to ensure DOM is fully ready
+            setTimeout(function() {
+                console.log('Loading assigned table...');
+                try {
+                    loadAssignedTable();
+                } catch (error) {
+                    console.error('Error loading table:', error);
+                    const container = document.getElementById('tablesContainer');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>Error loading table data. Please try again later.</p>
+                            </div>`;
+                    }
+                }
+            }, 100);
+            
+            // Add beforeunload event listener
+            window.addEventListener('beforeunload', function(e) {
+                // This is intentionally left empty
+            });
+        });
+    </script>
+    
+    <script>
+        // Add any additional JavaScript that needs to run after the DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Application initialized');
+            
+            // Close modal when clicking outside
+            const modal = document.getElementById('reportModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Initialize tooltips
+            const tooltips = document.querySelectorAll('[data-tooltip]');
+            tooltips.forEach(tooltip => {
+                tooltip.addEventListener('mouseenter', function() {
+                    this.setAttribute('title', this.getAttribute('data-tooltip'));
+                });
+            });
+        });
+    }); // End of DOMContentLoaded
+  })(); // End of IIFE
+  </script>
+  
+  <!-- Edit Modal -->
+    <div id="reportModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalTitle">Edit Row</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Form will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-box {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #718096;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .close-btn:hover {
+            color: #2d3748;
+        }
+        
+        .modal-body {
+            padding: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .modal-logo-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #e2e8f0;
+        }
+    </style>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    
+    <!-- Main Application Script -->
+    <script>
+    // Global variables
+    let currentReport = '';
+    let reportData = {};

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Data - Reports</title>
+  <link rel="stylesheet" href="css/report-styles.css?v=1.0.2">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <!-- jsPDF and jsPDF AutoTable for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  
+  <style>
+    /* Your existing CSS styles here */
+  </style>
+</head>
+<body>
+  
+  <div class="main-container">
+    <div class="main-content">
+      <div id="tablesContainer"></div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-logo-header">
+        <img src="image/BatStateU-NEU-Logo.png" alt="Spartan Data Logo" class="modal-logo">
+        <div class="modal-system-name">Spartan Data</div>
+      </div>
+      <div class="modal-header">
+        <h3>Confirm Submission</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-content">
+        <p>Are you sure you want to submit this report? It will be sent to the admin for review.</p>
+        <div class="modal-table-container">
+          <div class="table-responsive">
+            <!-- Table content will be inserted here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary">
+          <i class="fas fa-check"></i> Yes, Submit
+        </button>
+        <button class="btn btn-outline">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+    
+  <!-- External JavaScript -->
+  <script src="js/report.js"></script>
+</body>
+</html>

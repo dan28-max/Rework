@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quick Dialog Check</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <h1>Quick Check</h1>
+    <button onclick="check()">Check Dialog</button>
+    <pre id="output"></pre>
+    
+    <script src="js/confirm-dialog.js?v=2.1"></script>
+    <script>
+        function check() {
+            const output = document.getElementById('output');
+            let info = '';
+            
+            info += 'window.showConfirmDialog: ' + (typeof window.showConfirmDialog) + '\n';
+            info += 'window.ConfirmDialog: ' + (typeof window.ConfirmDialog) + '\n';
+            
+            const dialog = document.getElementById('confirm-dialog-instance');
+            info += 'Dialog in DOM: ' + (dialog ? 'YES' : 'NO') + '\n';
+            
+            if (dialog) {
+                info += 'Dialog display: ' + dialog.style.display + '\n';
+                info += 'Dialog opacity: ' + dialog.style.opacity + '\n';
+                info += 'Has icon section: ' + (dialog.querySelector('.confirm-dialog-icon-section') ? 'YES' : 'NO') + '\n';
+                info += 'Has content: ' + (dialog.querySelector('.confirm-dialog-content') ? 'YES' : 'NO') + '\n';
+                
+                const iconSection = dialog.querySelector('.confirm-dialog-icon-section');
+                if (iconSection) {
+                    info += 'Icon section background: ' + iconSection.style.background + '\n';
+                }
+            }
+            
+            output.textContent = info;
+            console.log('Dialog check:', info);
+            
+            // Try to show it
+            if (window.showConfirmDialog) {
+                showConfirmDialog({
+                    title: 'Test',
+                    message: 'Testing dialog',
+                    type: 'danger'
+                });
+            }
+        }
+        
+        window.addEventListener('load', () => {
+            setTimeout(check, 1000);
+        });
+    </script>
+</body>
+</html>
+
+
+
+

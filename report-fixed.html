@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Data - Reports</title>
+  <link rel="stylesheet" href="css/report-styles.css?v=1.0.2">
+  
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  
+  <style>
+    /* Your existing CSS styles here */
+    .btn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.9rem;
+      line-height: 1.25;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Add other CSS styles as needed */
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="main-content">
+      <div id="tablesContainer"></div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Confirm Action</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to submit this report?</p>
+      </div>
+      <div class="modal-footer">
+        <button onclick="confirmSave(true)" class="btn btn-primary">
+          <i class="fas fa-check"></i> Yes, Submit
+        </button>
+        <button onclick="confirmSave(false)" class="btn btn-outline">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Modal -->
+  <div id="reportModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Edit Row</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="modalContent">
+          <!-- Form will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Script -->
+  <script>
+  // Wrap everything in an IIFE to avoid global scope pollution
+  (function() {
+    'use strict';
+
+    // Global variables
+    let currentReport = '';
+    let reportData = {};
+    
+    // Table definitions
+    const tableDefinitions = {
+      graduatesdata: {
+        columns: ['ID', 'Campus', 'Program', 'Graduates', 'Year'],
+        displayName: 'Graduates Data',
+        requiredFields: ['Campus', 'Program', 'Graduates', 'Year']
+      },
+      // Add other table definitions as needed
+    };
+
+    // Initialize the application when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM fully loaded');
+      
+      // Load the initial table
+      loadAssignedTable();
+      
+      // Add event listeners
+      setupEventListeners();
+    });
+
+    // Setup event listeners
+    function setupEventListeners() {
+      // Close modal when clicking outside
+      const modal = document.getElementById('reportModal');
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+    }
+
+    // Load the assigned table
+    function loadAssignedTable() {
+      const tableId = getTableFromUrl() || 'graduatesdata';
+      console.log('Loading table:', tableId);
+      
+      // Show loading state
+      const container = document.getElementById('tablesContainer');
+      if (container) {
+        container.innerHTML = `
+          <div class="loading-message">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading data, please wait...</p>
+          </div>`;
+      }
+      
+      // Simulate data loading (replace with actual API call)
+      setTimeout(() => {
+        if (tableDefinitions[tableId]) {
+          showTable(tableId);
+        } else {
+          console.error('Table not found:', tableId);
+          if (container) {
+            container.innerHTML = `
+              <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Error: Table configuration not found for "${tableId}"</p>
+              </div>`;
+          }
+        }
+      }, 1000);
+    }
+
+    // Show table with data
+    function showTable(tableId) {
+      console.log('Showing table:', tableId);
+      const container = document.getElementById('tablesContainer');
+      if (!container) return;
+      
+      const tableDef = tableDefinitions[tableId];
+      if (!tableDef) return;
+      
+      // Create table HTML
+      const tableHtml = `
+        <div class="table-container">
+          <div class="table-header">
+            <h2>${tableDef.displayName}</h2>
+            <button class="btn btn-primary" onclick="addRow('${tableId}')">
+              <i class="fas fa-plus"></i> Add Row
+            </button>
+          </div>
+          <div class="table-responsive">
+            <table class="report-table" id="${tableId}Table">
+              <thead>
+                <tr>
+                  ${tableDef.columns.map(col => `<th>${col}</th>`).join('')}
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="${tableId}Body">
+                <tr>
+                  <td colspan="${tableDef.columns.length + 1}" style="text-align: center; padding: 20px;">
+                    No data available. Click 'Add Row' to add new data.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`;
+      
+      container.innerHTML = tableHtml;
+    }
+
+    // Add a new row
+    function addRow(tableId) {
+      console.log('Adding row to table:', tableId);
+      // Implementation for adding a new row
+    }
+
+    // Close modal
+    function closeModal() {
+      const modal = document.getElementById('reportModal');
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Get table ID from URL
+    function getTableFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('table');
+    }
+
+    // Make functions available globally
+    window.addRow = addRow;
+    window.closeModal = closeModal;
+    window.confirmSave = function(confirm) {
+      console.log('Confirm save:', confirm);
+      closeModal();
+    };
+    
+  })();
+  </script>
+</body>
+</html>

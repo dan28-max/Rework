@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spartan Data - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="admin-dashboard.css?v=1.0">
+    <link rel="stylesheet" href="admin-dashboard-enhanced.css?v=1.1">
+    <link rel="stylesheet" href="css/assignment-steps.css?v=1.0">
+    <link rel="stylesheet" href="css/data-management-formal.css?v=1.0">
+    <link rel="stylesheet" href="css/admin-dropdown.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* Modern table enhancements for report tables */
+        .table-wrapper {
+            background: #ffffff;
+            border: 1px solid #e6e8eb;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(16, 24, 40, 0.06);
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #c8cdd4;
+            border-radius: 999px;
+            border: 2px solid #f6f7f9;
+        }
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f6f7f9;
+            border-radius: 999px;
+        }
+
+        table.formal-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        }
+
+        .formal-table thead th {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            padding: 14px 16px;
+            border-bottom: 1px solid #e6e8eb;
+            z-index: 2;
+        }
+
+        .formal-table thead th:first-child {
+            border-top-left-radius: 12px;
+        }
+        .formal-table thead th:last-child {
+            border-top-right-radius: 12px;
+        }
+
+        .formal-table tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eef0f3;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        .formal-table tbody tr:nth-child(even) td {
+            background: #fafbfc;
+        }
+
+        .formal-table tbody tr:hover td {
+            background: #f5f7fb;
+            transition: background 160ms ease;
+        }
+
+        .formal-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        /* Compact utility cells */
+        .formal-table th[style*="width"],
+        .formal-table td[style*="width"] {
+            white-space: nowrap;
+        }
+
+        /* Status badges (optional, if applied in cells) */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        .status-badge.success { background: #ecfdf5; color: #047857; }
+        .status-badge.warning { background: #fff7ed; color: #c2410c; }
+        .status-badge.info { background: #eef2ff; color: #3730a3; }
+        .status-badge.danger { background: #fef2f2; color: #b91c1c; }
+
+        /* Responsive min-width to avoid cramped layouts; allow horizontal scroll */
+        .table-wrapper table {
+            min-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .formal-table thead th,
+            .formal-table tbody td {
+                padding: 12px 14px;
+            }
+            .table-wrapper table {
+                min-width: 720px;
+            }
+        }
+    </style>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="image/BatStateU-NEU-Logo.png" alt="BatStateU Logo" class="dashboard-logo" style="width: 80px; height: 80px; margin-bottom: 15px; border-radius: 50%; background: white; padding: 5px;">
+                <h1>Spartan Data</h1>
+                <p>Admin Dashboard</p>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Admin User</span>
+                    <span class="user-role" id="userRole">Administrator</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="data">
+                    <i class="fas fa-database"></i>
+                    <span>Data Management</span>
+                </li>
+                <li class="nav-item" data-section="submissions">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Report Submissions</span>
+                </li>
+                <li class="nav-item" data-section="users">
+                    <i class="fas fa-users"></i>
+                    <span>User Management</span>
+                </li>
+                <li class="nav-item" data-section="userActivity">
+                    <i class="fas fa-user-clock"></i>
+                    <span>User Activity</span>
+                </li>
+                <li class="nav-item" data-section="profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>My Profile</span>
+                </li>
+                <li class="nav-item" data-section="system" id="systemSettingsNavItem" style="display: none;">
+                    <i class="fas fa-cogs"></i>
+                    <span>System Settings</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="pageTitle">Admin Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <button id="logoutButton" class="logout-button" onclick="logout(event)">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Profile Section -->
+                <section id="profile" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                            <p class="section-description">View and manage your profile information</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-container">
+                        <div class="profile-card-enhanced">
+                            <!-- Profile Header with Enhanced Design -->
+                            <div class="profile-header-enhanced">
+                                <div class="profile-avatar-wrapper">
+                                    <div class="profile-avatar-enhanced" id="profileAvatar">
+                                        <span class="avatar-initial" id="avatarInitial">A</span>
+                                    </div>
+                                    <div class="avatar-status-indicator"></div>
+                                    <div class="avatar-decoration"></div>
+                                </div>
+                                <div class="profile-info-enhanced">
+                                    <h2 class="profile-name" id="profileName">Loading...</h2>
+                                    <p class="profile-email-enhanced" id="profileEmail">
+                                        <i class="fas fa-envelope"></i>
+                                        <span id="profileEmailText">admin@example.com</span>
+                                    </p>
+                                    <div class="profile-role-badge-enhanced" id="profileRoleBadge">
+                                        <i class="fas fa-user-shield"></i>
+                                        <span id="profileRoleText">Administrator</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Details Grid -->
+                            <div class="profile-details-enhanced">
+                                <!-- Work Information Card -->
+                                <div class="profile-section-card">
+                                    <div class="section-header-enhanced">
+                                        <div class="section-icon-wrapper" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <h3 class="section-title">Work Information</h3>
+                                    </div>
+                                    <div class="details-grid">
+                                        <div class="detail-item-enhanced">
+                                            <div class="detail-label-wrapper">
+                                                <i class="fas fa-building detail-icon"></i>
+                                                <span class="detail-label-text">Campus</span>
+                                            </div>
+                                            <div class="detail-value-enhanced" id="profileCampus">
+                                                <span class="detail-badge-campus">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-item-enhanced">
+                                            <div class="detail-label-wrapper">
+                                                <i class="fas fa-door-open detail-icon"></i>
+                                                <span class="detail-label-text">Office</span>
+                                            </div>
+                                            <div class="detail-value-enhanced" id="profileOffice">
+                                                <span class="detail-badge-office">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-item-enhanced">
+                                            <div class="detail-label-wrapper">
+                                                <i class="fas fa-check-circle detail-icon"></i>
+                                                <span class="detail-label-text">Status</span>
+                                            </div>
+                                            <div class="detail-value-enhanced">
+                                                <span class="status-badge-enhanced" id="statusBadge">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Account Information Card -->
+                                <div class="profile-section-card">
+                                    <div class="section-header-enhanced">
+                                        <div class="section-icon-wrapper" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <h3 class="section-title">Account Information</h3>
+                                    </div>
+                                    <div class="details-grid">
+                                        <div class="detail-item-enhanced">
+                                            <div class="detail-label-wrapper">
+                                                <i class="fas fa-sign-in-alt detail-icon"></i>
+                                                <span class="detail-label-text">Last Login</span>
+                                            </div>
+                                            <div class="detail-value-enhanced" id="lastLogin">
+                                                <span class="detail-timestamp">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="detail-item-enhanced">
+                                            <div class="detail-label-wrapper">
+                                                <i class="fas fa-calendar-plus detail-icon"></i>
+                                                <span class="detail-label-text">Account Created</span>
+                                            </div>
+                                            <div class="detail-value-enhanced" id="accountCreated">
+                                                <span class="detail-timestamp">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Profile Actions -->
+                            <div class="profile-actions-enhanced">
+                                <button class="btn-enhanced btn-primary-enhanced" onclick="changePassword()">
+                                    <i class="fas fa-key"></i>
+                                    <span>Change Password</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <!-- Top Row: KPI Cards -->
+                    <div class="kpi-cards-grid">
+                        <!-- Total Submissions KPI -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span class="kpi-label">Total Submissions</span>
+                            </div>
+                            <div class="kpi-value" id="kpiTotalSubmissions">0</div>
+                            <div class="kpi-change positive" id="kpiSubmissionsChange">
+                                <i class="fas fa-arrow-up"></i> <span>0%</span>
+                            </div>
+                            <div class="kpi-mini-chart" id="kpiSubmissionsChart"></div>
+                        </div>
+
+                        <!-- Active Users KPI -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span class="kpi-label">Active Users</span>
+                            </div>
+                            <div class="kpi-value" id="kpiActiveUsers">0</div>
+                            <div class="kpi-change positive" id="kpiActiveUsersChange">
+                                <i class="fas fa-arrow-up"></i> <span>0%</span>
+                            </div>
+                            <div class="kpi-mini-chart" id="kpiActiveUsersChart"></div>
+                        </div>
+
+                        <!-- Total Users KPI -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span class="kpi-label">Total Users</span>
+                            </div>
+                            <div class="kpi-value" id="kpiTotalUsers">0</div>
+                            <div class="kpi-change positive" id="kpiTotalUsersChange">
+                                <i class="fas fa-arrow-up"></i> <span>0%</span>
+                            </div>
+                            <div class="kpi-mini-chart" id="kpiTotalUsersChart"></div>
+                        </div>
+
+                        <!-- Total Reports KPI -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span class="kpi-label">Total Reports</span>
+                            </div>
+                            <div class="kpi-value" id="kpiTotalReports">0</div>
+                            <div class="kpi-change positive" id="kpiReportsChange">
+                                <i class="fas fa-arrow-up"></i> <span>0%</span>
+                            </div>
+                            <div class="kpi-mini-chart" id="kpiReportsChart"></div>
+                        </div>
+                    </div>
+
+                    <!-- Middle Row: Large Report Cards -->
+                    <div class="report-cards-row">
+                        <!-- Submissions Growth Report -->
+                        <div class="report-card-large">
+                            <div class="report-card-header">
+                                <div class="report-header-content">
+                                    <h3>Submissions Growth Report</h3>
+                                    <p>See insights on how your submissions have grown and changed over time.</p>
+                                </div>
+                                <div class="report-time-indicators">
+                                    <button class="time-indicator active" id="currentMonthIndicator">Current Month</button>
+                                    <button class="time-indicator" id="lastMonthIndicator">Last Month</button>
+                                </div>
+                            </div>
+                            <div class="report-card-body">
+                                <canvas id="submissionsGrowthChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Submissions Monthly Report -->
+                        <div class="report-card-large">
+                            <div class="report-card-header">
+                                <div class="report-header-content">
+                                    <h3>Submissions Monthly Report</h3>
+                                    <div class="report-growth-indicator positive" id="monthlyReportGrowth">
+                                        <i class="fas fa-arrow-up"></i> <span>0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="report-card-body">
+                                <canvas id="submissionsMonthlyChart"></canvas>
+                            </div>
+                            <div class="report-card-footer">
+                                <div class="report-metric">
+                                    <span class="metric-value" id="monthlyImpressions">0</span>
+                                    <span class="metric-label">Submissions</span>
+                                </div>
+                                <div class="report-metric">
+                                    <span class="metric-value" id="monthlyReach">0</span>
+                                    <span class="metric-label">Approved</span>
+                                </div>
+                                <div class="report-metric">
+                                    <span class="metric-value" id="monthlyGrowth">0%</span>
+                                    <span class="metric-label">Growth Rate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Detailed Reports -->
+                    <div class="detailed-reports-row">
+                        <!-- Reports by Type -->
+                        <div class="detailed-report-card">
+                            <div class="detailed-report-header">
+                                <h3>Reports by Type</h3>
+                            </div>
+                            <div class="detailed-report-body">
+                                <div class="donut-chart-wrapper">
+                                    <canvas id="reportsByTypeChart"></canvas>
+                                    <div class="donut-center-text" id="reportTypeChartCenterText">0</div>
+                                </div>
+                                <div class="donut-legend" id="reportTypeChartLegend"></div>
+                            </div>
+                        </div>
+
+                        <!-- Top Active Reports -->
+                        <div class="detailed-report-card">
+                            <div class="detailed-report-header">
+                                <h3>Top Active Reports</h3>
+                                <select class="report-time-select" id="topReportsTimeRange">
+                                    <option value="monthly" selected>Monthly</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                            </div>
+                            <div class="detailed-report-body">
+                                <table class="top-reports-table" id="topReportsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Report Type</th>
+                                            <th>Submissions</th>
+                                            <th>Status Rate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3" style="text-align: center; padding: 40px;">
+                                                <div class="loading-state">
+                                                    <i class="fas fa-spinner fa-spin"></i>
+                                                    <p>Loading reports...</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- User Management Section -->
+                <section id="users" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-users-cog"></i> User Management</h2>
+                            <p class="section-description">Manage system users, roles, and access permissions</p>
+                        </div>
+                        <button class="btn-formal btn-primary" onclick="addUser()">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add New User</span>
+                        </button>
+                    </div>
+
+                    <!-- User Statistics -->
+                    <div class="submissions-controls">
+                        <div class="stats-row">
+                            <div class="stat-box">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <span class="stat-value" id="totalUsersCount">0</span>
+                                    <span class="stat-label">Total Users</span>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-user-shield"></i>
+                                <div>
+                                    <span class="stat-value" id="adminCount">0</span>
+                                    <span class="stat-label">Admins</span>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-user-check"></i>
+                                <div>
+                                    <span class="stat-value" id="activeUsersCount">0</span>
+                                    <span class="stat-label">Active</span>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-user-clock"></i>
+                                <div>
+                                    <span class="stat-value" id="inactiveUsersCount">0</span>
+                                    <span class="stat-label">Inactive</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search and Filter -->
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label><i class="fas fa-search"></i> Search:</label>
+                                <input type="text" id="userSearch" class="formal-input" placeholder="Search by name or email..." onkeyup="filterUsersTable()">
+                            </div>
+                            <div class="filter-group">
+                                <label><i class="fas fa-filter"></i> Role:</label>
+                                <select id="userRoleFilter" class="formal-select" onchange="filterUsersTable()">
+                                    <option value="">All Roles</option>
+                                    <option value="super_admin">Super Admin</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
+                            </div>
+                            <div class="filter-group" id="usersCampusFilterGroup">
+                                <label><i class="fas fa-building"></i> Campus:</label>
+                                <select id="usersCampusFilter" class="formal-select" onchange="if(window.adminDashboard) window.adminDashboard.filterUsers()">
+                                    <option value="">All Campus</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label><i class="fas fa-toggle-on"></i> Status:</label>
+                                <select id="userStatusFilter" class="formal-select" onchange="filterUsersTable()">
+                                    <option value="">All Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="suspended">Suspended</option>
+                                </select>
+                            </div>
+                            <button class="btn-formal btn-primary" onclick="adminDashboard.loadUsers()">
+                                <i class="fas fa-sync"></i>
+                                <span>Refresh</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Users Table -->
+                    <div class="submissions-table-container">
+                        <div class="table-wrapper">
+                            <table class="formal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                        <th>Campus</th>
+                                        <th>Office</th>
+                                        <th style="width: 100px;">Status</th>
+                                        <th>Last Login</th>
+                                        <th style="width: 150px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <tr>
+                                        <td colspan="8" style="text-align: center; padding: 40px;">
+                                            <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #dc143c;"></i>
+                                            <p style="margin-top: 10px; color: #666;">Loading users...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Management Section -->
+                <section id="data" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-clipboard-list"></i> Report Assignment Management</h2>
+                            <p class="section-description">Assign data collection reports to offices and departments</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Assignment Steps Progress -->
+                    <div class="assignment-steps-formal">
+                        <div class="step-formal active" data-step="1">
+                            <div class="step-circle">
+                                <span class="step-number">1</span>
+                                <i class="fas fa-check step-check"></i>
+                            </div>
+                            <div class="step-label">
+                                <span class="step-title">Select Reports</span>
+                                <span class="step-subtitle">Choose reports to assign</span>
+                            </div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-formal" data-step="2">
+                            <div class="step-circle">
+                                <span class="step-number">2</span>
+                                <i class="fas fa-check step-check"></i>
+                            </div>
+                            <div class="step-label">
+                                <span class="step-title">Select Offices</span>
+                                <span class="step-subtitle">Choose target offices</span>
+                            </div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-formal" data-step="3">
+                            <div class="step-circle">
+                                <span class="step-number">3</span>
+                                <i class="fas fa-check step-check"></i>
+                            </div>
+                            <div class="step-label">
+                                <span class="step-title">Review & Confirm</span>
+                                <span class="step-subtitle">Finalize assignment</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 1: Select Reports -->
+                    <div id="step1" class="assignment-step-formal active">
+                        <div class="step-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-file-alt"></i> Available Reports</h3>
+                                <p>Select one or more reports to assign to offices</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-wrapper">
+                                    <table class="formal-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 50px;">
+                                                    <div class="checkbox-wrapper">
+                                                        <input type="checkbox" id="selectAllReports" data-action="toggle-select-all">
+                                                        <label for="selectAllReports"></label>
+                                                    </div>
+                                                </th>
+                                                <th>Report Name</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="reportsTableBody">
+                                            <!-- Reports will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn-formal btn-primary" id="nextToStep2" disabled>
+                                    <span>Continue to Office Selection</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Select Offices -->
+                    <div id="step2" class="assignment-step-formal" style="display: none;">
+                        <div class="step-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-building"></i> Target Offices</h3>
+                                <p>Select offices and departments to receive the selected reports</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="offices-grid">
+                                    <div class="campuses-container">
+                                        <!-- Campuses and offices will be loaded here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn-formal btn-secondary" onclick="adminDashboard.goToStep(1)">
+                                    <i class="fas fa-arrow-left"></i>
+                                    <span>Back</span>
+                                </button>
+                                <button type="button" class="btn-formal btn-primary" id="nextToStep3" disabled>
+                                    <span>Continue to Review</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Confirm Assignment -->
+                    <div id="step3" class="assignment-step-formal" style="display: none;">
+                        <div class="step-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-check-circle"></i> Review & Configure Assignment</h3>
+                                <p>Review details and set deadline & priority</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="confirmation-grid">
+                                    <div class="confirmation-section">
+                                        <div class="section-title">
+                                            <i class="fas fa-file-alt"></i>
+                                            <h4>Selected Reports</h4>
+                                        </div>
+                                        <ul id="selectedReportsList" class="formal-list"></ul>
+                                    </div>
+                                    <div class="confirmation-section">
+                                        <div class="section-title">
+                                            <i class="fas fa-building"></i>
+                                            <h4>Target Offices</h4>
+                                        </div>
+                                        <ul id="selectedOfficesList" class="formal-list"></ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Deadline & Priority Configuration -->
+                                <div class="assignment-config-section">
+                                    <div class="config-header">
+                                        <h4><i class="fas fa-cog"></i> Assignment Configuration</h4>
+                                    </div>
+                                    
+                                    <!-- Deadline Settings -->
+                                    <div class="config-group">
+                                        <label class="config-label">
+                                            <input type="checkbox" id="hasDeadlineCheck" onchange="toggleDeadlineInput()">
+                                            <span><i class="fas fa-calendar-alt"></i> Set Deadline</span>
+                                        </label>
+                                        <div id="deadlineInputGroup" style="display: none; margin-top: 12px;">
+                                            <input type="date" id="deadlineInput" class="formal-input" min="">
+                                            <small class="input-hint">Select the date by which reports must be submitted</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Priority Settings -->
+                                    <div class="config-group">
+                                        <label class="config-label-static">
+                                            <i class="fas fa-flag"></i> Priority Level
+                                        </label>
+                                        <div class="priority-selector">
+                                            <label class="priority-option">
+                                                <input type="radio" name="priorityLevel" value="low" checked>
+                                                <span class="priority-badge priority-low">
+                                                    <i class="fas fa-flag"></i> Low
+                                                </span>
+                                            </label>
+                                            <label class="priority-option">
+                                                <input type="radio" name="priorityLevel" value="medium">
+                                                <span class="priority-badge priority-medium">
+                                                    <i class="fas fa-flag"></i> Medium
+                                                </span>
+                                            </label>
+                                            <label class="priority-option">
+                                                <input type="radio" name="priorityLevel" value="high">
+                                                <span class="priority-badge priority-high">
+                                                    <i class="fas fa-flag"></i> High
+                                                </span>
+                                            </label>
+                                            <label class="priority-option">
+                                                <input type="radio" name="priorityLevel" value="urgent">
+                                                <span class="priority-badge priority-urgent">
+                                                    <i class="fas fa-exclamation-triangle"></i> Urgent
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Notes -->
+                                    <div class="config-group">
+                                        <label class="config-label-static">
+                                            <i class="fas fa-sticky-note"></i> Additional Notes (Optional)
+                                        </label>
+                                        <textarea id="assignmentNotes" class="formal-textarea" rows="3" placeholder="Add any special instructions or notes for the assigned offices..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn-formal btn-secondary" onclick="adminDashboard.goToStep(2)">
+                                    <i class="fas fa-arrow-left"></i>
+                                    <span>Back</span>
+                                </button>
+                                <button type="button" class="btn-formal btn-success" id="confirmAssignment">
+                                    <i class="fas fa-check"></i>
+                                    <span>Confirm Assignment</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Report Submissions Section -->
+                <section id="submissions" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-inbox"></i> Report Submissions</h2>
+                            <p class="section-description">Review and manage all report submissions from offices</p>
+                        </div>
+                    </div>
+
+                    <!-- Filters and Stats -->
+                    <div class="submissions-controls">
+                        <div class="stats-row">
+                            <div class="stat-box">
+                                <i class="fas fa-file-alt"></i>
+                                <div>
+                                    <span class="stat-value" id="totalCount">0</span>
+                                    <span class="stat-label">Total</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-row">
+                            <div style="display: flex; gap: 15px; align-items: flex-end;">
+                                <div class="filter-group">
+                                    <label><i class="fas fa-table"></i> Report Type:</label>
+                                    <select id="reportTypeFilter" class="formal-select" onchange="adminDashboard.filterSubmissions()">
+                                        <option value="">All Reports</option>
+                                        <option value="campuspopulation">Campus Population</option>
+                                        <option value="admissiondata">Admission Data</option>
+                                        <option value="enrollmentdata">Enrollment Data</option>
+                                        <option value="graduatesdata">Graduates Data</option>
+                                        <option value="employee">Employee Data</option>
+                                        <option value="leaveprivilege">Leave Privilege</option>
+                                        <option value="libraryvisitor">Library Visitor</option>
+                                        <option value="pwd">PWD Data</option>
+                                        <option value="waterconsumption">Water Consumption</option>
+                                        <option value="electricityconsumption">Electricity Consumption</option>
+                                        <option value="solidwaste">Solid Waste</option>
+                                        <option value="foodwaste">Food Waste</option>
+                                        <option value="fuelconsumption">Fuel Consumption</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label><i class="fas fa-sort"></i> Sort by Date:</label>
+                                    <select id="dateSortFilter" class="formal-select" onchange="adminDashboard.sortSubmissionsByDate()">
+                                        <option value="newest">Newest First</option>
+                                        <option value="oldest">Oldest First</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 15px; align-items: flex-end;">
+                                <div class="filter-group">
+                                    <label><i class="fas fa-building"></i> Campus:</label>
+                                    <select id="campusFilter" class="formal-select" onchange="if(window.adminDashboard) window.adminDashboard.filterSubmissions()">
+                                        <option value="">All Campus</option>
+                                        <option value="Alangilan">Alangilan</option>
+                                        <option value="Nasugbo">Nasugbu</option>
+                                        <option value="Balayan">Balayan</option>
+                                        <option value="Malvar">Malvar</option>
+                                        <option value="Lemery">Lemery</option>
+                                        <option value="Lipa">Lipa</option>
+                                        <option value="Lobo">Lobo</option>
+                                        <option value="Mabini">Mabini</option>
+                                        <option value="Pablo Borbon">Pablo Borbon</option>
+                                        <option value="Rosario">Rosario</option>
+                                        <option value="San Juan">San Juan</option>
+                                    </select>
+                                </div>
+                                <button class="btn-formal btn-primary" onclick="adminDashboard.loadSubmissions()">
+                                    <i class="fas fa-sync"></i>
+                                    <span>Refresh</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- Submissions Table -->
+                    <div class="submissions-table-container">
+                        <div class="table-wrapper">
+                            <table class="formal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Report Type</th>
+                                        <th>Campus</th>
+                                        <th>Office</th>
+                                        <th>Submitted By</th>
+                                        <th style="width: 80px;">Records</th>
+                                        <th>Date & Time</th>
+                                        <th style="width: 200px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="submissionsTableBody">
+                                    <tr>
+                                        <td colspan="10" style="text-align: center; padding: 40px;">
+                                            <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: #dc143c;"></i>
+                                            <p style="margin-top: 10px; color: #666;">Loading submissions...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- User Activity Section -->
+                <section id="userActivity" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-user-clock"></i> User Activity</h2>
+                            <p class="section-description">Monitor user login activity and system usage</p>
+                        </div>
+                        <button class="btn-formal btn-primary" onclick="exportUserActivity()">
+                            <i class="fas fa-download"></i>
+                            <span>Export Activity</span>
+                        </button>
+                    </div>
+
+                    <div class="content-area">
+                        <!-- Filter Row -->
+                        <div class="filter-row" style="margin-bottom: 20px; display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end; padding: 15px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                            <div class="filter-group" style="flex: 1; min-width: 200px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px;"><i class="fas fa-building"></i> Campus:</label>
+                                <select id="activityCampusFilter" class="formal-select" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;" onchange="if(window.adminDashboard) window.adminDashboard.filterUserActivity()">
+                                    <option value="">All Campuses</option>
+                                </select>
+                            </div>
+                            <div class="filter-group" style="flex: 1; min-width: 200px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px;"><i class="fas fa-calendar-alt"></i> Date From:</label>
+                                <input type="date" id="activityDateFromFilter" class="formal-input" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;" onchange="if(window.adminDashboard) window.adminDashboard.filterUserActivity()">
+                            </div>
+                            <div class="filter-group" style="flex: 1; min-width: 200px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px;"><i class="fas fa-calendar-check"></i> Date To:</label>
+                                <input type="date" id="activityDateToFilter" class="formal-input" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; transition: border-color 0.3s;" onchange="if(window.adminDashboard) window.adminDashboard.filterUserActivity()">
+                            </div>
+                            <div class="filter-group" style="flex-shrink: 0;">
+                                <button class="btn-formal btn-secondary" onclick="if(window.adminDashboard) window.adminDashboard.clearActivityFilters()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: background 0.3s;">
+                                    <i class="fas fa-times"></i> Clear Filters
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card" style="margin-bottom: 0;">
+                            <div class="card-header-dash">
+                                <h3><i class="fas fa-user-clock"></i> Recent User Activity</h3>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <span id="activityCountBadge" style="background: #dc3545; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">0</span>
+                                    <button class="btn-refresh" onclick="adminDashboard.loadUserActivity()">
+                                        <i class="fas fa-sync-alt"></i> Refresh
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="user-activity-list" id="userActivityList" style="max-height: 600px; overflow-y: auto;">
+                                <div class="loading-state">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <p>Loading user activity...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- System Settings Section -->
+                <section id="system" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-cogs"></i> System Settings</h2>
+                            <p class="section-description">Configure system preferences and application settings</p>
+                        </div>
+                        <button class="btn-formal btn-success" onclick="adminDashboard.saveSystemSettings()">
+                            <i class="fas fa-save"></i>
+                            <span>Save All Settings</span>
+                        </button>
+                    </div>
+
+                    <!-- Settings Grid -->
+                    <div class="settings-grid-modern">
+                        <!-- General Settings Card -->
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h3><i class="fas fa-sliders-h"></i> General Settings</h3>
+                            </div>
+                            <div class="settings-card-body">
+                                <div class="setting-item-modern">
+                                    <div class="setting-info">
+                                        <label class="setting-label">System Name</label>
+                                        <p class="setting-description">Display name for the application</p>
+                                    </div>
+                                    <input type="text" id="settingSystemName" value="Spartan Data" class="setting-input">
+                                </div>
+
+                                <div class="setting-item-modern">
+                                    <div class="setting-info">
+                                        <label class="setting-label">Records Per Page</label>
+                                        <p class="setting-description">Number of records to display per page</p>
+                                    </div>
+                                    <select id="settingRecordsPerPage" class="setting-select">
+                                        <option value="10">10 records</option>
+                                        <option value="25" selected>25 records</option>
+                                        <option value="50">50 records</option>
+                                        <option value="100">100 records</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-item-modern">
+                                    <div class="setting-info">
+                                        <label class="setting-label">Maintenance Mode</label>
+                                        <p class="setting-description">Temporarily disable user access for maintenance</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="settingMaintenanceMode">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submission Settings Card -->
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h3><i class="fas fa-file-upload"></i> Submission Settings</h3>
+                            </div>
+                            <div class="settings-card-body">
+                                <div class="setting-item-modern">
+                                    <div class="setting-info">
+                                        <label class="setting-label">Max File Size (MB)</label>
+                                        <p class="setting-description">Maximum file size for uploads</p>
+                                    </div>
+                                    <input type="number" id="settingMaxFileSize" value="10" min="1" max="100" class="setting-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Management Card -->
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h3><i class="fas fa-database"></i> Data Management</h3>
+                            </div>
+                            <div class="settings-card-body">
+                                <div class="setting-item-modern">
+                                    <div class="setting-info">
+                                        <label class="setting-label">Export Format</label>
+                                        <p class="setting-description">Default format for data exports</p>
+                                    </div>
+                                    <select id="settingExportFormat" class="setting-select">
+                                        <option value="csv" selected>CSV</option>
+                                        <option value="excel">Excel</option>
+                                        <option value="json">JSON</option>
+                                        <option value="pdf">PDF</option>
+                                    </select>
+                                </div>
+
+                                <div class="setting-action-buttons">
+                                    <button class="btn-setting-action btn-backup" onclick="adminDashboard.createBackup()">
+                                        <i class="fas fa-download"></i>
+                                        Create Backup Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Info Banner -->
+                    <div class="settings-info-banner">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <strong>Note:</strong> Changes to system settings will affect all users. Make sure to test settings before applying them in production.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section id="security" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-shield-alt"></i> Security Dashboard</h2>
+                            <p class="section-description">Monitor system security and access logs</p>
+                        </div>
+                    </div>
+                    <div class="security-grid">
+                        <div class="security-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Login Attempts</h3>
+                            <div class="security-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Failed Attempts (24h)</span>
+                                    <span class="metric-value danger">12</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Blocked IPs</span>
+                                    <span class="metric-value">3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="security-card">
+                            <h3><i class="fas fa-bell"></i> System Alerts</h3>
+                            <div class="alert-list">
+                                <div class="alert-item warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>High CPU usage detected</span>
+                                </div>
+                                <div class="alert-item info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Backup completed successfully</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Tables Section -->
+                <section id="reports" class="content-section">
+                    <div class="section-header-formal">
+                        <div class="header-content">
+                            <h2><i class="fas fa-table"></i> Data Tables Management</h2>
+                            <p class="section-description">View, edit, and manage submitted data from all reports</p>
+                        </div>
+                    </div>
+
+                    <!-- Report Type Selector -->
+                    <div class="data-table-controls">
+                        <div class="control-group">
+                            <label for="reportTypeSelect"><i class="fas fa-filter"></i> Select Report Type:</label>
+                            <select id="reportTypeSelect" class="formal-select">
+                                <option value="">-- Select a Report --</option>
+                                <option value="campuspopulation">Campus Population</option>
+                                <option value="admissiondata">Admission Data</option>
+                                <option value="enrollmentdata">Enrollment Data</option>
+                                <option value="graduatesdata">Graduates Data</option>
+                                <option value="employee">Employee Data</option>
+                                <option value="leaveprivilege">Leave Privilege</option>
+                                <option value="disabilitydata">Disability Data</option>
+                                <option value="wastedata">Waste Data</option>
+                                <option value="vehicledata">Vehicle Data</option>
+                                <option value="fueldata">Fuel Data</option>
+                                <option value="waterdata">Water Data</option>
+                                <option value="electricitydata">Electricity Data</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <button class="btn-formal btn-primary" onclick="adminDashboard.loadTableData()">
+                                <i class="fas fa-sync"></i>
+                                <span>Load Data</span>
+                            </button>
+                            <button class="btn-formal btn-success" onclick="adminDashboard.exportTableData()">
+                                <i class="fas fa-download"></i>
+                                <span>Export to Excel</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Table Container -->
+                    <div id="dataTableContainer" class="data-table-container">
+                        <div class="empty-state">
+                            <i class="fas fa-table"></i>
+                            <h3>No Report Selected</h3>
+                            <p>Please select a report type from the dropdown above to view data</p>
+                        </div>
+                    </div>
+
+                    <!-- Table Info -->
+                    <div id="tableInfo" class="table-info" style="display: none;">
+                        <div class="info-item">
+                            <i class="fas fa-database"></i>
+                            <span>Total Records: <strong id="totalRecords">0</strong></span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Last Updated: <strong id="lastUpdated">-</strong></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Success Message Toast -->
+    <div id="successToast" class="toast" style="position: fixed; bottom: 20px; right: 20px; background: #2ecc71; color: white; padding: 15px 25px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; display: none; align-items: center; gap: 10px; max-width: 350px;">
+        <i class="fas fa-check-circle" style="font-size: 20px;"></i>
+        <span id="successMessage">Action completed successfully!</span>
+    </div>
+
+    <!-- User Management Modals -->
+    <!-- Add/Edit User Modal - Enhanced Design -->
+    <div id="userModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header-gradient">
+                <div class="modal-header-content">
+                    <div class="modal-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div>
+                        <h2 id="userModalTitle">Add New User</h2>
+                        <p class="modal-subtitle">Create a new user account for the system</p>
+                    </div>
+                </div>
+                <button class="modal-close-modern" onclick="closeUserModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="userForm" onsubmit="saveUser(event)">
+                <input type="hidden" id="userId" name="userId">
+                
+                <div class="modal-body-modern">
+                    <div class="form-grid-modern">
+                        
+
+                        <div class="form-group-modern">
+                            <label for="userUsername">Username</label>
+                            <input type="text" id="userUsername" class="formal-input" placeholder="unique username" required>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="userRoleSelect">Role</label>
+                            <select id="userRoleSelect" class="formal-select" onchange="handleRoleChange()" style="z-index: 10001;">
+                                <!-- Options will be populated based on user role -->
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="userStatusSelect">Status</label>
+                            <select id="userStatusSelect" class="formal-select">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                                <option value="disabled">Disabled</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="userCampus">Campus</label>
+                            <select id="userCampus" class="formal-select">
+                                <option value="">Select campus</option>
+                                <option value="Main Campus">Main Campus</option>
+                                <option value="Alangilan">Alangilan</option>
+                                <option value="Pablo Borbon">Pablo Borbon</option>
+                                <option value="Lipa">Lipa</option>
+                                <option value="Nasugbu">Nasugbu</option>
+                                <option value="Balayan">Balayan</option>
+                                <option value="Malvar">Malvar</option>
+                                <option value="Lemery">Lemery</option>
+                                <option value="Lobo">Lobo</option>
+                                <option value="Mabini">Mabini</option>
+                                <option value="Rosario">Rosario</option>
+                                <option value="San Juan">San Juan</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern" id="officeGroup">
+                            <label for="userOffice">Office</label>
+                            <select id="userOffice" class="formal-select">
+                                <option value="">Select office</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern" style="grid-column: 1 / -1;">
+                            <div style="display:flex; align-items:center; justify-content:space-between;">
+                                <label for="userPassword">Password <span style="color: #dc143c;">*</span></label>
+                                <small id="passwordLabel" class="form-help"></small>
+                            </div>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="userPassword" class="formal-input" placeholder="Enter secure password (minimum 8 characters)" required>
+                                <button type="button" class="password-toggle" onclick="togglePasswordVisibility('userPassword')"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar"><div id="strengthFill" class="strength-fill"></div></div>
+                                <small id="strengthText">Minimum 8 characters required with uppercase, lowercase, number, and special character</small>
+                            </div>
+                        </div>
+
+                        <div class="form-group-modern" style="grid-column: 1 / -1;">
+                            <label for="userPasswordConfirm">Confirm Password <span style="color: #dc143c;">*</span></label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="userPasswordConfirm" class="formal-input" placeholder="Re-enter password to confirm" required>
+                                <button type="button" class="password-toggle" onclick="togglePasswordVisibility('userPasswordConfirm')"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <small id="passwordMatchError" style="color: #dc143c; display: none;">Passwords do not match</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer-formal" style="display:flex; justify-content:flex-end; gap:10px; padding: 16px;">
+                    <button type="button" class="btn-formal btn-secondary" onclick="closeUserModal()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn-formal btn-primary">
+                        <i class="fas fa-save"></i> Save User
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal" style="display: none; z-index: 1000;">
+        <div class="modal-content" style="max-width: 500px; margin: 10% auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            <div class="modal-header" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; font-size: 1.4rem; color: #1e293b;">
+                    <i class="fas fa-key" style="margin-right: 10px; color: #4f46e5;"></i>
+                    Change Password
+                </h3>
+                <span class="close-modal" onclick="closeModal('changePasswordModal')" style="cursor: pointer; font-size: 1.5rem; color: #94a3b8;">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm" onsubmit="handlePasswordChange(event)">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="currentPassword" style="display: block; margin-bottom: 8px; font-weight: 500; color: #475569;">Current Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="currentPassword" required 
+                                style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 1rem;"
+                                placeholder="Enter current password">
+                            <span toggle="#currentPassword" class="toggle-password" 
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8;">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="newPassword" style="display: block; margin-bottom: 8px; font-weight: 500; color: #475569;">New Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="newPassword" required minlength="8"
+                                style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 1rem;"
+                                placeholder="Enter new password (min. 8 characters)">
+                            <span toggle="#newPassword" class="toggle-password" 
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8;">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div id="password-strength" style="margin-top: 8px; font-size: 0.85rem; color: #64748b;">
+                            <div class="strength-meter" style="height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 5px; overflow: hidden;">
+                                <div class="strength-meter-fill" style="height: 100%; width: 0%; background: #ef4444; transition: width 0.3s ease, background 0.3s ease;"></div>
+                            </div>
+                            <div id="password-requirements" style="margin-top: 8px; font-size: 0.8rem; color: #94a3b8;">
+                                <div><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 5px; display: none;" id="length-check"></i> At least 8 characters</div>
+                                <div><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 5px; display: none;" id="uppercase-check"></i> At least one uppercase letter</div>
+                                <div><i class="fas fa-check-circle" style="color: #22c55e; margin-right: 5px; display: none;" id="number-check"></i> At least one number</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label for="confirmPassword" style="display: block; margin-bottom: 8px; font-weight: 500; color: #475569;">Confirm New Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="confirmPassword" required minlength="8"
+                                style="width: 100%; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 1rem;"
+                                placeholder="Confirm new password">
+                            <span toggle="#confirmPassword" class="toggle-password" 
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #94a3b8;">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div id="password-match" style="margin-top: 5px; font-size: 0.85rem; display: none;">
+                            <i class="fas fa-check-circle" style="color: #22c55e; margin-right: 5px;"></i>
+                            <span>Passwords match</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions" style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
+                        <button type="button" onclick="closeModal('changePasswordModal')" 
+                            style="padding: 10px 20px; background: #f1f5f9; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; color: #475569; transition: background 0.2s ease;">
+                            Cancel
+                        </button>
+                        <button type="submit" id="submitPasswordChange" 
+                            style="padding: 10px 24px; background: #4f46e5; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background 0.2s ease;"
+                            disabled>
+                            <span id="submitButtonText">Change Password</span>
+                            <span id="submitButtonSpinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Updating...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal" style="display: none; z-index: 1000;">
+        <div class="modal-content" style="max-width: 500px; margin: 15% auto;">
+            <div class="modal-header">
+                <h3 id="confirmModalTitle">Confirm Action</h3>
+                <span class="close" onclick="closeConfirmModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmModalMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer" style="text-align: right;">
+                <button class="btn-formal btn-secondary" onclick="closeConfirmModal()">Cancel</button>
+                <button class="btn-formal btn-primary" id="confirmModalButton">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/confirm-dialog.js?v=2.6"></script>
+    <script src="admin-dashboard-clean.js"></script>
+    <style>
+    /* Confirmation Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-content {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 90%;
+        max-width: 500px;
+    }
+    
+    .modal-header {
+        padding: 16px 20px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modal-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: #333;
+    }
+    
+    .modal-body {
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .modal-footer {
+        padding: 12px 20px;
+        background: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+        text-align: right;
+    }
+    
+    .close {
+        color: #6c757d;
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0 8px;
+        line-height: 1;
+    }
+    
+    .close:hover {
+        color: #343a40;
+    }
+    </style>
+    
+    <style>
+    /* Assignment Configuration Styles */
+    .assignment-config-section {
+        margin-top: 32px;
+        padding: 24px;
+        background: #f7fafc;
+        border-radius: 12px;
+        border: 2px solid #e2e8f0;
+    }
+    
+    .config-header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .config-header h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .config-header h4 i {
+        color: #dc143c;
+    }
+    
+    .config-group {
+        margin-bottom: 24px;
+    }
+    
+    .config-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: #2d3748;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    
+    .config-label input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    
+    .config-label-static {
+        display: block;
+        font-weight: 600;
+        color: #2d3748;
+        margin-bottom: 12px;
+        font-size: 15px;
+    }
+    
+    .config-label-static i {
+        color: #dc143c;
+        margin-right: 8px;
+    }
+    
+    .formal-input {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 14px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    .formal-input:focus {
+        outline: none;
+        border-color: #dc143c;
+        box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+    }
+    
+    .formal-textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        resize: vertical;
+        transition: all 0.3s ease;
+    }
+    
+    .formal-textarea:focus {
+        outline: none;
+        border-color: #dc143c;
+        box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+    }
+    
+    .input-hint {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        color: #718096;
+    }
+    
+    /* Modern Table Styles */
+    .table-wrapper {
+        position: relative;
+        overflow: auto;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+    
+    .formal-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 14px;
+        color: #1a202c;
+        min-width: 720px;
+        background: transparent;
+    }
+    
+    .formal-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        color: #2d3748;
+        font-weight: 700;
+        text-align: left;
+        letter-spacing: 0.02em;
+        padding: 14px 16px;
+        border-bottom: 2px solid #e2e8f0;
+        white-space: nowrap;
+    }
+    
+    .formal-table th:first-child {
+        border-top-left-radius: 12px;
+    }
+    
+    .formal-table th:last-child {
+        border-top-right-radius: 12px;
+    }
+    
+    .formal-table tbody td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #edf2f7;
+        vertical-align: middle;
+        background: #ffffff;
+    }
+    
+    .formal-table tbody tr:hover td {
+        background: #f7fafc;
+    }
+    
+    .formal-table tbody tr:nth-child(even) td {
+        background: #fcfdff;
+    }
+    
+    .formal-table tbody tr:last-child td {
+        border-bottom: 0;
+    }
+    
+    /* Compact utilities */
+    .formal-table .cell-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .formal-table .cell-meta {
+        color: #718096;
+        font-size: 12px;
+    }
+    
+    /* Responsive tweaks */
+    @media (max-width: 1024px) {
+        .formal-table {
+            min-width: 600px;
+        }
+        .formal-table thead th,
+        .formal-table tbody td {
+            padding: 12px 14px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .formal-table {
+            min-width: 520px;
+            font-size: 13px;
+        }
+        .formal-table thead th,
+        .formal-table tbody td {
+            padding: 10px 12px;
+        }
+        .table-wrapper {
+            border-radius: 10px;
+        }
+    }
+    
+    /* Priority Selector */
+    .priority-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+    
+    .priority-option {
+        cursor: pointer;
+    }
+    
+    .priority-option input[type="radio"] {
+        display: none;
+    }
+    
+    .priority-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background: white;
+    }
+    
+    .priority-option input:checked + .priority-badge {
+        border-width: 3px;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .priority-badge.priority-low {
+        color: #48bb78;
+    }
+    
+    .priority-option input:checked + .priority-badge.priority-low {
+        border-color: #48bb78;
+        background: #f0fff4;
+    }
+    
+    .priority-badge.priority-medium {
+        color: #4299e1;
+    }
+    
+    .priority-option input:checked + .priority-badge.priority-medium {
+        border-color: #4299e1;
+        background: #ebf8ff;
+    }
+    
+    .priority-badge.priority-high {
+        color: #ed8936;
+    }
+    
+    .priority-option input:checked + .priority-badge.priority-high {
+        border-color: #ed8936;
+        background: #fffaf0;
+    }
+    
+    .priority-badge.priority-urgent {
+        color: #f56565;
+    }
+    
+    .priority-option input:checked + .priority-badge.priority-urgent {
+        border-color: #f56565;
+        background: #fff5f5;
+    }
+    
+    @media (max-width: 768px) {
+        .priority-selector {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .formal-input {
+            max-width: 100%;
+        }
+    }
+    </style>
+    
+    <script>
+    // Toggle deadline input visibility
+    function toggleDeadlineInput() {
+        const checkbox = document.getElementById('hasDeadlineCheck');
+        const inputGroup = document.getElementById('deadlineInputGroup');
+        const dateInput = document.getElementById('deadlineInput');
+        
+        if (checkbox.checked) {
+            inputGroup.style.display = 'block';
+            dateInput.required = true;
+            // Set min date to today
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+        } else {
+            inputGroup.style.display = 'none';
+            dateInput.required = false;
+            dateInput.value = '';
+        }
+    }
+    
+    // Initialize min date on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date().toISOString().split('T')[0];
+        const deadlineInput = document.getElementById('deadlineInput');
+        if (deadlineInput) {
+            deadlineInput.min = today;
+        }
+    });
+    </script>
+    
+    <!-- Main JavaScript Files -->
+    <script src="js/logout.js"></script>
+    <script src="js/confirm-modal.js"></script>
+    <script src="js/profile.js"></script>
+    <script>
+    // Initialize admin dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize admin dashboard if not already initialized
+        if (typeof AdminDashboard !== 'undefined' && !window.adminDashboard) {
+            window.adminDashboard = new AdminDashboard();
+        }
+    });
+    </script>
+</body>
+</html>
