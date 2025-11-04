@@ -1,0 +1,366 @@
+/* Modern Table Design
+   ======================================== */
+
+/* Table Container */
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f7;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+/* Table Header */
+.table-header {
+    padding: 1.25rem 1.5rem;
+    background: #f9fafc;
+    border-bottom: 1px solid #eef2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-header h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.15rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-header h3 i {
+    color: #dc143c;
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+/* Table Styles */
+.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    min-width: 800px;
+}
+
+.modern-table thead th {
+    background: #f8fafc;
+    color: #4a5568;
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modern-table tbody tr {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f8f9ff;
+}
+
+.modern-table tbody tr:nth-child(even) {
+    background-color: #fafbff;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f0f4ff;
+}
+
+.modern-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    vertical-align: middle;
+}
+
+/* Form Elements in Tables */
+.modern-table input[type="text"],
+.modern-table input[type="number"],
+.modern-table input[type="date"],
+.modern-table input[type="time"],
+.modern-table select,
+.modern-table textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    background-color: #fff;
+}
+
+.modern-table input[type="text"]:focus,
+.modern-table input[type="number"]:focus,
+.modern-table input[type="date"]:focus,
+.modern-table input[type="time"]:focus,
+.modern-table select:focus,
+.modern-table textarea:focus {
+    border-color: #dc143c;
+    box-shadow: 0 0 0 1px #dc143c;
+    outline: none;
+}
+
+/* Select Dropdown Styling */
+.modern-table .select-wrapper {
+    position: relative;
+}
+
+.modern-table .select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    color: #718096;
+    pointer-events: none;
+    font-size: 0.7rem;
+}
+
+.modern-table select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Buttons in Tables */
+.modern-table .btn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: none;
+}
+
+.modern-table .btn-sm {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+}
+
+.modern-table .btn-primary {
+    background-color: #dc143c;
+    color: white;
+}
+
+.modern-table .btn-primary:hover {
+    background-color: #b01030;
+    transform: translateY(-1px);
+}
+
+.modern-table .btn-outline {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: #4a5568;
+}
+
+.modern-table .btn-outline:hover {
+    background: #f8fafc;
+    border-color: #cbd5e0;
+}
+
+.modern-table .btn-danger {
+    background-color: #f56565;
+    color: white;
+}
+
+.modern-table .btn-danger:hover {
+    background-color: #e53e3e;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.status-completed {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.status-overdue {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .table-header {
+        padding: 1rem;
+    }
+    
+    .modern-table th,
+    .modern-table td {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .table-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .modern-table {
+        min-width: 100%;
+    }
+    
+    .modern-table thead {
+        display: none;
+    }
+    
+    .modern-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .modern-table tbody tr:last-child {
+        margin-bottom: 0;
+    }
+    
+    .modern-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #edf2f7;
+    }
+    
+    .modern-table tbody td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #4a5568;
+        margin-right: 1rem;
+        flex: 0 0 40%;
+    }
+    
+    .modern-table tbody td .action-buttons {
+        margin-left: auto;
+    }
+    
+    .modern-table tbody tr:last-child td:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .table-container {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .table-header {
+        display: none;
+    }
+    
+    .modern-table {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .modern-table thead {
+        display: table-header-group;
+    }
+    
+    .modern-table th,
+    .modern-table td {
+        border: 1px solid #e2e8f0;
+        padding: 0.5rem;
+    }
+    
+    .action-buttons {
+        display: none;
+    }
+}
+
+/* Animation for new rows */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modern-table tbody tr.new-row {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Scrollbar Styling */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

@@ -1,0 +1,1108 @@
+/* External imports must be at the top */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Modern Table Styles */
+:root {
+  /* Red Theme */
+  --primary: #d32f2f;
+  --primary-light: #ffebee;
+  --primary-dark: #b71c1c;
+  --accent: #ff5252;
+  --secondary: #757575;
+  --success: #4caf50;
+  --danger: #f44336;
+  --warning: #ff9800;
+  --info: #2196f3;
+  --light: #f5f5f5;
+  --dark: #212121;
+  --text: #333333;
+  --text-light: #757575;
+  --border: #e0e0e0;
+  --hover-bg: #ffebee;
+  --row-odd: #ffffff;
+  --row-even: #fff5f5;
+  
+  /* Spacing & Effects */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 60px;
+  --cell-padding: 1rem 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main content area */
+.main-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+:root {
+    --primary-color: #4361ee;
+    --primary-light: #eef2ff;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --hover-bg: #f9fafb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Report selection */
+.report-selector {
+  margin-bottom: 24px;
+}
+
+.report-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+/* Form controls */
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+/* Table Wrapper - Modern Design */
+.report-table-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* Table Container - Modern Scroll */
+.table-container {
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #f8fafc, #ffffff);
+    border-radius: var(--radius-lg);
+    padding: 1px;
+}
+
+/* Responsive Table Container */
+.table-responsive {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern Table Styling */
+.report-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    background: #fff;
+    min-width: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Table Header - Modern Design */
+.report-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: saturate(120%) blur(4px);
+}
+
+/* Table Header Cells - Modern Gradient */
+.report-table th {
+    background: linear-gradient(180deg, var(--primary-color) 0%, #2a44dd 100%);
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    padding: 0.9rem 1.25rem;
+    white-space: nowrap;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    transition: var(--transition);
+}
+
+/* Add subtle border between header cells */
+.report-table th:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Table Body Rows - Modern Hover Effect */
+.report-table tbody tr {
+    transition: var(--transition);
+    position: relative;
+    background: #fff;
+}
+
+/* Hover Effect with Shadow */
+.report-table tbody tr:hover {
+    background-color: var(--hover-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Table Cells - Modern Styling */
+.report-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    vertical-align: middle;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* Zebra Striping with Subtle Color */
+.report-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Action Buttons - Modern Style */
+.btn-action {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    margin: 0 0.2rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Edit Button - Modern Style */
+.btn-edit {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+}
+
+.btn-edit:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+}
+
+/* Delete Button - Modern Style */
+.btn-delete {
+    background-color: #ef4444;
+    color: white;
+    border-color: #dc2626;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1), 0 2px 4px -1px rgba(220, 38, 38, 0.06);
+}
+
+/* Loading State - Modern Spinner */
+.loading-row td {
+    text-align: center;
+    padding: 3rem;
+    color: #64748b;
+    font-style: italic;
+    position: relative;
+}
+
+.loading-row::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    border-top-color: #6366f1;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Modern Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f8fafc;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #c8cfdb;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .report-table-wrapper {
+        border-radius: 0;
+        margin: 0 -1rem 2rem;
+        width: calc(100% + 2rem);
+    }
+    
+    .table-container {
+        border-radius: 0;
+    }
+    
+    .report-table th,
+    .report-table td {
+        padding: 0.7rem 1rem;
+    }
+    
+    .btn-action {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Animation for new rows */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.report-table tbody tr {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Modern Table Styles - Applies to all tables */
+table {
+  --primary-color: #4361ee;
+  --primary-light: #eef2ff;
+  --text-color: #1f2937;
+  --border-color: #e5e7eb;
+  --hover-bg: #f9fafb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base table styles */
+/* Modern Table Styles - Red Theme */
+.report-table-wrapper {
+  background: #fff !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--box-shadow) !important;
+  overflow: hidden !important;
+  margin: 2rem 0 !important;
+  transition: var(--transition) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table Styles */
+.report-table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  min-width: 800px !important;
+  font-size: 0.95rem !important;
+  background: #fff !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--text);
+  table-layout: fixed;
+  border: none;
+}
+
+.report-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Table Header */
+.report-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.report-table thead th {
+  background: linear-gradient(145deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em !important;
+  padding: var(--cell-padding) !important;
+  text-align: left !important;
+  position: relative !important;
+  border: none !important;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+/* Table Body */
+.report-table tbody tr {
+  transition: var(--transition);
+  background: var(--row-odd);
+}
+
+.report-table tbody tr:nth-child(even) {
+  background: var(--row-even);
+}
+
+.report-table tbody tr:hover {
+  background: var(--hover-bg) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.report-table td {
+  padding: var(--cell-padding) !important;
+  border-bottom: 1px solid var(--border) !important;
+  vertical-align: middle;
+  transition: var(--transition);
+}
+
+/* Hover and Active States */
+.report-table tbody tr:active {
+  transform: scale(0.995);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.btn-edit {
+  background: var(--info);
+  color: white;
+}
+
+.btn-delete {
+  background: var(--danger);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  :root {
+    --cell-padding: 0.75rem 1rem;
+  }
+  
+  .report-table-wrapper {
+    margin: 1rem 0 !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* Loading State */
+.loading-row td {
+  text-align: center;
+  padding: 2rem !important;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.report-table th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.report-table tbody tr {
+  transition: var(--transition);
+  background: #fff;
+  position: relative;
+}
+
+.report-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.report-table tbody tr:hover {
+  background-color: #f1f5ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.1);
+}
+
+.report-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #edf2f7;
+  color: #4a5568;
+  vertical-align: middle;
+  transition: var(--transition);
+}
+
+/* Action Buttons */
+.btn-action {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  margin: 0.2rem;
+}
+
+.btn-edit {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.btn-edit:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.btn-delete {
+  background-color: #ef4444;
+  color: white;
+  border-color: #dc2626;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* Loading State */
+.loading-row td {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .report-table-wrapper {
+    border-radius: 0;
+    margin: 0 -1rem 2rem;
+    width: calc(100% + 2rem);
+  }
+  
+  .report-table th,
+  .report-table td {
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-action {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Animation for new rows */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.report-table tbody tr {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Table header and cells */
+table th,
+table td,
+.report-table th,
+.report-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+  vertical-align: middle;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* Table header specific styles */
+table th,
+.report-table th {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border: none;
+  padding: 1rem 1.5rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Rounded corners for first and last header cells */
+table th:first-child,
+.report-table th:first-child {
+  border-top-left-radius: var(--radius-lg);
+}
+
+table th:last-child,
+.report-table th:last-child {
+  border-top-right-radius: var(--radius-lg);
+}
+
+/* Table rows */
+table tbody tr,
+.report-table tbody tr {
+  transition: var(--transition);
+  position: relative;
+  background: #fff;
+}
+
+/* Hover effect for rows */
+table tbody tr:hover,
+.report-table tbody tr:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Subtle row separator */
+table tbody tr:not(:last-child)::after,
+.report-table tbody tr:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.report-table tbody tr:hover {
+  background-color: #f8f9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.1);
+}
+
+.report-table tbody tr:active {
+  transform: translateY(0);
+}
+
+/* Zebra striping for better readability */
+table tbody tr:nth-child(even),
+.report-table tbody tr:nth-child(even) {
+  background-color: var(--primary-light);
+}
+
+table tbody tr:nth-child(even):hover,
+.report-table tbody tr:nth-child(even):hover {
+  background-color: #e0e7ff;
+}
+
+/* Action buttons in table */
+table .btn-action,
+.report-table .btn-action {
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  margin: 0 0.2rem;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button variants */
+table .btn-edit,
+.report-table .btn-edit {
+  background-color: #3b82f6;
+  color: white;
+}
+
+table .btn-edit:hover,
+.report-table .btn-edit:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+table .btn-delete,
+.report-table .btn-delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+table .btn-delete:hover,
+.report-table .btn-delete:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
+table .btn-save,
+.report-table .btn-save {
+  background-color: #10b981;
+  color: white;
+}
+
+table .btn-save:hover,
+.report-table .btn-save:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
+
+/* Status indicators */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-active {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-completed {
+  background-color: #e0f2fe;
+  color: #075985;
+}
+
+/* Icons in buttons */
+table .btn-action i,
+.report-table .btn-action i {
+  font-size: 0.9em;
+  margin-right: 0.25rem;
+}
+
+/* Hover and active states */
+table .btn-action:hover,
+.report-table .btn-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+table .btn-action:active,
+.report-table .btn-action:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Table container with shadow and rounded corners */
+.table-container {
+  border-radius: var(--radius-lg) !important;
+  overflow: auto !important;
+  box-shadow: var(--shadow-md) !important;
+  background: white !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+/* Table responsive container */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-lg);
+}
+
+/* Custom scrollbar styling */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: var(--radius-sm);
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Empty state styling */
+.table-empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.table-empty-state i {
+  font-size: 2.5rem;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.table-empty-state h3 {
+  color: #334155;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.table-empty-state p {
+  margin-bottom: 1.5rem;
+  color: #64748b;
+}
+
+/* Loading state */
+.table-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.table-loading i {
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  table,
+  .report-table {
+    min-width: 100%;
+    font-size: 0.85rem;
+  }
+  
+  table th,
+  table td,
+  .report-table th,
+  .report-table td {
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-action {
+    padding: 0.25rem 0.5rem;
+    min-width: 28px;
+    height: 28px;
+  }
+  
+  .btn-action i {
+    margin-right: 0;
+  }
+  
+  .btn-action span {
+    display: none;
+  }
+}
+
+/* Action buttons */
+.actions {
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin: 0 2px;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+}
+
+.btn-warning:hover {
+  background-color: #d97706;
+}
+
+.btn-add {
+  background-color: #10b981;
+}
+
+.btn-add:hover {
+  background-color: #059669;
+}
+
+.btn-submit {
+  background-color: #3b82f6;
+}
+
+.btn-submit:hover {
+  background-color: #2563eb;
+}
+
+/* Modal styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #718096;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #4a5568;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+  
+  .report-table th,
+  .report-table td {
+    padding: 8px 12px;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+/* No data message */
+.no-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: #718096;
+  font-size: 16px;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #718096;
+  font-style: italic;
+}

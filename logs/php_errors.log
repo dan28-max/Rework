@@ -1,0 +1,1969 @@
+[03-Oct-2025 07:38:34 Europe/Berlin] Successfully connected to database
+[03-Oct-2025 07:38:34 Europe/Berlin] Executing query: SELECT report_id as id, name, description, table_name 
+              FROM reports 
+              WHERE is_active = 1 
+              ORDER BY name ASC
+[03-Oct-2025 07:38:34 Europe/Berlin] Query executed successfully
+[03-Oct-2025 07:38:34 Europe/Berlin] Found 10 reports in database
+[03-Oct-2025 07:46:22 Europe/Berlin] Successfully connected to database
+[03-Oct-2025 07:46:22 Europe/Berlin] Executing query: SELECT report_id as id, name, description, table_name 
+              FROM reports 
+              WHERE is_active = 1 
+              ORDER BY name ASC
+[03-Oct-2025 07:46:22 Europe/Berlin] Query executed successfully
+[03-Oct-2025 07:46:22 Europe/Berlin] Found 10 reports in database
+[03-Oct-2025 07:46:53 Europe/Berlin] Successfully connected to database
+[03-Oct-2025 07:46:53 Europe/Berlin] Executing query: SELECT report_id as id, name, description, table_name 
+              FROM reports 
+              WHERE is_active = 1 
+              ORDER BY name ASC
+[03-Oct-2025 07:46:53 Europe/Berlin] Query executed successfully
+[03-Oct-2025 07:46:53 Europe/Berlin] Found 10 reports in database
+[05-Oct-2025 05:59:11 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 05:59:11 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:04:19 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:04:19 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:05 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:05 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:05 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:05 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:05 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:06 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:06 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:06 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:06 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:06 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:06:06 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:06:06 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:09:22 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:22 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:22 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:22 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:22 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:22 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:22 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:22 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:23 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:23 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:23 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:23 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:23 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:23 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:23 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:23 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:24 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[05-Oct-2025 06:09:24 Europe/Berlin] Database connection error: Database connection failed
+[05-Oct-2025 06:09:42 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:09:42 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:09:43 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:09:43 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:11:48 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:11:48 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:15:16 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:15:16 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:21:31 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:21:31 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:24:19 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:24:19 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:28:58 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:28:58 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:28:58 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:28:58 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:44:25 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:44:25 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:53:03 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:53:03 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:53:04 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:53:04 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:53:04 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:53:04 Europe/Berlin] Using default reports list
+[05-Oct-2025 06:53:04 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 06:53:04 Europe/Berlin] Using default reports list
+[05-Oct-2025 07:01:16 Europe/Berlin] Successfully connected to database
+[05-Oct-2025 07:01:16 Europe/Berlin] Using default reports list
+[07-Oct-2025 02:58:14 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 02:58:14 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:09:00 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:09:00 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:10:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:10:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:32:59 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:32:59 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:42:08 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:42:08 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:42:08 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:42:08 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:42:09 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:42:09 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:53:21 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:53:21 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:53:21 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:53:21 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:53:22 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:53:22 Europe/Berlin] Using default reports list
+[07-Oct-2025 03:53:22 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 03:53:22 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:10:49 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:10:49 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:10:50 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:10:50 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:14:50 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:14:50 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:06 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:06 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:06 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:06 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:15:51 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:15:51 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:17:11 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:17:11 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:19:49 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:19:49 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:19:50 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:19:50 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:19:51 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:19:51 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:19:51 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:19:51 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:19:51 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:19:51 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:43 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:43 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:44 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:44 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:44 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:44 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:44 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:44 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:44 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:44 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:45 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:45 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:45 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:45 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:22:45 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:22:45 Europe/Berlin] Using default reports list
+[07-Oct-2025 05:35:18 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 05:35:18 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:12:34 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:12:34 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:14:51 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:14:51 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:14:53 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:14:53 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:14:53 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:14:53 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:14:53 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:14:53 Europe/Berlin] Using default reports list
+[07-Oct-2025 06:14:53 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 06:14:53 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:27 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:27 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:37 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:37 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:37 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:37 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:38 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:38 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:38 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:38 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:39 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:39 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:39 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:39 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:43 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:43 Europe/Berlin] Using default reports list
+[07-Oct-2025 16:55:43 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 16:55:43 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:00:03 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:00:03 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:03:42 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:03:42 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:44 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:44 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:45 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:45 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:45 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:45 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:46 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:46 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:46 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:46 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:07:46 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:07:46 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:38 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:38 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:53 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:53 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:54 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:54 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:54 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:54 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:11:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:11:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:12:54 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:12:54 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:12:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:12:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:12:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:12:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:12:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:12:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:17:55 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:17:55 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:33:18 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:33:18 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:39:47 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:39:47 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:39:59 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:39:59 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:48:24 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:48:24 Europe/Berlin] Using default reports list
+[07-Oct-2025 17:59:08 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 17:59:08 Europe/Berlin] Using default reports list
+[07-Oct-2025 18:05:12 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 18:05:12 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:19 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:19 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:32 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:32 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:33 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:33 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:33 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:33 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:33 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:33 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:03:34 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:03:34 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:05:42 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:05:42 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:10:07 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:10:07 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:10:17 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:10:17 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:10:18 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:10:18 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:10:18 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:10:18 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:10:18 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:10:18 Europe/Berlin] Using default reports list
+[07-Oct-2025 19:13:15 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 19:13:15 Europe/Berlin] Using default reports list
+[07-Oct-2025 20:06:59 Europe/Berlin] Successfully connected to database
+[07-Oct-2025 20:06:59 Europe/Berlin] Using default reports list
+[09-Oct-2025 01:47:36 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 01:47:36 Europe/Berlin] Using default reports list
+[09-Oct-2025 01:47:36 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 01:47:36 Europe/Berlin] Using default reports list
+[09-Oct-2025 01:47:37 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 01:47:37 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:24:59 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:24:59 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:25:03 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:25:03 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:30:06 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:30:06 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:33:07 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:33:07 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:36:37 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:36:37 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:44:24 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:44:24 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:51:29 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:51:29 Europe/Berlin] Using default reports list
+[09-Oct-2025 02:55:38 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 02:55:39 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:02:43 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:02:43 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:17:19 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:17:19 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:24:09 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:24:10 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:30:35 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:30:35 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:33:12 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:33:12 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:33:15 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:33:15 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:43:33 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:43:33 Europe/Berlin] Using default reports list
+[09-Oct-2025 03:53:02 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 03:53:02 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:09:47 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:09:48 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:13:58 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:13:58 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:16:18 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:16:18 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:30:45 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:30:45 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:46:46 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:46:46 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:47:02 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:47:02 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:51:48 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:51:48 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:55:20 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:55:20 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:57:19 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:57:19 Europe/Berlin] Using default reports list
+[09-Oct-2025 04:57:26 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 04:57:26 Europe/Berlin] Using default reports list
+[09-Oct-2025 05:01:19 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 05:01:19 Europe/Berlin] Using default reports list
+[09-Oct-2025 05:07:59 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 05:07:59 Europe/Berlin] Using default reports list
+[09-Oct-2025 05:15:53 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 05:15:53 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:23:42 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:23:42 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:24:46 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:24:46 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:29:52 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:29:52 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:30:04 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:30:04 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:26 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:26 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:27 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:27 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:27 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:27 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:28 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:28 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:28 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:28 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:28 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:28 Europe/Berlin] Using default reports list
+[09-Oct-2025 06:38:29 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 06:38:29 Europe/Berlin] Using default reports list
+[09-Oct-2025 16:33:39 Europe/Berlin] Connection error: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+[09-Oct-2025 16:33:39 Europe/Berlin] Database connection error: Database connection failed
+[09-Oct-2025 20:09:13 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 20:09:13 Europe/Berlin] Using default reports list
+[09-Oct-2025 20:09:14 Europe/Berlin] Successfully connected to database
+[09-Oct-2025 20:09:14 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:29:20 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:29:20 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:41:17 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:41:17 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:50:28 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:50:28 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:50:35 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:50:35 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:54:28 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:54:28 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:54:29 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:54:29 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:56:10 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:56:10 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:56:11 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:56:11 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:56:12 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:56:12 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:58:56 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:58:56 Europe/Berlin] Using default reports list
+[13-Oct-2025 10:59:03 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 10:59:03 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:02:18 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:02:18 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:06:40 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:06:40 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:05 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:05 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:06 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:06 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:06 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:06 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:07 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:07 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:08 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:08 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:08 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:08 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:09:08 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:09:08 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:10:28 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:10:28 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:10:29 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:10:29 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:10:29 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:10:29 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:10:30 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:10:30 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:13:18 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:13:18 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:13:19 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:13:19 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:15:13 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:15:13 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:18:34 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:18:34 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:18:35 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:18:35 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:20:27 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:20:27 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:20:41 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:20:41 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:20:43 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:20:43 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:23:13 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:23:13 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:23:14 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:23:14 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:41:03 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:41:03 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:41:04 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:41:04 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:42:49 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:42:49 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:43:53 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:43:53 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:43:54 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:43:54 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:48:50 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:48:50 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:49:03 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:49:03 Europe/Berlin] Using default reports list
+[13-Oct-2025 11:49:06 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 11:49:06 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:02 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:02 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:17 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:17 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:18 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:18 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:19 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:19 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:19 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:19 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:25 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:25 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:25 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:25 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:26 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:26 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:26 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:26 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:28 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:28 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:49:28 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:49:28 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:56 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:56 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:57 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:57 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:57 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:57 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:57 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:57 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:58 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:58 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:53:58 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:53:58 Europe/Berlin] Using default reports list
+[13-Oct-2025 12:57:23 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 12:57:23 Europe/Berlin] Using default reports list
+[13-Oct-2025 13:07:42 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 13:07:42 Europe/Berlin] Using default reports list
+[13-Oct-2025 13:12:25 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 13:12:25 Europe/Berlin] Using default reports list
+[13-Oct-2025 14:27:04 Europe/Berlin] Successfully connected to database
+[13-Oct-2025 14:27:04 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:31:10 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:31:10 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:01 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:01 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:02 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:02 Europe/Berlin] Using default reports list
+[14-Oct-2025 05:43:03 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 05:43:03 Europe/Berlin] Using default reports list
+[14-Oct-2025 13:39:29 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 13:39:29 Europe/Berlin] Using default reports list
+[14-Oct-2025 14:06:06 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 14:06:06 Europe/Berlin] Using default reports list
+[14-Oct-2025 14:06:06 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 14:06:06 Europe/Berlin] Using default reports list
+[14-Oct-2025 14:06:08 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 14:06:08 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:23:22 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:23:22 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:30:18 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:30:18 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:37:48 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:37:48 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:46:25 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:46:25 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:46:26 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:46:26 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:49:26 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:49:26 Europe/Berlin] Using default reports list
+[14-Oct-2025 16:49:27 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 16:49:27 Europe/Berlin] Using default reports list
+[14-Oct-2025 20:53:24 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 20:53:24 Europe/Berlin] Using default reports list
+[14-Oct-2025 21:13:47 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 21:13:47 Europe/Berlin] Using default reports list
+[14-Oct-2025 21:16:07 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 21:16:07 Europe/Berlin] Using default reports list
+[14-Oct-2025 21:16:08 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 21:16:08 Europe/Berlin] Using default reports list
+[14-Oct-2025 21:16:09 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 21:16:09 Europe/Berlin] Using default reports list
+[14-Oct-2025 21:16:10 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 21:16:10 Europe/Berlin] Using default reports list
+[14-Oct-2025 22:27:44 Europe/Berlin] Successfully connected to database
+[14-Oct-2025 22:27:44 Europe/Berlin] Using default reports list
+[15-Oct-2025 04:54:42 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 04:54:42 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:06 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:06 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:07 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:07 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:08 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:08 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:08 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:08 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:08 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:08 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:08 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:08 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:08 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:08 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:09 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:09 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:05:09 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:05:09 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:06:22 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:06:22 Europe/Berlin] Using default reports list
+[15-Oct-2025 05:08:53 Europe/Berlin] Successfully connected to database
+[15-Oct-2025 05:08:53 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:15:26 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:15:26 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:19:28 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:19:28 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:26:47 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:26:47 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:33:33 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:33:33 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:33:33 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:33:33 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:33:56 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:33:56 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:34:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:34:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:39:26 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:39:26 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:39:27 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:39:27 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:39:27 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:39:27 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:39:27 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:39:27 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:39:27 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:39:27 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:43:05 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:43:05 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:43:05 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:43:05 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:43:06 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:43:06 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:17 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:17 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:46:18 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:46:18 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:51:58 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:51:58 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:09 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:09 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:09 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:09 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:09 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:09 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:52:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:52:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:53:22 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:53:22 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:53:23 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:53:23 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:54:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:54:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:59:46 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:59:46 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:59:54 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:59:54 Europe/Berlin] Using default reports list
+[27-Oct-2025 16:59:56 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 16:59:56 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:00:54 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:00:54 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:47 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:47 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:48 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:48 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:48 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:48 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:48 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:48 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:49 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:49 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:49 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:49 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:07:50 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:07:50 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:10:03 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:10:03 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:10:31 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:10:31 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:03 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:03 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:04 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:04 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:04 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:04 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:04 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:04 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:04 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:04 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:18:04 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:18:04 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:19:21 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:19:21 Europe/Berlin] Using default reports list
+[27-Oct-2025 17:40:19 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 17:40:19 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:02:05 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:02:05 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:02:06 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:02:06 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:06:24 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:06:24 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:06:26 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:06:26 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:34 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:34 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:35 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:35 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:37 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:37 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:41:38 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:41:38 Europe/Berlin] Using default reports list
+[27-Oct-2025 18:56:50 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 18:56:50 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:08:34 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:08:34 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:08:34 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:08:34 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:16:52 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:16:52 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:19:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:19:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:19:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:19:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:21:25 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:21:25 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:21:32 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:21:32 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:21:34 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:21:34 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:22:59 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:22:59 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:23:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:23:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:25:46 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:25:46 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:27:23 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:27:23 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:27:34 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:27:34 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:27:36 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:27:36 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:34:11 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:34:11 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:11 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:11 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:11 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:11 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:36:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:36:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:37:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:37:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:37:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:37:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:37:16 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:37:16 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:37:17 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:37:17 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:37:18 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:37:18 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:06 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:06 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:45:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:45:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:48:31 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:48:31 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:48:32 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:48:32 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:49:58 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:49:58 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:51:10 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:51:10 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:51:11 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:51:11 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:52:39 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:52:39 Europe/Berlin] Using default reports list
+[27-Oct-2025 19:52:40 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 19:52:40 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:02:38 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:02:38 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:02:39 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:02:39 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:03:38 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:03:38 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:12 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:12 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:13:46 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:13:46 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:14:30 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:14:30 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:22:51 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:22:51 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:24:39 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:24:39 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:27:43 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:27:43 Europe/Berlin] Using default reports list
+[27-Oct-2025 20:32:13 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 20:32:13 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:02:25 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:02:25 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:34:55 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:34:55 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:07 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:07 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:08 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:08 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:09 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:09 Europe/Berlin] Using default reports list
+[27-Oct-2025 22:35:43 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 22:35:43 Europe/Berlin] Using default reports list
+[27-Oct-2025 23:53:00 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 23:53:00 Europe/Berlin] Using default reports list
+[27-Oct-2025 23:53:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 23:53:01 Europe/Berlin] Using default reports list
+[27-Oct-2025 23:53:01 Europe/Berlin] Successfully connected to database
+[27-Oct-2025 23:53:01 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:01:02 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:01:02 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:01:04 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:01:04 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:06:15 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:06:15 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:07:34 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:07:34 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:11:20 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:11:20 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:11:21 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:11:21 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:11:22 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:11:22 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:11:23 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:11:23 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:11:23 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:11:23 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:18:03 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:18:03 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:38:03 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:38:03 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:43:43 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:43:43 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:43:44 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:43:44 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:48:51 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:48:51 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:51:39 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:51:39 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:51:40 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:51:40 Europe/Berlin] Using default reports list
+[28-Oct-2025 00:51:40 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 00:51:40 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:14:50 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:14:50 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:17:50 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:17:50 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:18:19 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:18:19 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:21:17 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:21:17 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:39:06 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:39:06 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:39:44 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:39:44 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:41:06 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:41:06 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:43:06 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:43:06 Europe/Berlin] Using default reports list
+[28-Oct-2025 02:43:30 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 02:43:30 Europe/Berlin] Using default reports list
+[28-Oct-2025 03:32:25 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 03:32:25 Europe/Berlin] Using default reports list
+[28-Oct-2025 03:37:32 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 03:37:32 Europe/Berlin] Using default reports list
+[28-Oct-2025 03:37:35 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 03:37:35 Europe/Berlin] Using default reports list
+[28-Oct-2025 03:39:38 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 03:39:38 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:03:16 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:03:16 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:13:48 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:13:48 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:15:08 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:15:08 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:15:22 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:15:22 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:15:28 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:15:28 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:28:10 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:28:10 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:29:13 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:29:13 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:30:19 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:30:19 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:30:38 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:30:38 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:30:47 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:30:47 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:31:07 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:31:07 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:32:11 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:32:11 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:36:21 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:36:21 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:36:29 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:36:29 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:37:32 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:37:32 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:37:59 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:37:59 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:38:13 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:38:13 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:38:58 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:38:58 Europe/Berlin] Using default reports list
+[28-Oct-2025 04:41:00 Europe/Berlin] Successfully connected to database
+[28-Oct-2025 04:41:00 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:11:29 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:11:29 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:12:26 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:12:26 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:29:34 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:29:34 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:34:24 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:34:24 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:34:40 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:34:40 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:34:42 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:34:42 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:43:01 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:43:01 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:43:03 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:43:03 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:43:07 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:43:07 Europe/Berlin] Input data: {"submission_id":59,"status":"approved"}
+[30-Oct-2025 15:43:07 Europe/Berlin] Error: Array
+(
+    [success] => 
+    [error] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reviewed_date' in 'field list'
+    [trace] => #0 C:\xampp\htdocs\rework\api\update_submission_status.php(62): PDO->prepare('UPDATE report_s...')
+#1 {main}
+)
+
+[30-Oct-2025 15:43:53 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:43:53 Europe/Berlin] Input data: {"submission_id":59,"status":"approved"}
+[30-Oct-2025 15:43:53 Europe/Berlin] Error: Array
+(
+    [success] => 
+    [error] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reviewed_date' in 'field list'
+    [trace] => #0 C:\xampp\htdocs\rework\api\update_submission_status.php(62): PDO->prepare('UPDATE report_s...')
+#1 {main}
+)
+
+[30-Oct-2025 15:44:53 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:44:53 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:44:57 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:44:57 Europe/Berlin] Input data: {"submission_id":59,"status":"approved"}
+[30-Oct-2025 15:44:57 Europe/Berlin] Error: Array
+(
+    [success] => 
+    [error] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reviewed_date' in 'field list'
+    [trace] => #0 C:\xampp\htdocs\rework\api\update_submission_status.php(62): PDO->prepare('UPDATE report_s...')
+#1 {main}
+)
+
+[30-Oct-2025 15:46:12 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:46:12 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:46:13 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:46:13 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:46:14 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:46:14 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:46:15 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:46:15 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:46:19 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:46:19 Europe/Berlin] Input data: {"submission_id":59,"status":"approved"}
+[30-Oct-2025 15:46:19 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 59
+    [status] => approved
+)
+
+[30-Oct-2025 15:46:38 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:46:38 Europe/Berlin] Input data: {"submission_id":57,"status":"rejected"}
+[30-Oct-2025 15:46:38 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 57
+    [status] => rejected
+)
+
+[30-Oct-2025 15:46:55 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 15:46:55 Europe/Berlin] Input data: {"submission_id":56,"status":"approved"}
+[30-Oct-2025 15:46:55 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 56
+    [status] => approved
+)
+
+[30-Oct-2025 15:48:41 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:48:41 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:53:34 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:53:34 Europe/Berlin] Using default reports list
+[30-Oct-2025 15:53:35 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 15:53:35 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:02:55 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:02:55 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:04:06 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:04:06 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:04:57 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:04:57 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:05:37 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:05:37 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:08:55 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:08:55 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:09:15 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:09:15 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:09:16 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:09:16 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:10:17 Europe/Berlin] Incoming request: Array
+(
+)
+
+[30-Oct-2025 16:10:17 Europe/Berlin] Input data: {"submission_id":58,"status":"approved"}
+[30-Oct-2025 16:10:17 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 58
+    [status] => approved
+)
+
+[30-Oct-2025 16:12:25 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:12:25 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:14:23 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:14:23 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:16:06 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:16:06 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:16:19 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:16:19 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:18:31 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:18:31 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:18:44 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:18:44 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:19:22 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:19:22 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:19:25 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:19:25 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:20:48 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:20:48 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:20:57 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:20:57 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:25:53 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:25:53 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:25:56 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:25:56 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:25:56 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:25:56 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:28:18 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:28:18 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:30:00 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:30:00 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:30:07 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:30:07 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:30:09 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:30:09 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:30:10 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:30:10 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:30:13 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:30:13 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:32:34 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:32:34 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:33:15 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:33:15 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:35:55 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:35:55 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:36:12 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:36:12 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:36:14 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:36:14 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:36:14 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:36:14 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:36:15 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:36:15 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:38:55 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:38:55 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:39:11 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:39:11 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:39:12 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:39:12 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:41:13 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:41:13 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:42:45 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:42:45 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:42:48 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:42:48 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:42:49 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:42:49 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:45:08 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:45:08 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:45:45 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:45:45 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:45:49 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:45:49 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:47:33 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:47:33 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:48:33 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:48:33 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:48:37 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:48:37 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:49:44 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:49:44 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:50:10 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:50:10 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:50:26 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:50:26 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:53:21 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:53:21 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:55:47 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:55:47 Europe/Berlin] Using default reports list
+[30-Oct-2025 16:59:07 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 16:59:07 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:00:28 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:00:28 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:10:21 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:10:21 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:15 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:15 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:20 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:20 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:21 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:21 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:22 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:22 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:23 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:23 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:23 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:23 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:24 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:24 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:25 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:25 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:12:57 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:12:57 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:14:37 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:14:37 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:16:08 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:16:08 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:17:07 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:17:07 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:18:05 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:18:05 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:20:25 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:20:25 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:22:40 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:22:40 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:27:13 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:27:13 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:29:02 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:29:02 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:30:29 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:30:29 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:32:53 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:32:53 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:36:44 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:36:44 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:40:14 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:40:14 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:44:00 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:44:00 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:45:29 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:45:29 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:47:00 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:47:00 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:48:03 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:48:03 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:49:22 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:49:22 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:50:20 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:50:20 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:51:51 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:51:51 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:54:23 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:54:23 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:54:28 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:54:28 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:54:29 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:54:29 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:55:23 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:55:23 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:58:00 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:58:00 Europe/Berlin] Using default reports list
+[30-Oct-2025 17:58:44 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 17:58:44 Europe/Berlin] Using default reports list
+[30-Oct-2025 18:08:45 Europe/Berlin] Successfully connected to database
+[30-Oct-2025 18:08:45 Europe/Berlin] Using default reports list
+[31-Oct-2025 01:00:27 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 01:00:27 Europe/Berlin] Using default reports list
+[31-Oct-2025 01:01:31 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 01:01:31 Europe/Berlin] Using default reports list
+[31-Oct-2025 01:02:02 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 01:02:02 Europe/Berlin] Using default reports list
+[31-Oct-2025 01:13:10 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 01:13:10 Europe/Berlin] Using default reports list
+[31-Oct-2025 02:59:20 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 02:59:20 Europe/Berlin] Using default reports list
+[31-Oct-2025 04:15:48 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 04:15:48 Europe/Berlin] Using default reports list
+[31-Oct-2025 04:17:53 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 04:17:53 Europe/Berlin] Using default reports list
+[31-Oct-2025 05:19:52 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 05:19:52 Europe/Berlin] Using default reports list
+[31-Oct-2025 07:36:16 Europe/Berlin] Successfully connected to database
+[31-Oct-2025 07:36:16 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:06:07 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:06:07 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:06:53 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:06:53 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:08:43 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:08:43 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:09:20 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:09:20 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:10:54 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:10:54 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:27 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:27 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:45 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:45 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:46 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:46 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:46 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:46 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:47 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:47 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:48 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:48 Europe/Berlin] Using default reports list
+[01-Nov-2025 05:11:49 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 05:11:49 Europe/Berlin] Using default reports list
+[01-Nov-2025 14:19:55 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 14:19:55 Europe/Berlin] Using default reports list
+[01-Nov-2025 20:33:34 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 20:33:34 Europe/Berlin] Using default reports list
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":80,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 80
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":79,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 79
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":78,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 78
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":77,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 77
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":76,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 76
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":75,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 75
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":74,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 74
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":73,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 73
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":72,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 72
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":71,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 71
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":70,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 70
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":69,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 69
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":68,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 68
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":67,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 67
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":66,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 66
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":65,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 65
+    [status] => rejected
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Incoming request: Array
+(
+)
+
+[01-Nov-2025 21:38:03 Europe/Berlin] Input data: {"submission_id":64,"status":"rejected"}
+[01-Nov-2025 21:38:03 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 64
+    [status] => rejected
+)
+
+[01-Nov-2025 22:48:12 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 22:48:12 Europe/Berlin] Using default reports list
+[01-Nov-2025 22:50:03 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 22:50:03 Europe/Berlin] Using default reports list
+[01-Nov-2025 22:50:09 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 22:50:09 Europe/Berlin] Using default reports list
+[01-Nov-2025 23:07:54 Europe/Berlin] Successfully connected to database
+[01-Nov-2025 23:07:54 Europe/Berlin] Using default reports list
+[02-Nov-2025 04:33:56 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 04:33:56 Europe/Berlin] Using default reports list
+[02-Nov-2025 05:03:34 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 05:03:34 Europe/Berlin] Using default reports list
+[02-Nov-2025 05:35:51 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 05:35:51 Europe/Berlin] Using default reports list
+[02-Nov-2025 05:37:42 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 05:37:42 Europe/Berlin] Using default reports list
+[02-Nov-2025 16:25:42 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 16:25:42 Europe/Berlin] Using default reports list
+[02-Nov-2025 16:29:15 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 16:29:15 Europe/Berlin] Using default reports list
+[02-Nov-2025 16:36:12 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 16:36:12 Europe/Berlin] Using default reports list
+[02-Nov-2025 16:40:44 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 16:40:44 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:05:05 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:05:05 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:09:03 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:09:03 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:09:06 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:09:06 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:33 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:33 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:35 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:35 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:36 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:36 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:36 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:36 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:58 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:58 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:59 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:59 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:10:59 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:10:59 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:00 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:00 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:02 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:02 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:03 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:03 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:03 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:03 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:05 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:05 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:11:06 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:11:06 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:13:14 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:13:14 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:13:18 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:13:18 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:13:52 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:13:52 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:15:59 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:15:59 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:20:48 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:20:48 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:26:45 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:26:45 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:27:32 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:27:32 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:27:37 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:27:37 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:42:46 Europe/Berlin] Incoming request: Array
+(
+)
+
+[02-Nov-2025 17:42:46 Europe/Berlin] Input data: {"submission_id":87,"status":"approved"}
+[02-Nov-2025 17:42:46 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 87
+    [status] => approved
+)
+
+[02-Nov-2025 17:42:51 Europe/Berlin] Incoming request: Array
+(
+)
+
+[02-Nov-2025 17:42:51 Europe/Berlin] Input data: {"submission_id":88,"status":"approved"}
+[02-Nov-2025 17:42:51 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 88
+    [status] => approved
+)
+
+[02-Nov-2025 17:52:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:52:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:52:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:52:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:52:05 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:52:05 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:52:05 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:52:05 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:56:31 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 17:56:31 Europe/Berlin] Using default reports list
+[02-Nov-2025 17:56:55 Europe/Berlin] Incoming request: Array
+(
+)
+
+[02-Nov-2025 17:56:55 Europe/Berlin] Input data: {"submission_id":86,"status":"approved"}
+[02-Nov-2025 17:56:55 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission approved successfully
+    [submission_id] => 86
+    [status] => approved
+)
+
+[02-Nov-2025 18:45:09 Europe/Berlin] Incoming request: Array
+(
+)
+
+[02-Nov-2025 18:45:09 Europe/Berlin] Input data: {"submission_id":89,"status":"rejected"}
+[02-Nov-2025 18:45:09 Europe/Berlin] Success: Array
+(
+    [success] => 1
+    [message] => Submission rejected successfully
+    [submission_id] => 89
+    [status] => rejected
+)
+
+[02-Nov-2025 18:58:46 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 18:58:46 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:37:09 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:37:09 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:37:15 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:37:15 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:37:52 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:37:52 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:38:15 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:38:15 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:38:42 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:38:42 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:46:29 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:46:29 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:53:10 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:53:10 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:53:11 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:53:11 Europe/Berlin] Using default reports list
+[02-Nov-2025 19:56:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 19:56:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:09:11 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:09:11 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:16:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:16:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:19:20 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:19:20 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:19:37 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:19:37 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:24:13 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:24:13 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:18 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:18 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:20 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:20 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:20 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:20 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:21 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:21 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:21 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:21 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:51 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:51 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:51 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:51 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:51 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:51 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:29:52 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:29:52 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:33:16 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:33:16 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:36:57 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:36:57 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:36:58 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:36:58 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:36:58 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:36:58 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:36:58 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:36:58 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:36:59 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:36:59 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:38:59 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:38:59 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:40:51 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:40:51 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:00 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:00 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:19 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:19 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:19 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:19 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:19 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:19 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:19 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:19 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:20 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:20 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:41:25 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:41:25 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:42:11 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:42:11 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:44:39 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:44:39 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:44:46 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:44:46 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:44:54 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:44:54 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:45:18 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:45:18 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:45:25 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:45:25 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:52:57 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:52:57 Europe/Berlin] Using default reports list
+[02-Nov-2025 21:52:58 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 21:52:58 Europe/Berlin] Using default reports list
+[02-Nov-2025 22:02:02 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 22:02:02 Europe/Berlin] Using default reports list
+[02-Nov-2025 22:02:04 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 22:02:04 Europe/Berlin] Using default reports list
+[02-Nov-2025 22:03:02 Europe/Berlin] Successfully connected to database
+[02-Nov-2025 22:03:02 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:23:26 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:23:26 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:31:12 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:31:12 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:37:56 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:37:56 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:37:56 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:37:56 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:37:57 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:37:57 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:37:57 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:37:57 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:39:40 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:39:40 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:45:13 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:45:13 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:46:13 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:46:13 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:46:21 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:46:21 Europe/Berlin] Using default reports list
+[03-Nov-2025 03:46:22 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 03:46:22 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:01:08 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:01:08 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:06:14 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:06:14 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:06:15 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:06:15 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:15:35 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:15:35 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:19:33 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:19:33 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:22:32 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:22:32 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:50:48 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:50:48 Europe/Berlin] Using default reports list
+[03-Nov-2025 04:56:24 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 04:56:24 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:02:35 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:02:35 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:09:45 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:09:45 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:13:19 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:13:19 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:16:09 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:16:09 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:18:44 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:18:44 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:28:37 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:28:37 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:33:09 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:33:09 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:35:12 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:35:12 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:37:51 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:37:51 Europe/Berlin] Using default reports list
+[03-Nov-2025 05:44:14 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 05:44:14 Europe/Berlin] Using default reports list
+[03-Nov-2025 06:03:15 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 06:03:15 Europe/Berlin] Using default reports list
+[03-Nov-2025 06:16:13 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 06:16:13 Europe/Berlin] Using default reports list
+[03-Nov-2025 06:19:16 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 06:19:16 Europe/Berlin] Using default reports list
+[03-Nov-2025 06:20:44 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 06:20:44 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:07:25 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:07:25 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:15:32 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:15:32 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:21:55 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:21:55 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:26:07 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:26:07 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:29:01 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:29:01 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:32:03 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:32:03 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:35:07 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:35:07 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:37:42 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:37:42 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:39:35 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:39:35 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:41:01 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:41:01 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:44:45 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:44:45 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:47:44 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:47:44 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:47:46 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:47:46 Europe/Berlin] Using default reports list
+[03-Nov-2025 08:57:17 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 08:57:17 Europe/Berlin] Using default reports list
+[03-Nov-2025 09:03:45 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 09:03:45 Europe/Berlin] Using default reports list
+[03-Nov-2025 09:06:39 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 09:06:39 Europe/Berlin] Using default reports list
+[03-Nov-2025 09:09:08 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 09:09:08 Europe/Berlin] Using default reports list
+[03-Nov-2025 09:11:54 Europe/Berlin] Successfully connected to database
+[03-Nov-2025 09:11:54 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:13:59 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:13:59 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:39:34 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:39:34 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:44:30 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:44:30 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:45:14 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:45:14 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:45:52 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:45:52 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:47:28 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:47:28 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:47:39 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:47:39 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:49:26 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:49:26 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:49:32 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:49:32 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:54:24 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:54:24 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:56:18 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:56:18 Europe/Berlin] Using default reports list
+[04-Nov-2025 00:58:56 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 00:58:56 Europe/Berlin] Using default reports list
+[04-Nov-2025 01:01:20 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 01:01:20 Europe/Berlin] Using default reports list
+[04-Nov-2025 01:05:09 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 01:05:09 Europe/Berlin] Using default reports list
+[04-Nov-2025 01:07:14 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 01:07:14 Europe/Berlin] Using default reports list
+[04-Nov-2025 01:29:03 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 01:29:03 Europe/Berlin] Using default reports list
+[04-Nov-2025 03:33:47 Europe/Berlin] Successfully connected to database
+[04-Nov-2025 03:33:47 Europe/Berlin] Using default reports list

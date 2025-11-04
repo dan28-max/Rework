@@ -1,0 +1,221 @@
+/* Assignment Steps */
+.assignment-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    max-width: 200px;
+}
+
+.step.active .step-number {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.step.completed .step-number {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.step-text {
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+
+.step-divider {
+    flex: 1;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 10px;
+}
+
+/* Assignment Steps Content */
+.assignment-step {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.assignment-step.active {
+    display: block;
+}
+
+/* Reports List */
+.reports-list {
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.reports-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reports-list th, 
+.reports-list td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.reports-list th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.reports-list tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Offices Selection */
+.offices-selection {
+    margin-bottom: 1.5rem;
+}
+
+.campus-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.campus-section h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.office-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.office-checkbox:hover {
+    background-color: #f8f9fa;
+    border-color: #4CAF50;
+}
+
+.office-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Confirmation Step */
+.confirmation-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.selected-reports,
+.selected-offices {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.selected-reports h4,
+.selected-offices h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.selected-reports ul,
+.selected-offices ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.selected-reports li,
+.selected-offices li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.selected-reports li:last-child,
+.selected-offices li:last-child {
+    border-bottom: none;
+}
+
+/* Step Actions */
+.step-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .confirmation-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .assignment-steps {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .step {
+        flex: 0 0 calc(33.333% - 1rem);
+        max-width: none;
+    }
+    
+    .step-divider {
+        display: none;
+    }
+}

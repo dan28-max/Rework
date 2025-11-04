@@ -1,0 +1,319 @@
+/* ========================================
+   ENHANCED REPORT PAGE DESIGN
+   Modern, Professional, User-Friendly
+   ======================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+:root {
+    --primary: #dc143c;
+    --primary-dark: #a00000;
+    --primary-light: #ff4d6d;
+    --success: #48bb78;
+    --warning: #ed8936;
+    --error: #f56565;
+    --info: #4299e1;
+    --white: #ffffff;
+    --gray-50: #f7fafc;
+    --gray-100: #edf2f7;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e0;
+    --gray-500: #718096;
+    --gray-600: #4a5568;
+    --gray-700: #2d3748;
+    --gray-800: #1a202c;
+    --gray-900: #171923;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --radius: 10px;
+    --radius-lg: 14px;
+    --radius-full: 9999px;
+}
+
+/* Enhanced Main Content */
+.main-content {
+    padding: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+/* Enhanced Report Select */
+.report-select {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    color: var(--gray-800);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.report-select:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.report-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+/* Task Info Banner */
+.task-info-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 24px 28px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.task-info-banner i {
+    font-size: 32px;
+    opacity: 0.9;
+}
+
+.task-info-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* Table Styling */
+#tablesContainer {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+}
+
+.report-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: white;
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+    white-space: nowrap;
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: rgba(220, 20, 60, 0.05);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--gray-50);
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius);
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+}
+
+.btn i {
+    font-size: 14px;
+}
+
+.add-row-btn {
+    background: var(--success);
+    color: white;
+}
+
+.add-row-btn:hover {
+    background: #38a169;
+    transform: translateY(-1px);
+}
+
+.delete-row-btn {
+    background: var(--error);
+    color: white;
+}
+
+.delete-row-btn:hover {
+    background: #c53030;
+    transform: translateY(-1px);
+}
+
+.submit-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.submit-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.save-draft-btn {
+    background: var(--gray-200);
+    color: var(--gray-700);
+}
+
+.save-draft-btn:hover {
+    background: var(--gray-300);
+    transform: translateY(-1px);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 16px;
+    }
+    
+    .report-section {
+        padding: 16px;
+    }
+    
+    th, td {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+    
+    .table-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Custom Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
